@@ -1,0 +1,15 @@
+2025-06-17 09:57:43,352 - INFO - BTC-USD için veri çekme ve depolama iþlemi baþlatýldý. Tarih aralýðý: 2022-06-18 - 2025-06-17
+2025-06-17 09:57:44,466 - INFO - BTC-USD için MultiIndex sütunlar düzeltildi.
+2025-06-17 09:57:44,481 - INFO - BTC-USD için 1095 adet yeni veri baþarýyla kaydedildi (to_sql kullanýlarak).
+2025-06-17 09:57:44,665 - INFO - BTC-USD için tüm teknik göstergeler hesaplandý.
+2025-06-17 09:57:44,696 - INFO - BTC-USD için CCI hesaplandý.
+2025-06-17 09:57:44,708 - INFO - BTC-USD için DI_plus ve DI_minus hesaplandý.
+2025-06-17 09:57:44,710 - INFO - BTC-USD için Ultimate Oscillator hesaplandý.
+2025-06-17 09:57:44,719 - INFO - BTC-USD için MFI hesaplandý.
+2025-06-17 09:57:44,721 - INFO - BTC-USD için Günlük ve Log Getiriler hesaplandý.
+2025-06-17 09:57:44,723 - INFO - BTC-USD için Volatilite_20 hesaplandý.
+2025-06-17 09:57:44,726 - INFO - BTC-USD için ek gecikmeli özellikler eklendi.
+2025-06-17 09:57:44,727 - INFO - BTC-USD için VWAP hesaplandý.
+2025-06-17 09:57:44,728 - INFO - BTC-USD için CMF hesaplandý.
+2025-06-17 09:57:44,729 - INFO - BTC-USD için TRIX hesaplandý.
+2025-06-17 09:57:44,730 - INFO - BTC-USD için BB_Bandwidth hesaplandý.
