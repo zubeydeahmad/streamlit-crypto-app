@@ -20,11 +20,61 @@ import requests
 from bs4 import BeautifulSoup
 
 # --- Streamlit sayfa yapılandırması ---
-st.set_page_config(page_title="Gelişmiş Kripto Tahmin Aracı", layout="wide")
+st.set_page_config(page_title="Sanal Yatırım Sepeti Simülasyonu", layout="wide")
 
 # --- Loglama Yapılandırması ---
 logging.basicConfig(filename='crypto_app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# --- Varlık Seçenekleri ve Sembolleri ---
+# Yeni varlıkları buraya ekleyin
+VARLIK_BILGILERI = {
+    "Altın": {"sembol": "GC=F", "kaynak": "yfinance"},
+    "Gümüş": {"sembol": "SI=F", "kaynak": "yfinance"},
+    "Ham Petrol": {"sembol": "CL=F", "kaynak": "yfinance"}, # WTI Crude Oil Futures
+    "Bitcoin": {"sembol": "BTC-USD", "kaynak": "yfinance"}, # Yfinance'dan BTC/USD spot fiyatı
+    # 'Bitcoin': {'sembol': 'bitcoin', 'kaynak': 'coingecko'}, # Eğer CoinGecko gibi bir yerden çekecekseniz
+}
+
+# --- Kullanıcıdan Giriş Alma ---
+st.header("Yatırım Sepetinizi Oluşturun")
+
+baslangic_bakiyesi = st.number_input("Başlangıç Bakiyeniz (USD):", min_value=100.0, value=1000.0, step=10.0)
+st.write(f"Mevcut Bakiyeniz: ${baslangic_bakiyesi:,.2f}")
+
+secilen_varliklar = st.multiselect(
+    "Yatırım yapmak istediğiniz varlıkları seçin:",
+    list(VARLIK_BILGILERI.keys())
+)
+
+yatirim_tutarlari = {}
+kalan_bakiye = baslangic_bakiyesi
+yatirim_gecerli = True
+
+if secilen_varliklar:
+    st.subheader("Yatırım Tutarlarını Belirleyin:")
+    for varlik in secilen_varliklar:
+        max_tutar = kalan_bakiye if kalan_bakiye > 0 else 0
+        tutar = st.number_input(
+            f"{varlik} için yatırım tutarı (USD):",
+            min_value=0.0,
+            max_value=max_tutar, # Maksimum kalan bakiyeyi geçmesin
+            value=min(10.0, max_tutar), # Varsayılan küçük bir değer
+            step=1.0,
+            key=f"input_{varlik}" # Her input için benzersiz anahtar
+        )
+        yatirim_tutarlari[varlik] = tutar
+        kalan_bakiye -= tutar
+        if kalan_bakiye < 0:
+            st.error("Yatırım tutarı bakiyenizi aşıyor. Lütfen düzeltin.")
+            yatirim_gecerli = False
+        st.write(f"Kalan Bakiye: ${kalan_bakiye:,.2f}")
+    
+    if kalan_bakiye < 0:
+        yatirim_gecerli = False
+
+else:
+    st.info("Lütfen yatırım yapmak istediğiniz varlıkları seçin.")
+    yatirim_gecerli = False # Varlık seçilmediyse yatırım yapılamaz
 
 # NLTK'nın VADER sözlüğünü indirin (ilk çalıştırmada bir kere yapılır)
 # Ayrıca, indirme işlemi sırasında oluşabilecek diğer hataları da yakalıyoruz.
@@ -251,8 +301,6 @@ if __name__ == "__main__":
                 st.warning("Veri çekilemedi. Lütfen ayarları kontrol edin veya CoinAPI.io dokümantasyonunu inceleyin.")
 
 
-
-
 # --- Piyasa Zamanı Özellikleri Fonksiyonu ---
 def add_market_time_features(df: pd.DataFrame) -> pd.DataFrame:
     # Veri setinizin index'inin datetime olduğundan emin olun
@@ -384,10 +432,6 @@ def add_market_time_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def add_technical_indicators(df: pd.DataFrame) -> pd.DataFrame:
     # --- TA Kütüphanesi ile tüm göstergeleri ekleyin ---
-    # Mevcut kodunuzda ta.add_all_ta_features zaten var. Bu daha kapsamlı.
-    # Ancak sizin kodunuzda özel olarak eklediğiniz göstergeler de var.
-    # Bu kısmı sizin orijinal kodunuzdaki ile değiştirdim, sadece içine eklenen yerleri ekledim.
-
     # Ta kütüphanesinin kendi fonksiyonları zaten NaN'ları doldurabilir (fillna=True)
     df['RSI'] = ta.momentum.RSIIndicator(df['Close'], window=14, fillna=True).rsi()
     macd = ta.trend.MACD(df['Close'], window_slow=26, window_fast=12, window_sign=9, fillna=True)
