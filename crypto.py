@@ -18,6 +18,10 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import requests
 from bs4 import BeautifulSoup
+import tensorflow as tf
+#import torch
+#from transformers import pipeline
+#from transformers import BertConfig, BertModel
 
 # --- Streamlit sayfa yapılandırması ---
 st.set_page_config(page_title="Sanal Yatırım Sepeti Simülasyonu", layout="wide")

@@ -1,0 +1,320 @@
+2025-06-19 15:35:24,856 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:38:34,687 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 2y
+2025-06-19 15:38:54,731 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:38:54,733 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 2y
+2025-06-19 15:43:11,397 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:43:11,402 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 2y
+2025-06-19 15:43:11,406 - INFO - Veritabanýndan 0 adet veri yüklendi.
+2025-06-19 15:43:11,406 - INFO - Veritabanýnda hiç veri bulunamadý, yfinance'dan çekilecek.
+2025-06-19 15:43:12,136 - INFO - 502 adet yeni veri veritabanýna kaydedildi.
+2025-06-19 15:43:12,137 - CRITICAL - Hiç veri yüklenemedi. Uygulama devam edemiyor.
+2025-06-19 15:44:37,005 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:44:37,008 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 2y
+2025-06-19 15:44:37,011 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 15:44:37,012 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:44:37,012 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:44:37,015 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:44:37,016 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:44:37,110 - INFO - Veri eðitim ve test setlerine ayrýldý.
+2025-06-19 15:44:37,110 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:44:37,120 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:44:37,168 - INFO - Model Doðruluk: 0.56
+2025-06-19 15:44:37,560 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 15:45:23,858 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 10y
+2025-06-19 15:45:23,859 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:45:23,859 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:45:23,864 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:45:23,865 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:45:23,971 - INFO - Veri eðitim ve test setlerine ayrýldý.
+2025-06-19 15:45:23,971 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:45:23,981 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:45:23,983 - INFO - Model Doðruluk: 0.56
+2025-06-19 15:49:12,004 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:49:12,007 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 2y
+2025-06-19 15:49:12,011 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 15:49:12,011 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:49:12,012 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:49:12,016 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:49:12,017 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:49:12,156 - INFO - Veri eðitim ve test setlerine ayrýldý.
+2025-06-19 15:49:12,156 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:49:12,167 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:49:12,172 - INFO - Model Doðruluk: 0.56
+2025-06-19 15:49:12,700 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 15:52:38,228 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:52:38,230 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 15:52:38,233 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 15:52:38,234 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:52:38,234 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:52:38,237 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:52:38,238 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:52:38,329 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 15:52:38,330 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:52:38,336 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:52:38,339 - INFO - Model Doðruluk: 0.53
+2025-06-19 15:52:38,674 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 2. adýmda durduruluyor.
+2025-06-19 15:52:38,676 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 15:53:27,594 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 10y
+2025-06-19 15:53:27,595 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:53:27,595 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:53:27,600 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:53:27,601 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:53:27,704 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 15:53:27,704 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:53:27,710 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:53:27,713 - INFO - Model Doðruluk: 0.53
+2025-06-19 15:53:27,972 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 2. adýmda durduruluyor.
+2025-06-19 15:53:31,718 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 1y
+2025-06-19 15:53:31,718 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:53:31,719 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:53:31,725 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:53:31,726 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:53:31,835 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 15:53:31,836 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:53:31,842 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:53:31,846 - INFO - Model Doðruluk: 0.53
+2025-06-19 15:53:32,112 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 2. adýmda durduruluyor.
+2025-06-19 15:53:35,626 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 1y
+2025-06-19 15:53:35,626 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:53:35,627 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:53:35,633 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:53:35,634 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:53:35,738 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 369, Test seti boyutu: 93
+2025-06-19 15:53:35,738 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:53:35,761 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:53:35,764 - INFO - Model Doðruluk: 0.47
+2025-06-19 15:53:43,313 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 1y
+2025-06-19 15:53:43,313 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:53:43,314 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:53:43,320 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:53:43,323 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:53:43,418 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 380, Test seti boyutu: 95
+2025-06-19 15:53:43,418 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:53:43,421 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:53:43,424 - INFO - Model Doðruluk: 0.59
+2025-06-19 15:53:43,675 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 2. adýmda durduruluyor.
+2025-06-19 15:53:45,683 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 2. adýmda durduruluyor.
+2025-06-19 15:54:58,973 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:54:58,975 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 15:54:58,979 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 15:54:58,980 - INFO - Veritabanýndaki veri (2025-06-18 00:00:00) güncel, kullanýlacak.
+2025-06-19 15:54:58,980 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:54:58,984 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:54:58,985 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:54:59,105 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 15:54:59,105 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:54:59,112 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:54:59,116 - INFO - Model Doðruluk: 0.53
+2025-06-19 15:54:59,484 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 2. adýmda durduruluyor.
+2025-06-19 15:54:59,487 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 15:59:52,279 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 15:59:52,281 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 15:59:52,285 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 15:59:52,285 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 15:59:52,286 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:59:52,289 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:59:52,290 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:59:52,390 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 15:59:52,391 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:59:52,397 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:59:52,400 - INFO - Model Doðruluk: 0.53
+2025-06-19 15:59:52,718 - ERROR - Streamlit arayüzünde tahmin hatasý: "['High', 'Low'] not in index"
+2025-06-19 15:59:52,719 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:01:17,931 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 2y
+2025-06-19 16:01:17,931 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:01:17,932 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:01:17,938 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:01:17,940 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:01:18,051 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:01:18,052 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:01:18,058 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:01:18,061 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:01:18,327 - ERROR - Streamlit arayüzünde tahmin hatasý: "['High', 'Low'] not in index"
+2025-06-19 16:02:07,282 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:02:07,285 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:02:07,288 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:02:07,289 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:02:07,289 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:02:07,292 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:02:07,293 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:02:07,384 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:02:07,384 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:02:07,390 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:02:07,394 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:02:07,727 - ERROR - Streamlit arayüzünde tahmin hatasý: X has 80 features, but LogisticRegression is expecting 60 features as input.
+2025-06-19 16:02:07,728 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:10:41,749 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:10:41,751 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:10:41,754 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:10:41,754 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:10:41,755 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:10:41,759 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:10:41,759 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:10:41,850 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:10:41,850 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:10:41,855 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:10:41,859 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:10:42,176 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 3. adýmda durduruluyor.
+2025-06-19 16:10:42,332 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:12:53,274 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:12:53,276 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:12:53,280 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:12:53,280 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:12:53,280 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:12:53,283 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:12:53,284 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:12:53,374 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:12:53,374 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:12:53,380 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:12:53,383 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:12:53,711 - WARNING - Iteratif tahmin sýrasýnda current_df boþaldý, 3. adýmda durduruluyor.
+2025-06-19 16:12:53,878 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:14:43,969 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:14:43,974 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:14:43,977 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:14:43,978 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:14:43,978 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:14:43,982 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:14:43,982 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:14:44,074 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:14:44,074 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:14:44,080 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:14:44,083 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:14:44,592 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:21:08,571 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:21:08,573 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:21:08,578 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:21:08,578 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:21:08,579 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:21:08,582 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:21:08,582 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:21:08,669 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:21:08,669 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:21:08,675 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:21:08,678 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:21:09,155 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:22:42,018 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:22:42,021 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:22:42,026 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:22:42,026 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:22:42,026 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:22:42,033 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:22:42,035 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:22:42,117 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:22:42,117 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:22:42,124 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:22:42,127 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:22:42,673 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:26:12,962 - ERROR - HTTP Error 404: 
+2025-06-19 16:26:13,643 - ERROR - $XAUUSD=X: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-19 16:26:13,962 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:26:13,965 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:26:13,969 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:26:13,969 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:26:13,969 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 16:26:13,972 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:26:13,973 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:26:14,068 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:26:14,068 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:26:14,074 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:26:14,077 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:26:14,558 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:28:23,282 - ERROR - HTTP Error 404: 
+2025-06-19 16:28:24,023 - ERROR - $XAUUSD=X: possibly delisted; no price data found  (period=7d) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-19 16:28:24,226 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:28:24,229 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:28:24,234 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:28:24,235 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:28:24,243 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:28:24,246 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:28:24,340 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:28:24,340 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:28:24,346 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:28:24,349 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:28:24,834 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:32:19,846 - ERROR - HTTP Error 404: 
+2025-06-19 16:32:20,406 - ERROR - $XAUUSD=X: possibly delisted; no price data found  (period=7d) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-19 16:32:20,545 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:32:20,548 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:32:20,553 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:32:20,554 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:32:20,560 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:32:20,562 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:32:20,660 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:32:20,660 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:32:20,665 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:32:20,668 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:32:21,139 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:34:50,690 - ERROR - HTTP Error 404: 
+2025-06-19 16:34:51,430 - ERROR - $XAUUSD=X: possibly delisted; no price data found  (period=7d) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-19 16:34:51,603 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:34:51,606 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:34:51,610 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:34:51,610 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:34:51,617 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:34:51,619 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:34:51,715 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:34:51,715 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:34:51,722 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:34:51,725 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:34:52,209 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:36:23,677 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:36:23,680 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:36:23,685 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:36:23,686 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:36:23,692 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:36:23,693 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:36:23,809 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:36:23,809 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:36:23,815 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:36:23,818 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:36:24,306 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:37:29,671 - INFO - Veritabaný 'altin_verileri_streamlit.db' baðlandý ve tablo 'gld_prices_streamlit' kontrol edildi/oluþturuldu.
+2025-06-19 16:37:29,675 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:37:29,679 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:37:29,680 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:37:29,685 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:37:29,687 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:37:29,788 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:37:29,788 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:37:29,794 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:37:29,797 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:37:30,272 - INFO - Veritabaný baðlantýsý kapatýldý. Streamlit uygulamasý sona eriyor.
+2025-06-19 16:42:25,638 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:42:25,639 - ERROR - Veritabanýndan veri yüklerken hata oluþtu: No module named 'sqlalchemy'. You need to install the 'sqlalchemy' package to use this connection.
+2025-06-19 16:42:25,640 - INFO - Veritabanýnda hiç veri bulunamadý, yfinance'dan çekilecek.
+2025-06-19 16:42:25,806 - ERROR - Veritabanýna veri kaydederken hata oluþtu: No module named 'sqlalchemy'. You need to install the 'sqlalchemy' package to use this connection.
+2025-06-19 16:42:25,809 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 733
+2025-06-19 16:42:25,810 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:42:25,941 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 577, Test seti boyutu: 145
+2025-06-19 16:42:25,941 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:42:25,951 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:42:25,955 - INFO - Model Doðruluk: 0.52
+2025-06-19 16:43:47,176 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:43:47,379 - ERROR - Veritabanýndan veri yüklerken hata oluþtu: Missing SQL DB connection configuration. Did you forget to set this in `secrets.toml` or as kwargs to `st.connection`?
+2025-06-19 16:43:47,380 - INFO - Veritabanýnda hiç veri bulunamadý, yfinance'dan çekilecek.
+2025-06-19 16:43:47,522 - ERROR - Veritabanýna veri kaydederken hata oluþtu: Missing SQL DB connection configuration. Did you forget to set this in `secrets.toml` or as kwargs to `st.connection`?
+2025-06-19 16:43:47,526 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 733
+2025-06-19 16:43:47,527 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:43:47,671 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 577, Test seti boyutu: 145
+2025-06-19 16:43:47,671 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:43:47,682 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:43:47,686 - INFO - Model Doðruluk: 0.52
+2025-06-19 16:45:31,464 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:45:31,583 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:45:31,584 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:45:31,587 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:45:31,588 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:45:31,670 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:45:31,670 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:45:31,676 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:45:31,679 - INFO - Model Doðruluk: 0.53
+2025-06-19 16:46:38,033 - INFO - Veri çekme ve hazýrlama baþlatýldý. Ticker: GLD, Dönem: 3y
+2025-06-19 16:46:38,145 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 16:46:38,145 - INFO - Veritabanýndaki veri (2025-06-18) güncel, kullanýlacak.
+2025-06-19 16:46:38,149 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 16:46:38,149 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 16:46:38,231 - INFO - Veri eðitim ve test setlerine ayrýldý. Eðitim seti boyutu: 377, Test seti boyutu: 95
+2025-06-19 16:46:38,232 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 16:46:38,237 - INFO - Model eðitimi tamamlandý.
+2025-06-19 16:46:38,240 - INFO - Model Doðruluk: 0.53

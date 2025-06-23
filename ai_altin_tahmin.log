@@ -1,0 +1,29 @@
+2025-06-19 15:33:38,089 - INFO - AI Altýn Tahmin Uygulamasý Baþlatýlýyor.
+2025-06-19 15:33:38,096 - INFO - Veritabaný 'altin_verileri.db' baðlandý ve tablo 'gld_prices' kontrol edildi/oluþturuldu.
+2025-06-19 15:33:38,097 - INFO - Veritabanýndan 0 adet veri yüklendi.
+2025-06-19 15:33:38,097 - INFO - Veritabanýnda yeterli veri bulunamadý veya boþ, 'GLD' için yfinance'dan çekiliyor.
+2025-06-19 15:33:40,909 - INFO - 502 adet veri veritabanýna kaydedildi/eklenmeye çalýþýldý.
+2025-06-19 15:33:40,915 - INFO - Veritabanýndan 502 adet veri yüklendi.
+2025-06-19 15:33:40,915 - INFO - Teknik indikatörler hesaplanýyor.
+2025-06-19 15:33:40,923 - INFO - Teknik indikatörler hesaplandý. Kalan veri satýrý: 483
+2025-06-19 15:33:40,924 - INFO - Hedef deðiþken oluþturuldu.
+2025-06-19 15:33:41,003 - INFO - Veri eðitim ve test setlerine ayrýldý.
+2025-06-19 15:33:41,003 - INFO - Model eðitiliyor (Lojistik Regresyon)...
+2025-06-19 15:33:41,014 - INFO - Model eðitimi tamamlandý.
+2025-06-19 15:33:41,019 - INFO - Model Doðruluk (Accuracy): 0.56
+2025-06-19 15:33:41,019 - INFO - Sýnýflandýrma Raporu:
+                 precision    recall  f1-score   support
+
+Düþüþ/Sabit (0)       0.50      0.31      0.38        42
+   Yükseliþ (1)       0.58      0.75      0.66        53
+
+       accuracy                           0.56        95
+      macro avg       0.54      0.53      0.52        95
+   weighted avg       0.54      0.56      0.53        95
+
+2025-06-19 15:33:41,019 - INFO - Hata Matrisi:
+[[13 29]
+ [13 40]]
+2025-06-19 15:33:56,678 - INFO - Model deðerlendirme tamamlandý.
+2025-06-19 15:33:56,680 - INFO - Yarýn için tahmin edilen yön: 1, Yükseliþ Olasýlýðý: 71.82%
+2025-06-19 15:34:00,636 - INFO - Veritabaný baðlantýsý kapatýldý. Uygulama sonlandýrýldý.
