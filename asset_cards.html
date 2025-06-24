@@ -1,0 +1,101 @@
+<style>
+/* Ana kaydırılabilir konteyner */
+.horizontal-scroll-container {
+    overflow-x: auto; /* Yatay kaydırmayı etkinleştir */
+    overflow-y: hidden; /* Dikey kaydırmayı gizle */
+    white-space: nowrap; /* İçeriğin alt satıra geçmesini engelle */
+    padding-bottom: 15px; /* Kaydırma çubuğu için boşluk */
+    -webkit-overflow-scrolling: touch; /* iOS için pürüzsüz kaydırma */
+    padding-top: 10px; /* Üst boşluk */
+    padding-left: 10px; /* Sol boşluk */
+    padding-right: 10px; /* Sağ boşluk */
+    margin-bottom: 20px; /* Diğer bölümlerle arasına boşluk */
+}
+/* Kartları yan yana tutan ve boşlukları yöneten flex konteyner */
+.horizontal-scroll-content {
+    display: flex; /* Öğeleri yan yana hizala */
+    flex-wrap: nowrap; /* Sarılmayı engelle */
+    gap: 10px; /* Kartlar arası boşluk */
+}
+/* Her bir varlık kartının stili */
+.asset-card {
+    flex: 0 0 auto; /* Esnekliği kapat, boyutu sabit tut */
+    width: 170px; /* Kartların sabit genişliği */
+    height: 75px; /* Kartların sabit yüksekliği */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 8px 10px; /* İç boşluklar */
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex; /* İçeriği hizalamak için flexbox */
+    align-items: center; /* Dikeyde ortala */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.asset-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.asset-card img {
+    width: 25px; /* İkon boyutu */
+    height: 25px;
+    margin-right: 8px; /* İkon ile metin arası boşluk */
+    border-radius: 50%; /* Yuvarlak ikonlar için */
+    object-fit: contain; /* İkonun kutuya sığmasını ve doldurmasını sağla */
+    flex-shrink: 0; /* İkonun küçülmesini engelle */
+}
+.text-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Mevcut alanı kaplamasını sağla */
+    justify-content: center; /* Dikeyde ortala */
+    overflow: hidden; /* Metin taşmalarını gizle */
+}
+.asset-name {
+    font-weight: bold;
+    font-size: 0.85em; /* Yazı boyutu küçültüldü */
+    color: #333;
+    margin-bottom: 2px; /* İsim ile fiyat arası boşluk */
+    white-space: nowrap; /* İsimin alt satıra geçmesini engelle (taşarsa gizlenir) */
+    text-overflow: ellipsis; /* Taşarsa üç nokta göster */
+    overflow: hidden; /* Taşarsa gizle */
+}
+.price-and-change {
+    display: flex;
+    align-items: baseline; /* Fiyat ve değişim yüzdesini aynı hizada tut */
+    justify-content: space-between; /* Fiyatı sola, değişimi sağa yasla */
+    width: 100%; /* İçeriğin kart genişliğinde olmasını sağla */
+}
+.asset-price {
+    font-size: 0.95em; /* Fiyat yazı boyutu küçültüldü */
+    font-weight: bold;
+    color: #1a1a1a;
+    white-space: nowrap; /* Fiyatın alt satıra geçmesini engelle */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.asset-change {
+    font-size: 0.8em; /* Değişim yüzdesi yazı boyutu küçültüldü */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-left: 5px; /* Fiyat ile değişim yüzdesi arası boşluk */
+    white-space: nowrap; /* Değişim yüzdesinin alt satıra geçmesini engelle */
+    flex-shrink: 0; /* Küçülmesini engelle */
+}
+.change-positive {
+    color: #008000; /* Yeşil */
+}
+.change-negative {
+    color: #ff4500; /* Kırmızımsı turuncu */
+}
+.change-icon {
+    margin-left: 3px;
+    font-size: 0.7em; /* İkon boyutu */
+}
+</style>
+
+<div class="horizontal-scroll-container">
+    <div class="horizontal-scroll-content">
+        <!-- INJECT_ASSET_CARDS_HERE -->
+    </div>
+</div>

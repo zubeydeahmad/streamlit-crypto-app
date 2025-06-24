@@ -3,7 +3,7 @@
 # Bu dosya Streamlit arayüzünü oluşturur, veri çekme, model eğitimi ve tahmin süreçlerini entegre eder.
 import streamlit as st
 import pandas as pd
-from datetime import datetime, timedelta, time # 'time' objesini import etmeyi unutmayın
+from datetime import datetime, timedelta, time
 import joblib
 from sklearn.preprocessing import MinMaxScaler
 from xgboost import XGBRegressor
@@ -15,7 +15,6 @@ import os
 import sys
 
 # data_fetcher.py'nin bulunduğu dizini sys.path'e ekleyin
-# (Proje yapısına göre bu yolu ayarlamanız gerekebilir)
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import data_fetcher as df # data_fetcher.py dosyasını df olarak import ediyoruz
 
@@ -29,6 +28,106 @@ st.set_page_config(layout="wide", page_title="Finansal Varlık Analiz ve Tahmin 
 # Başlık
 st.title("📈 Finansal Varlık Analiz ve Tahmin Uygulaması")
 st.markdown("Bu uygulama ile çeşitli finansal varlıkların geçmiş verilerini analiz edebilir, modelleyebilir ve gelecek fiyatlarını tahmin edebilirsiniz.")
+
+# --- Popüler Varlıklar Paneli ---
+st.subheader("Popüler Varlıklar Piyasasına Bakış")
+
+# Varlık ikonları için bir sözlük tanımlayın (varsayılan ikonlar)
+ASSET_ICONS = {
+    "Bitcoin": "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=025",
+    "Ethereum (ETH)": "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=025",
+    "Altın": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Gold_bar_logo.png",
+    "Gümüş": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Silver_symbol.svg/1200px-Silver_symbol.svg.png",
+    "Ham Petrol": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-vK-D7dF-oF-m7Z-f0sN8sE-v_z7sQ_g6g&s", # Generic oil icon
+    "Binance Coin (BNB)": "https://cryptologos.cc/logos/bnb-bnb-logo.png?v=025",
+    "Ripple (XRP)": "https://cryptologos.cc/logos/xrp-xrp-logo.png?v=025",
+    "Solana (SOL)": "https://cryptologos.cc/logos/solana-sol-logo.png?v=025",
+    "Cardano (ADA)": "https://cryptologos.cc/logos/cardano-ada-logo.png?v=025",
+    "Dogecoin (DOGE)": "https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=025",
+    "Euro/Dolar (EURUSD)": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Europe.svg/2560px-Flag_of_Europe.svg.png", # EUR bayrağı
+    "Sterlin/Dolar (GBPUSD)": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png", # GBP bayrağı
+    "Dolar/Türk Lirası (USDTRY)": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1200px-Flag_of_Turkey.svg.png" # TRY bayrağı
+}
+
+popular_assets_df = df.get_popular_asset_overview_data()
+
+try:
+    # asset_cards.html dosyasını oku
+    with open("asset_cards.html", "r", encoding="utf-8") as f:
+        html_template = f.read()
+    
+    if not popular_assets_df.empty:
+        # Dinamik olarak kartları oluşturacak HTML parçalarını bir liste içinde tutalım
+        asset_cards_html_parts = []
+
+        for index, row in popular_assets_df.iterrows():
+            varlik = row['Varlık']
+            fiyat = row['Fiyat']
+            degisim_yuzde = row['Değişim (%)']
+
+            icon_url = ASSET_ICONS.get(varlik, "https://placehold.co/25x25/cccccc/ffffff?text=?") # Varsayılan ikon
+            
+            fiyat_str = f"{fiyat:,.2f} $" if pd.notna(fiyat) else "N/A"
+            # Dövizler için daha fazla ondalık
+            if "Euro" in varlik or "Sterlin" in varlik or "Dolar/Türk Lirası" in varlik:
+                fiyat_str = f"{fiyat:,.4f}" if pd.notna(fiyat) else "N/A"
+
+            change_class = ""
+            change_icon = ""
+            if pd.notna(degisim_yuzde):
+                if degisim_yuzde >= 0:
+                    change_class = "change-positive"
+                    change_icon = "⬆️"
+                else:
+                    change_class = "change-negative"
+                    change_icon = "⬇️"
+                degisim_str = f"{degisim_yuzde:+.2f}%"
+            else:
+                degisim_str = "N/A"
+            
+            # Her bir kartın HTML'i
+            card_html = f"""
+        <div class="asset-card">
+            <img src="{icon_url}" onerror="this.onerror=null;this.src='https://placehold.co/25x25/cccccc/ffffff?text=?';" alt="{varlik} İkon">
+            <div class="text-content">
+                <span class="asset-name">{varlik}</span>
+                <div class="price-and-change">
+                    <span class="asset-price">{fiyat_str}</span>
+                    <span class="asset-change {change_class}">{degisim_str} <span class="change-icon">{change_icon}</span></span>
+                </div>
+            </div>
+        </div>"""
+            asset_cards_html_parts.append(card_html)
+        
+        # Tüm kartları birleştir
+        all_cards_html = "".join(asset_cards_html_parts)
+
+        # Şablondaki özel yer tutucuyu bulun ve dinamik içeriği oraya yerleştirin
+        placeholder = "<!-- INJECT_ASSET_CARDS_HERE -->"
+        final_html_output = html_template.replace(placeholder, all_cards_html)
+        
+        # Streamlit terminaline çıktıyı yazarak kontrol edelim
+        print("\n--- Streamlit'e Gönderilen Son HTML Çıktısı ---")
+        # İlk 1000 karakteri veya tamamını bas, uzun dizelerde terminali boğmamak için
+        print(final_html_output[:1000] + "..." if len(final_html_output) > 1000 else final_html_output)
+        print("-----------------------------------------------\n")
+
+        # Streamlit'e HTML'i render etmesini söyleyin (st.html() kullanıyoruz)
+        st.html(final_html_output)
+
+    else:
+        st.warning("Popüler varlıkların güncel fiyatları çekilemedi.")
+
+except FileNotFoundError:
+    st.error("asset_cards.html dosyası bulunamadı. Lütfen aynı dizinde olduğundan emin olun.")
+    st.warning("Popüler varlıkların güncel fiyatları çekilemedi.")
+except Exception as e:
+    st.error(f"HTML içeriği oluşturulurken bir hata oluştu: {e}")
+    logger.error(f"HTML içeriği oluşturulurken hata: {e}")
+    st.warning("Popüler varlıkların güncel fiyatları çekilemedi.")
+
+st.markdown("---")
+
 
 # --- Sabitler ve Ayarlar ---
 FEATURE_LAG = 7 # Modelin kullanacağı geçmiş gün sayısı (özellikler için)
@@ -377,10 +476,9 @@ if st.session_state.get('run_analysis', False):
 
     st.info(f"'{current_selected_asset}' ({asset_symbol}) için veriler çekiliyor ve analiz ediliyor...")
 
-    # datetime.combine için datetime.time.max kullanıldı
     historical_data = get_historical_data(asset_symbol, asset_source, 
-                                          datetime.combine(current_start_date, time.min), # time.min kullanıldı
-                                          datetime.combine(current_end_date, time.max)) # time.max kullanıldı
+                                          datetime.combine(current_start_date, time.min), 
+                                          datetime.combine(current_end_date, time.max))
 
     if not historical_data.empty:
         st.success(f"'{current_selected_asset}' için {len(historical_data)} günlük veri başarıyla çekildi.")
@@ -392,7 +490,7 @@ if st.session_state.get('run_analysis', False):
             price_change = latest_close - previous_close
             price_change_percent = (price_change / previous_close) * 100 if previous_close != 0 else 0
 
-            delta_color = "inverse" if price_change < 0 else "normal"
+            delta_color = "inverse" if price_change < 0 else "normal" 
             st.metric(
                 label=f"Son Kapanış Fiyatı ({historical_data.index.max().strftime('%Y-%m-%d')})",
                 value=f"{latest_close:.2f}",
@@ -427,14 +525,12 @@ if st.session_state.get('run_analysis', False):
                 if future_predictions:
                     next_day_date = prediction_dates[0]
                     next_day_prediction_value = future_predictions[0]
-                    st.subheader(f"Yarınki Tahmini Kapanış Fiyatı ({next_day_date.strftime('%Y-%m-%d')}) :orange[${next_day_prediction_value:,.2f}]") # Renklendirildi
+                    st.subheader(f"Yarınki Tahmini Kapanış Fiyatı ({next_day_date.strftime('%Y-%m-%d')}) :orange[${next_day_prediction_value:,.2f}]") 
                     
-                    # Yüzde değişimini hesapla ve göster
                     if not historical_data.empty and 'Close' in historical_data.columns and len(historical_data) > 0:
                         last_real_close = historical_data['Close'].iloc[-1]
                         if last_real_close != 0:
                             change_pct = ((next_day_prediction_value - last_real_close) / last_real_close) * 100
-                            delta_color_pred = "inverse" if change_pct < 0 else "normal"
                             st.markdown(f"**Değişim:** :{'red' if change_pct < 0 else 'green'}["
                                         f"{change_pct:+.2f}% ({next_day_prediction_value - last_real_close:+.2f})] "
                                         f"{'⬇️' if change_pct < 0 else '⬆️'}")
@@ -455,7 +551,7 @@ if st.session_state.get('run_analysis', False):
                 fig.add_trace(go.Scatter(x=historical_data.index, y=historical_data['Close'], mode='lines', name='Geçmiş Kapanış Fiyatı', line=dict(color='blue')))
 
                 # Gerçek değerler (test setinden) - sadece görselleştirme için, modelin kullandığı gerçek test setidir.
-                if len(processed_data) > FEATURE_LAG:
+                if len(processed_data) > FEATURE_LAG: 
                     test_real_dates = processed_data.index[-FEATURE_LAG:]
                     test_real_values = processed_data['Close'].iloc[-FEATURE_LAG:]
                     fig.add_trace(go.Scatter(x=test_real_dates, y=test_real_values, mode='lines', name='Gerçek Değerler (Test)', line=dict(color='green', dash='dot')))

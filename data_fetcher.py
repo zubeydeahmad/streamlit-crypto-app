@@ -1,37 +1,40 @@
 # data_fetcher.py
 # (Veri Çekme ve Veritabanı)
 # Bu dosya, çeşitli kaynaklardan (yfinance, CoinAPI.io) finansal verileri çeken fonksiyonları ve basit veritabanı başlatma mantığını içerir. Verileri önbelleğe almak için st.cache_data kullanılır.
-# import streamlit as st # Streamlit artık bu modülde doğrudan kullanılmıyor
+import streamlit as st # Bu satır eklendi/doğrulandı
 import yfinance as yf
 import pandas as pd
 import requests
 import sqlite3
 from datetime import datetime, timedelta
 import logging
-import os 
+import os
+import numpy as np # Bu satır eklendi/doğrulandı
 
 # Loglama yapılandırması
 logging.basicConfig(filename='crypto_app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', encoding='utf-8')
 logger = logging.getLogger(__name__)
 
 # --- Varlık Seçenekleri ve Sembolleri ---
+# Tüm uygulamada kullanılacak varlıkların tek, tutarlı listesi
 VARLIK_BILGILERI = {
     "Altın": {"sembol": "GC=F", "kaynak": "yfinance"},
-    "Gümüş": {"sembol": "SI=F", "kaynak": "yfinance"}, # Gümüş için tekrar SI=F sembolü kullanıldı
+    "Gümüş": {"sembol": "SI=F", "kaynak": "yfinance"},
     "Ham Petrol": {"sembol": "CL=F", "kaynak": "yfinance"}, # WTI Crude Oil Futures
-    "Bitcoin": {"sembol": "BTC-USD", "kaynak": "yfinance"}, # Yfinance'dan BTC/USD spot fiyatı
+    "Bitcoin": {"sembol": "BTC-USD", "kaynak": "yfinance"},
     "Ethereum (ETH)": {"sembol": "ETH-USD", "kaynak": "yfinance"},
     "Solana (SOL)": {"sembol": "SOL-USD", "kaynak": "yfinance"},
     "Cardano (ADA)": {"sembol": "ADA-USD", "kaynak": "yfinance"},
     "Dogecoin (DOGE)": {"sembol": "DOGE-USD", "kaynak": "yfinance"},
     "Binance Coin (BNB)": {"sembol": "BNB-USD", "kaynak": "yfinance"},
-    "Ripple (XRP)": {"sembol": "XRP-USD", "kaynak": "yfinance"}
+    "Ripple (XRP)": {"sembol": "XRP-USD", "kaynak": "yfinance"},
+    "Euro/Dolar (EURUSD)": {"sembol": "EURUSD=X", "kaynak": "yfinance"},
+    "Sterlin/Dolar (GBPUSD)": {"sembol": "GBPUSD=X", "kaynak": "yfinance"},
+    "Dolar/Türk Lirası (USDTRY)": {"sembol": "TRY=X", "kaynak": "yfinance"}
 }
 
 # --- CoinAPI Anahtarı ---
-# Kendi CoinAPI anahtarınızı buraya girin veya ortam değişkeni olarak ayarlayın.
-# Güvenlik için ortam değişkeni kullanılması önerilir: COINAPI_API_KEY = os.environ.get("COINAPI_API_KEY", "YOUR_API_KEY_HERE")
-COINAPI_API_KEY = os.environ.get("COINAPI_API_KEY", "f970d607-417d-4767-a532-39c637b4edaa") # API Anahtarınız buraya eklendi
+COINAPI_API_KEY = os.environ.get("COINAPI_API_KEY", "f970d607-417d-4767-a532-39c637b4edaa")
 
 
 # --- Veritabanı Ayarları ---
@@ -65,8 +68,8 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
     """yfinance'dan geçmiş fiyat verilerini çeker."""
     logger.info(f"yfinance'dan {symbol} verisi çekiliyor: {start_date.strftime('%Y-%m-%d')} - {end_date.strftime('%Y-%m-%d')}")
     try:
-        data = yf.download(symbol, start=start_date, end=end_date, interval="1d", progress=False, actions=False)
-        
+        data = yf.download(symbol, start=start_date, end=end_date, interval="1d", progress=False, actions=False, auto_adjust=True)
+
         logger.debug(f"\n--- DEBUG (yfinance) - {symbol} Ham Veri (Raw) ---")
         logger.debug(f"Veri boş mu? {data.empty}")
         if not data.empty:
@@ -82,27 +85,31 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
         if data.empty:
             logger.warning(f"yfinance'dan '{symbol}' için veri çekilemedi veya veri bulunamadı. Sembolü veya tarih aralığını kontrol edin.")
             return pd.DataFrame()
-        
-        data.index = pd.to_datetime(data.index)
-        
+
+        # MultiIndex sütunları kontrol et ve tek seviyeye indir
+        # yfinance bazen MultiIndex sütunları döndürebilir (örn: ('Close', 'SYMBOL')).
+        # Bu kısım, sütunlara erişirken yaşanabilecek "truth value of a Series is ambiguous" hatalarını önler.
         if isinstance(data.columns, pd.MultiIndex):
-            data.columns = data.columns.get_level_values(0)
-            logger.info("yfinance: MultiIndex sütunlar tek seviyeye indirildi.")
-        
-        if 'Adj Close' in data.columns and 'Close' not in data.columns:
-            data['Close'] = data['Adj Close']
-            logger.info("yfinance: 'Adj Close' sütunu 'Close' olarak yeniden adlandırıldı.")
+            data.columns = [col[0].capitalize() for col in data.columns]
+            logger.info(f"yfinance: MultiIndex sütunlar tek seviyeye indirildi.")
+        else:
+            data.columns = [col.capitalize() for col in data.columns] # Zaten tek seviyeli ise sadece capitalize et
+
+        data.index = pd.to_datetime(data.index)
 
         required_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
-        data.columns = [col.capitalize() for col in data.columns]
-
         missing_cols = [col for col in required_cols if col not in data.columns]
         if missing_cols:
-            logger.error(f"yfinance'dan çekilen veride eksik sütunlar var: {missing_cols}. Lütfen sembolü kontrol edin veya yfinance API yanıtını inceleyin.")
-            return pd.DataFrame() 
-        
+            if 'Volume' in missing_cols:
+                data['Volume'] = 0
+                logger.warning(f"yfinance: '{symbol}' için Volume sütunu eksik, 0 ile dolduruldu.")
+                missing_cols.remove('Volume')
+            if missing_cols:
+                logger.error(f"yfinance'dan çekilen veride eksik sütunlar var: {missing_cols}. Lütfen sembolü kontrol edin veya yfinance API yanıtını inceleyin.")
+                return pd.DataFrame()
+
         final_data = data[required_cols].copy()
-        
+
         logger.debug(f"\n--- DEBUG (yfinance) - {symbol} Initial Final Data (Before dropna) ---")
         logger.debug(f"Veri boş mu? {final_data.empty}")
         if not final_data.empty:
@@ -133,7 +140,7 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
                 return pd.DataFrame()
 
         logger.info(f"yfinance'dan {len(final_data)} adet {symbol} verisi başarıyla çekildi ve işlendi.")
-        
+
         return final_data
 
     except Exception as e:
@@ -166,7 +173,7 @@ def get_coinapi_data(asset_id_base: str, asset_id_quote: str = "USD", period_id:
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
         data_json = response.json()
-        
+
         logger.debug(f"\n--- DEBUG (CoinAPI) - {asset_id_base}/{asset_id_quote} Ham JSON Verisi ---")
         logger.debug(f"JSON boş mu? {not bool(data_json)}")
         if data_json:
@@ -181,21 +188,21 @@ def get_coinapi_data(asset_id_base: str, asset_id_quote: str = "USD", period_id:
         df = pd.DataFrame(data_json)
         df['Date'] = pd.to_datetime(df['time_period_end'])
         df = df.set_index('Date')
-        
+
         required_coinapi_cols = ['rate_open', 'rate_high', 'rate_low', 'rate_close']
         missing_coinapi_cols = [col for col in required_coinapi_cols if col not in df.columns]
         if missing_coinapi_cols:
             logger.error(f"CoinAPI'den çekilen veride eksik sütunlar var: {missing_coinapi_cols}. Lütfen API yanıtını kontrol edin.")
             return pd.DataFrame()
-            
+
         df = df[required_coinapi_cols]
         df.columns = ['Open', 'High', 'Low', 'Close']
-        
+
         if 'Volume' not in df.columns:
-            df['Volume'] = 0 
-        
+            df['Volume'] = 0
+
         df = df.resample('D').last()
-        
+
         logger.debug(f"\n--- DEBUG (CoinAPI) - {asset_id_base}/{asset_id_quote} Initial DataFrame (Before dropna) ---")
         logger.debug(f"DataFrame boş mu? {df.empty}")
         if not df.empty:
@@ -242,13 +249,13 @@ def fetch_exchange_rates(base_currency="USD"):
     """Döviz kurlarını çeker (Örn: Frankfurter API)."""
     api_url = f"https://api.frankfurter.app/latest?from={base_currency}"
     try:
-        response = requests.get(api_url) 
+        response = requests.get(api_url)
         response.raise_for_status()
         data = response.json()
-        
+
         if 'rates' in data:
             rates = data['rates']
-            rates[base_currency] = 1.0 
+            rates[base_currency] = 1.0
             logger.info(f"Döviz kurları başarıyla çekildi (Baz: {base_currency}).")
             return rates
         else:
@@ -261,34 +268,97 @@ def fetch_exchange_rates(base_currency="USD"):
         logger.error(f"Döviz kurları çekilirken beklenmeyen bir hata oluştu: {e}")
         return None
 
-if __name__ == "__main__":
-    logger.info("Veri Çekme Modülü Testi (Bağımsız Çalışma)")
-    init_db()
+# Popüler Varlıkların Güncel Fiyatları Çekme
+@st.cache_data(ttl=timedelta(minutes=5), show_spinner="Popüler varlık fiyatları güncelleniyor...")
+def get_popular_asset_overview_data():
+    """
+    Belirli popüler varlıkların güncel fiyatlarını ve 24 saatlik değişimlerini çeker.
+    """
+    logger.info("Popüler varlıkların güncel fiyatları çekiliyor.")
+    overview_data = []
 
-    # yfinance Veri Testi (Gümüş sembolü ile)
-    yf_symbol = "SI=F" # Gümüş için SI=F sembolü ile test ediyoruz
-    yf_start_date = datetime.now() - timedelta(days=5*365) # 5 yıl geçmiş
-    yf_end_date = datetime.now()
-    logger.info(f"yfinance Gümüş Veri Testi: {yf_symbol}")
-    data_yf = get_yfinance_data(yf_symbol, yf_start_date, yf_end_date)
-    if not data_yf.empty:
-        logger.info(data_yf.head())
-    else:
-        logger.warning(f"Gümüş ({yf_symbol}) verisi çekilemedi. Lütfen internet bağlantınızı ve sembolün geçerliliğini kontrol edin.")
+    # Güncel ve önceki gün kapanışlarını almak için son 7 günün verisi yeterli.
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=7) # Yeterli geçmiş veri sağlamak için 7 gün
 
-    # CoinAPI Veri Testi (eğer kullanılıyorsa ve anahtar varsa)
-    coin_base = "BTC"
-    coin_quote = "USD"
-    coin_days = 90
-    logger.info(f"CoinAPI Veri Testi: {coin_base}/{coin_quote}")
-    data_coinapi = get_coinapi_data(coin_base.upper(), coin_quote.upper(), days_back=coin_days)
-    if not data_coinapi.empty:
-        logger.info(data_coinapi.head())
-    else:
-        logger.warning("CoinAPI verisi çekilemedi veya CoinAPI anahtarı eksik.")
+    # Sadece VARLIK_BILGILERI içinde tanımlı ve yfinance kaynaklı varlıkları al
+    popular_assets_to_show_filtered = {
+        name: info["sembol"] for name, info in VARLIK_BILGILERI.items()
+        if info["kaynak"] == "yfinance" # Sadece yfinance kaynaklı olanları göster
+    }
 
-    # Döviz Kurları Testi
-    logger.info("Döviz Kurları Testi:")
-    rates = fetch_exchange_rates("USD")
-    if rates:
-        logger.info(rates)
+    for asset_name, symbol in popular_assets_to_show_filtered.items():
+        logger.debug(f"Popüler varlık için veri çekiliyor: {asset_name} ({symbol})")
+        try:
+            # yfinance'dan veri çek
+            data = yf.download(symbol, start=start_date, end=end_date, interval="1d", progress=False, actions=False, auto_adjust=True)
+
+            if not data.empty:
+                # --- MultiIndex sütunları kontrol et ve tek seviyeye indir ---
+                # yfinance bazen MultiIndex sütunları döndürebilir (örn: ('Close', 'SYMBOL')).
+                # Bu kısım, sütunlara erişirken yaşanabilecek "truth value of a Series is ambiguous" hatalarını önler.
+                if isinstance(data.columns, pd.MultiIndex):
+                    # MultiIndex'in ilk seviyesini al ve her birinin ilk öğesini capitalize et (örneğin 'Close')
+                    data.columns = [col[0].capitalize() for col in data.columns]
+                    logger.debug(f"Popüler varlık ({symbol}): MultiIndex sütunlar tek seviyeye indirildi.")
+                else:
+                    # Zaten tek seviyeli ise sadece capitalize et
+                    data.columns = [col.capitalize() for col in data.columns]
+                # --- MultiIndex sütunları kontrol et ve tek seviyeye indir SONU ---
+
+                if 'Close' in data.columns:
+                    data_sorted = data.sort_index(ascending=True)
+
+                    logger.debug(f"Popüler varlık ({symbol}): Çekilen veri boyutu: {data_sorted.shape}")
+                    logger.debug(f"Popüler varlık ({symbol}): Son 2 satır:\n{data_sorted.tail(2)}")
+
+                    # Calculate change based on available valid 'Close' data
+                    valid_closes = data_sorted['Close'].dropna()
+
+                    if len(valid_closes) >= 2:
+                        latest_close = valid_closes.iloc[-1]
+                        previous_close = valid_closes.iloc[-2]
+
+                        # Ensure latest_close and previous_close are not NaN
+                        if pd.isna(latest_close) or pd.isna(previous_close):
+                            logger.warning(f"'{asset_name}' ({symbol}) için son veya önceki kapanış değeri NaN. Değişim hesaplanamadı.")
+                            overview_data.append({
+                                "Varlık": asset_name,
+                                "Sembol": symbol,
+                                "Fiyat": latest_close if pd.notna(latest_close) else np.nan,
+                                "Değişim (%)": np.nan,
+                                "Değişim Miktarı": np.nan
+                            })
+                        else:
+                            price_change = latest_close - previous_close
+                            percentage_change = (price_change / previous_close) * 100 if previous_close != 0 else 0
+
+                            overview_data.append({
+                                "Varlık": asset_name,
+                                "Sembol": symbol,
+                                "Fiyat": latest_close,
+                                "Değişim (%)": percentage_change,
+                                "Değişim Miktarı": price_change
+                            })
+                            logger.debug(f"Popüler varlık ({symbol}): Fiyat {latest_close:.2f}, Değişim {percentage_change:+.2f}%")
+                    elif len(valid_closes) == 1:
+                        latest_close = valid_closes.iloc[-1]
+                        overview_data.append({
+                            "Varlık": asset_name,
+                            "Sembol": symbol,
+                            "Fiyat": latest_close,
+                            "Değişim (%)": np.nan,
+                            "Değişim Miktarı": np.nan
+                        })
+                        logger.warning(f"'{asset_name}' ({symbol}) için yeterli geçmiş veri yok (sadece 1 gün). Değişim hesaplanamadı.")
+                    else:
+                        logger.warning(f"'{asset_name}' ({symbol}) için çekilen data boş veya 'Close' sütununda yeterli geçerli veri içermiyor. Popüler varlık listesine eklenemedi.")
+
+                else:
+                    logger.warning(f"'{asset_name}' ({symbol}) için veri çekilemedi veya 'Close' sütunu eksik.")
+            else:
+                logger.warning(f"'{asset_name}' ({symbol}) için veri çekilemedi (DataFrame boş).")
+        except Exception as e:
+            logger.error(f"'{asset_name}' ({symbol}) için güncel fiyat çekilirken hata: {e}. Detay: {e}")
+
+    return pd.DataFrame(overview_data)

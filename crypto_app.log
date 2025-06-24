@@ -5644,3 +5644,285 @@ dtype: int64
 2025-06-24 11:27:15,678 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
 2025-06-24 11:27:15,926 - INFO - Model kaydedildi: xgboost_model.joblib
 2025-06-24 11:27:15,927 - INFO - Model eğitimi ve tahmini tamamlandı for Ripple (XRP). RMSE: 0.06406656830014043
+2025-06-24 11:41:22,057 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 11:41:22,982 - ERROR - 'Bitcoin' (BTC-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:23,325 - ERROR - 'Ethereum (ETH)' (ETH-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:23,769 - ERROR - 'Altın' (GC=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:24,095 - ERROR - 'Gümüş' (SI=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:24,457 - ERROR - 'Ham Petrol' (CL=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:24,798 - ERROR - 'Binance Coin (BNB)' (BNB-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:25,265 - ERROR - 'Ripple (XRP)' (XRP-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:41:25,773 - ERROR - 'Euro/Dolar (EURUSD)' (EURUSD=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:02,768 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 11:45:03,657 - ERROR - 'Bitcoin' (BTC-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:03,939 - ERROR - 'Ethereum (ETH)' (ETH-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:04,335 - ERROR - 'Altın' (GC=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:04,711 - ERROR - 'Gümüş' (SI=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:05,012 - ERROR - 'Ham Petrol' (CL=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:05,326 - ERROR - 'Binance Coin (BNB)' (BNB-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:05,728 - ERROR - 'Ripple (XRP)' (XRP-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:06,090 - ERROR - 'Euro/Dolar (EURUSD)' (EURUSD=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:06,639 - ERROR - 'Sterlin/Dolar (GBPUSD)' (GBPUSD=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:07,241 - ERROR - 'Dolar/Türk Lirası (USDTRY)' (TRY=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:45:29,759 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:45:29,759 - INFO - yfinance'dan GC=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:45:30,335 - ERROR - yfinance'dan veri çekilirken beklenmeyen hata oluştu (GC=F): 'tuple' object has no attribute 'capitalize'. Detay: 'tuple' object has no attribute 'capitalize'
+2025-06-24 11:53:24,892 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 11:53:25,678 - ERROR - 'Altın' (GC=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:26,034 - ERROR - 'Gümüş' (SI=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:26,409 - ERROR - 'Ham Petrol' (CL=F) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:26,730 - ERROR - 'Bitcoin' (BTC-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:27,219 - ERROR - 'Ethereum (ETH)' (ETH-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:27,540 - ERROR - 'Solana (SOL)' (SOL-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:27,836 - ERROR - 'Cardano (ADA)' (ADA-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:28,599 - ERROR - 'Dogecoin (DOGE)' (DOGE-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:28,957 - ERROR - 'Binance Coin (BNB)' (BNB-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:29,277 - ERROR - 'Ripple (XRP)' (XRP-USD) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:29,554 - ERROR - 'Euro/Dolar (EURUSD)' (EURUSD=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:29,877 - ERROR - 'Sterlin/Dolar (GBPUSD)' (GBPUSD=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:53:30,180 - ERROR - 'Dolar/Türk Lirası (USDTRY)' (TRY=X) için güncel fiyat çekilirken hata: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-06-24 11:57:03,137 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 11:57:49,888 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 11:57:49,888 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:57:50,285 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:57:50,287 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:57:50,304 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 11:57:50,317 - INFO - preprocess_data tamamlandı for GC=F. Son veri boyutu: (1805, 55)
+2025-06-24 11:57:50,380 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 11:57:50,382 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:57:50,382 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:57:50,387 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:57:50,706 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:57:50,708 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 29.833995237457746
+2025-06-24 11:58:00,086 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 11:58:00,094 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:58:00,094 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:58:00,098 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:58:00,376 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:58:00,377 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 29.833995237457746
+2025-06-24 11:58:01,242 - INFO - get_historical_data çağrıldı: Sembol=SI=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 11:58:01,242 - INFO - yfinance'dan SI=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:58:01,695 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:58:01,698 - INFO - yfinance'dan 1256 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:58:01,708 - INFO - preprocess_data çağrıldı for SI=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 11:58:01,724 - INFO - preprocess_data tamamlandı for SI=F. Son veri boyutu: (1805, 55)
+2025-06-24 11:58:01,768 - INFO - model_training_and_prediction çağrıldı for Gümüş. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 11:58:01,771 - INFO - Model Eğitimi İçin Gümüş: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:58:01,771 - INFO - Model Tahmini İçin Gümüş: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:58:01,775 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:58:02,009 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:58:02,010 - INFO - Model eğitimi ve tahmini tamamlandı for Gümüş. RMSE: 0.8726099081688864
+2025-06-24 11:58:03,977 - INFO - model_training_and_prediction çağrıldı for Gümüş. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 11:58:03,983 - INFO - Model Eğitimi İçin Gümüş: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:58:03,983 - INFO - Model Tahmini İçin Gümüş: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:58:03,987 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:58:04,247 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:58:04,249 - INFO - Model eğitimi ve tahmini tamamlandı for Gümüş. RMSE: 0.8726099081688864
+2025-06-24 11:58:04,908 - INFO - get_historical_data çağrıldı: Sembol=CL=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 11:58:04,909 - INFO - yfinance'dan CL=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:58:05,294 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:58:05,295 - INFO - yfinance'dan 1256 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:58:05,301 - INFO - preprocess_data çağrıldı for CL=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 11:58:05,310 - INFO - preprocess_data tamamlandı for CL=F. Son veri boyutu: (1805, 55)
+2025-06-24 11:58:05,353 - INFO - model_training_and_prediction çağrıldı for Ham Petrol. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 11:58:05,356 - INFO - Model Eğitimi İçin Ham Petrol: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:58:05,356 - INFO - Model Tahmini İçin Ham Petrol: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:58:05,360 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:58:05,620 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:58:05,621 - INFO - Model eğitimi ve tahmini tamamlandı for Ham Petrol. RMSE: 3.347948425677969
+2025-06-24 12:02:16,437 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:04:34,897 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:09:08,474 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:13:25,474 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:14:49,094 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:16:49,085 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 12:16:49,086 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 12:16:49,485 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 12:16:49,486 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 12:16:49,497 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 12:16:49,507 - INFO - preprocess_data tamamlandÄ± for GC=F. Son veri boyutu: (1805, 55)
+2025-06-24 12:16:49,559 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 12:16:49,562 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 12:16:49,562 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 12:16:49,567 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 12:16:49,899 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 12:16:49,901 - INFO - Model eğitimi ve tahmini tamamlandÄ± for Altın. RMSE: 30.105404013989602
+2025-06-24 12:16:50,470 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 12:16:50,474 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 12:16:50,474 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 12:16:50,478 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 12:16:50,760 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 12:16:50,762 - INFO - Model eğitimi ve tahmini tamamlandÄ± for Altın. RMSE: 30.105404013989602
+2025-06-24 12:18:34,248 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:23:10,871 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:26:18,813 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:29:49,613 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:32:25,349 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:35:32,942 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:39:22,800 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:53:25,414 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 12:53:40,074 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 12:53:40,075 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 12:53:40,659 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 12:53:40,660 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 12:53:40,673 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 12:53:40,692 - INFO - preprocess_data tamamlandı for GC=F. Son veri boyutu: (1805, 55)
+2025-06-24 12:53:40,739 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 12:53:40,741 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 12:53:40,742 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 12:53:40,746 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 12:53:41,060 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 12:53:41,062 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.466780357415402
+2025-06-24 12:57:38,026 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 13:10:33,252 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 13:10:49,666 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 13:10:49,667 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 13:10:50,127 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 13:10:50,128 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 13:10:50,141 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 13:10:50,150 - INFO - preprocess_data tamamlandı for GC=F. Son veri boyutu: (1805, 55)
+2025-06-24 13:10:50,202 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:10:50,208 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:10:50,208 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:10:50,212 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:10:50,511 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:10:50,513 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:10:59,395 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:10:59,400 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:10:59,400 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:10:59,404 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:10:59,574 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:10:59,581 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:10:59,581 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:10:59,593 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:10:59,716 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:10:59,721 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:10:59,734 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:10:59,825 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:10:59,826 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:10:59,832 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:10:59,936 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:10:59,945 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:10:59,946 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:10:59,960 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:00,088 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:00,090 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:00,228 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:11:00,236 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:00,236 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:00,247 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:00,379 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:00,382 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:00,443 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 7
+2025-06-24 13:11:00,515 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:00,515 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:00,527 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:00,616 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:00,618 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:00,828 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:00,830 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:01,001 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:01,002 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:02,082 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 13:11:02,094 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:02,094 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:02,098 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:02,308 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:02,310 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:08,706 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 13:11:08,715 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:08,716 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:08,727 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:08,865 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 13:11:08,875 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:08,875 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:08,886 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:09,020 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:09,022 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:09,192 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:09,193 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:09,537 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 13:11:09,542 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:09,542 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:09,547 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:09,765 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:09,766 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:09,986 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 13:11:09,990 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:09,991 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:09,994 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:10,223 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:10,224 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:11:10,911 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:11:10,915 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:11:10,915 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:11:10,919 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:11:11,131 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:11:11,132 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:04,446 - INFO - Popüler varlıkların güncel fiyatları çekiliyor.
+2025-06-24 13:21:08,922 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:21:08,930 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:21:08,930 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:08,936 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:09,183 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:09,185 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:11,690 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:21:11,697 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:21:11,697 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:11,701 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:11,953 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:11,955 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:15,226 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:21:15,231 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:21:15,231 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:15,235 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:15,467 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:21:15,468 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:15,470 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:15,498 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:21:15,498 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:15,561 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:15,741 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:21:15,751 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:21:15,751 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:15,761 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:15,812 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:15,814 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:16,048 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:16,049 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:16,192 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 5
+2025-06-24 13:21:16,195 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 13:21:16,195 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:16,200 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:16,424 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:16,425 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 30.657686193212765
+2025-06-24 13:21:17,152 - INFO - get_historical_data çağrıldı: Sembol=SI=F, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 13:21:17,152 - INFO - yfinance'dan SI=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 13:21:17,755 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 13:21:17,756 - INFO - yfinance'dan 2512 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 13:21:17,766 - INFO - preprocess_data çağrıldı for SI=F. Gelen veri boyutu: (2512, 5)
+2025-06-24 13:21:17,778 - INFO - preprocess_data tamamlandı for SI=F. Son veri boyutu: (3632, 55)
+2025-06-24 13:21:17,822 - INFO - model_training_and_prediction çağrıldı for Gümüş. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 13:21:17,826 - INFO - Model Eğitimi İçin Gümüş: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 13:21:17,826 - INFO - Model Tahmini İçin Gümüş: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:17,830 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:18,068 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:18,069 - INFO - Model eğitimi ve tahmini tamamlandı for Gümüş. RMSE: 1.1584093078043818
+2025-06-24 13:21:29,983 - INFO - model_training_and_prediction çağrıldı for Gümüş. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 13:21:29,994 - INFO - Model Eğitimi İçin Gümüş: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 13:21:29,994 - INFO - Model Tahmini İçin Gümüş: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:30,003 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:30,239 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:30,240 - INFO - Model eğitimi ve tahmini tamamlandı for Gümüş. RMSE: 1.1584093078043818
+2025-06-24 13:21:31,871 - INFO - get_historical_data çağrıldı: Sembol=ETH-USD, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 13:21:31,871 - INFO - yfinance'dan ETH-USD verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 13:21:32,443 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 13:21:32,445 - INFO - yfinance'dan 2785 adet ETH-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 13:21:32,453 - INFO - preprocess_data çağrıldı for ETH-USD. Gelen veri boyutu: (2785, 5)
+2025-06-24 13:21:32,465 - INFO - preprocess_data tamamlandı for ETH-USD. Son veri boyutu: (2764, 55)
+2025-06-24 13:21:32,508 - INFO - model_training_and_prediction çağrıldı for Ethereum (ETH). Gelen veri boyutu: (2764, 55), Tahmin gün sayısı: 1
+2025-06-24 13:21:32,511 - INFO - Model Eğitimi İçin Ethereum (ETH): X_train boyutu: (2757, 54), y_train boyutu: (2757,)
+2025-06-24 13:21:32,511 - INFO - Model Tahmini İçin Ethereum (ETH): X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 13:21:32,516 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 13:21:32,777 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 13:21:32,778 - INFO - Model eğitimi ve tahmini tamamlandı for Ethereum (ETH). RMSE: 85.60744225589025
