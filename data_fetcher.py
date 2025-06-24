@@ -8,15 +8,16 @@ import requests
 import sqlite3
 from datetime import datetime, timedelta
 import logging
+import os 
 
 # Loglama yapılandırması
-logging.basicConfig(filename='crypto_app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', encoding='utf-8') # encoding eklendi
+logging.basicConfig(filename='crypto_app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', encoding='utf-8')
 logger = logging.getLogger(__name__)
 
 # --- Varlık Seçenekleri ve Sembolleri ---
 VARLIK_BILGILERI = {
     "Altın": {"sembol": "GC=F", "kaynak": "yfinance"},
-    "Gümüş": {"sembol": "SI=F", "kaynak": "yfinance"},
+    "Gümüş": {"sembol": "SI=F", "kaynak": "yfinance"}, # Gümüş için tekrar SI=F sembolü kullanıldı
     "Ham Petrol": {"sembol": "CL=F", "kaynak": "yfinance"}, # WTI Crude Oil Futures
     "Bitcoin": {"sembol": "BTC-USD", "kaynak": "yfinance"}, # Yfinance'dan BTC/USD spot fiyatı
     "Ethereum (ETH)": {"sembol": "ETH-USD", "kaynak": "yfinance"},
@@ -27,8 +28,10 @@ VARLIK_BILGILERI = {
     "Ripple (XRP)": {"sembol": "XRP-USD", "kaynak": "yfinance"}
 }
 
-# --- CoinAPI Anahtarı (Kendi anahtarınızı girin!) ---
-coinapi_key = "f970d607-417d-4767-a532-39c637b4edaa" # Lütfen kendi anahtarınızla değiştirin!
+# --- CoinAPI Anahtarı ---
+# Kendi CoinAPI anahtarınızı buraya girin veya ortam değişkeni olarak ayarlayın.
+# Güvenlik için ortam değişkeni kullanılması önerilir: COINAPI_API_KEY = os.environ.get("COINAPI_API_KEY", "YOUR_API_KEY_HERE")
+COINAPI_API_KEY = os.environ.get("COINAPI_API_KEY", "f970d607-417d-4767-a532-39c637b4edaa") # API Anahtarınız buraya eklendi
 
 
 # --- Veritabanı Ayarları ---
@@ -62,7 +65,7 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
     """yfinance'dan geçmiş fiyat verilerini çeker."""
     logger.info(f"yfinance'dan {symbol} verisi çekiliyor: {start_date.strftime('%Y-%m-%d')} - {end_date.strftime('%Y-%m-%d')}")
     try:
-        data = yf.download(symbol, start=start_date, end=end_date, interval="1d")
+        data = yf.download(symbol, start=start_date, end=end_date, interval="1d", progress=False, actions=False)
         
         logger.debug(f"\n--- DEBUG (yfinance) - {symbol} Ham Veri (Raw) ---")
         logger.debug(f"Veri boş mu? {data.empty}")
@@ -77,7 +80,7 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
         logger.debug("--- DEBUG (yfinance) Sonu ---\n")
 
         if data.empty:
-            logger.warning(f"yfinance'dan '{symbol}' için veri çekilemedi. Sembolü veya tarih aralığını kontrol edin.")
+            logger.warning(f"yfinance'dan '{symbol}' için veri çekilemedi veya veri bulunamadı. Sembolü veya tarih aralığını kontrol edin.")
             return pd.DataFrame()
         
         data.index = pd.to_datetime(data.index)
@@ -95,7 +98,7 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
 
         missing_cols = [col for col in required_cols if col not in data.columns]
         if missing_cols:
-            logger.error(f"yfinance'dan çekilen veride eksik sütunlar var: {missing_cols}. Lütfen sembolü kontrol edin.")
+            logger.error(f"yfinance'dan çekilen veride eksik sütunlar var: {missing_cols}. Lütfen sembolü kontrol edin veya yfinance API yanıtını inceleyin.")
             return pd.DataFrame() 
         
         final_data = data[required_cols].copy()
@@ -134,14 +137,14 @@ def get_yfinance_data(symbol: str, start_date: datetime, end_date: datetime) -> 
         return final_data
 
     except Exception as e:
-        logger.error(f"yfinance'dan veri çekilirken hata oluştu ({symbol}): {e}")
+        logger.error(f"yfinance'dan veri çekilirken beklenmeyen hata oluştu ({symbol}): {e}. Detay: {e}")
         return pd.DataFrame()
 
 
 def get_coinapi_data(asset_id_base: str, asset_id_quote: str = "USD", period_id: str = "1DAY", days_back: int = 365) -> pd.DataFrame:
     """CoinAPI.io'dan geçmiş borsa kuru verilerini çeker."""
-    if coinapi_key == "YOUR_COINAPI_KEY_HERE":
-        logger.error("Lütfen 'data_fetcher.py' dosyasındaki `coinapi_key` değişkenine kendi CoinAPI anahtarınızı girin.")
+    if not COINAPI_API_KEY:
+        logger.error("CoinAPI anahtarı belirtilmedi veya geçersiz. CoinAPI'den veri çekilemiyor.")
         return pd.DataFrame()
 
     time_end = datetime.utcnow()
@@ -156,7 +159,7 @@ def get_coinapi_data(asset_id_base: str, asset_id_quote: str = "USD", period_id:
         "time_end": time_end_iso,
         "limit": 10000
     }
-    headers = {"X-CoinAPI-Key": coinapi_key}
+    headers = {"X-CoinAPI-Key": COINAPI_API_KEY}
 
     logger.info(f"CoinAPI'den {asset_id_base}/{asset_id_quote} verisi çekiliyor. Başlangıç: {time_start_iso}, Bitiş: {time_end_iso}")
     try:
@@ -189,7 +192,7 @@ def get_coinapi_data(asset_id_base: str, asset_id_quote: str = "USD", period_id:
         df.columns = ['Open', 'High', 'Low', 'Close']
         
         if 'Volume' not in df.columns:
-            df['Volume'] = 0 # Placeholder for Volume if not provided by CoinAPI
+            df['Volume'] = 0 
         
         df = df.resample('D').last()
         
@@ -245,7 +248,7 @@ def fetch_exchange_rates(base_currency="USD"):
         
         if 'rates' in data:
             rates = data['rates']
-            rates[base_currency] = 1.0
+            rates[base_currency] = 1.0 
             logger.info(f"Döviz kurları başarıyla çekildi (Baz: {base_currency}).")
             return rates
         else:
@@ -259,23 +262,21 @@ def fetch_exchange_rates(base_currency="USD"):
         return None
 
 if __name__ == "__main__":
-    # Bu bölüm, modülün bağımsız olarak test edilmesi içindir ve Streamlit uygulamasına dahil edilmez.
-    # Bu nedenle, bu bölümde Streamlit çağrıları kullanılmamalıdır.
     logger.info("Veri Çekme Modülü Testi (Bağımsız Çalışma)")
     init_db()
 
-    # yfinance Veri Testi
-    yf_symbol = "BTC-USD"
-    yf_start_date = datetime.now() - timedelta(days=365)
+    # yfinance Veri Testi (Gümüş sembolü ile)
+    yf_symbol = "SI=F" # Gümüş için SI=F sembolü ile test ediyoruz
+    yf_start_date = datetime.now() - timedelta(days=5*365) # 5 yıl geçmiş
     yf_end_date = datetime.now()
-    logger.info(f"yfinance Veri Testi: {yf_symbol}")
+    logger.info(f"yfinance Gümüş Veri Testi: {yf_symbol}")
     data_yf = get_yfinance_data(yf_symbol, yf_start_date, yf_end_date)
     if not data_yf.empty:
         logger.info(data_yf.head())
     else:
-        logger.warning("Veri çekilemedi.")
+        logger.warning(f"Gümüş ({yf_symbol}) verisi çekilemedi. Lütfen internet bağlantınızı ve sembolün geçerliliğini kontrol edin.")
 
-    # CoinAPI Veri Testi (örnek için varsayılan değerler)
+    # CoinAPI Veri Testi (eğer kullanılıyorsa ve anahtar varsa)
     coin_base = "BTC"
     coin_quote = "USD"
     coin_days = 90
@@ -284,7 +285,7 @@ if __name__ == "__main__":
     if not data_coinapi.empty:
         logger.info(data_coinapi.head())
     else:
-        logger.warning("Veri çekilemedi.")
+        logger.warning("CoinAPI verisi çekilemedi veya CoinAPI anahtarı eksik.")
 
     # Döviz Kurları Testi
     logger.info("Döviz Kurları Testi:")

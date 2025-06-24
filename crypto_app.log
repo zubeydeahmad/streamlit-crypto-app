@@ -3954,3 +3954,1693 @@ dtype: int64
 2025-06-23 16:02:25,136 - INFO - Hesaplanan yüzdesel değişim: -96.81%
 2025-06-23 16:02:25,136 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.31905560708
 2025-06-23 16:02:25,136 - INFO - Hesaplanan yüzdesel değişim: -0.97%
+2025-06-23 20:01:09,238 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:09,443 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:10,151 - INFO - Döviz kurları başarıyla çekildi (Baz: USD).
+2025-06-23 20:01:12,594 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:12,598 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:18,726 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:18,726 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:18,742 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:01:21,147 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:01:21,151 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:01:21,339 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:01:21,347 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:01:21,411 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:01:21,419 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:01:21,419 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:01:21,427 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-23 20:01:21,427 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:01:21,427 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:01:21,431 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:01:21,443 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:01:21,443 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:01:21,447 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:01:21,467 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-23 20:01:21,467 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:01:23,376 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:01:23,388 - INFO - Model metrikleri: {'MAE': 2723.076521281538, 'RMSE': np.float64(2739.526392169762), 'R2': -82.08342138192394, 'MAPE': np.float64(96.26929291391716)}
+2025-06-23 20:01:23,396 - INFO - predict_next_day_price: Tahmin edilen fiyat: 107.80
+2025-06-23 20:01:23,396 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=3400.699951171875, Yeni değer=107.79931640625
+2025-06-23 20:01:23,396 - INFO - Hesaplanan yüzdesel değişim: -96.83%
+2025-06-23 20:01:23,564 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:01:24,180 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:01:24,184 - INFO - yfinance'dan 4 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:01:24,188 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.3169356271387786
+2025-06-23 20:01:24,188 - INFO - Hesaplanan yüzdesel değişim: -96.83%
+2025-06-23 20:01:24,188 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.3169356271388
+2025-06-23 20:01:24,188 - INFO - Hesaplanan yüzdesel değişim: -0.97%
+2025-06-23 20:01:36,572 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:36,572 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:38,784 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:38,784 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:44,581 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:44,581 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:45,971 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:01:45,971 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:01:46,007 - INFO - yfinance'dan SI=F verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:01:46,536 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:01:46,540 - INFO - yfinance'dan 1256 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:01:46,660 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:01:46,676 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:01:46,784 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:01:46,796 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:01:46,796 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:01:46,800 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-23 20:01:46,804 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:01:46,804 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:01:46,808 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:01:46,824 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:01:46,824 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:01:46,832 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:01:46,848 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-23 20:01:46,848 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:01:46,882 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:01:46,890 - INFO - Model metrikleri: {'MAE': 11.610605996230554, 'RMSE': np.float64(11.749968318925008), 'R2': -30.02408412314778, 'MAPE': np.float64(37.239155581987745)}
+2025-06-23 20:01:46,898 - INFO - predict_next_day_price: Tahmin edilen fiyat: 44.31
+2025-06-23 20:01:46,898 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=36.165000915527344, Yeni değer=44.31275177001953
+2025-06-23 20:01:46,898 - INFO - Hesaplanan yüzdesel değişim: 22.53%
+2025-06-23 20:01:46,926 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:01:47,299 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:01:47,299 - INFO - yfinance'dan 4 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:01:47,303 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=12.252938102648843
+2025-06-23 20:01:47,303 - INFO - Hesaplanan yüzdesel değişim: 22.53%
+2025-06-23 20:01:47,303 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=1002.2529381026488
+2025-06-23 20:01:47,303 - INFO - Hesaplanan yüzdesel değişim: 0.23%
+2025-06-23 20:02:09,230 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:09,230 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:11,963 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:11,963 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:15,667 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:15,671 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:16,906 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:16,906 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:16,938 - INFO - yfinance'dan CL=F verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:02:17,397 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:02:17,397 - INFO - yfinance'dan 1256 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:02:17,481 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:02:17,505 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:02:17,573 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:02:17,585 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:02:17,585 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:02:17,589 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-23 20:02:17,589 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:02:17,589 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:02:17,593 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:02:17,601 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:02:17,605 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:02:17,609 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:02:17,626 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-23 20:02:17,626 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:02:17,655 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:02:17,663 - INFO - Model metrikleri: {'MAE': 1.5661295364642966, 'RMSE': np.float64(2.0915168400412734), 'R2': 0.8238044805221107, 'MAPE': np.float64(2.307427897105034)}
+2025-06-23 20:02:17,671 - INFO - predict_next_day_price: Tahmin edilen fiyat: 74.73
+2025-06-23 20:02:17,671 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=72.08000183105469, Yeni değer=74.73222351074219
+2025-06-23 20:02:17,671 - INFO - Hesaplanan yüzdesel değişim: 3.68%
+2025-06-23 20:02:17,699 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:02:18,135 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:02:18,139 - INFO - yfinance'dan 4 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:02:18,139 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=10.366517867537025
+2025-06-23 20:02:18,143 - INFO - Hesaplanan yüzdesel değişim: 3.67%
+2025-06-23 20:02:18,143 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=1000.366517867537
+2025-06-23 20:02:18,143 - INFO - Hesaplanan yüzdesel değişim: 0.04%
+2025-06-23 20:02:29,232 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:29,232 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:31,589 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:31,589 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:35,336 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:35,340 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:36,314 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:36,314 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:36,350 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:02:36,984 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:02:36,988 - INFO - yfinance'dan 1826 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:02:37,076 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:02:37,096 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:02:37,196 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:02:37,204 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:02:37,204 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:02:37,208 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-23 20:02:37,212 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:02:37,212 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:02:37,216 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:02:37,228 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:02:37,228 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:02:37,232 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:02:37,252 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-23 20:02:37,252 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:02:37,284 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:02:37,292 - INFO - Model metrikleri: {'MAE': 84346.121695965, 'RMSE': np.float64(86039.09237007817), 'R2': -24.659586628543497, 'MAPE': np.float64(100.0600500456913)}
+2025-06-23 20:02:37,300 - INFO - predict_next_day_price: Tahmin edilen fiyat: 104.10
+2025-06-23 20:02:37,300 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=100595.03125, Yeni değer=104.09735870361328
+2025-06-23 20:02:37,300 - INFO - Hesaplanan yüzdesel değişim: -99.90%
+2025-06-23 20:02:37,328 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:02:37,728 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:02:37,728 - INFO - yfinance'dan 8 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:02:37,732 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.010348161078146022
+2025-06-23 20:02:37,732 - INFO - Hesaplanan yüzdesel değişim: -99.90%
+2025-06-23 20:02:37,736 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.0103481610781
+2025-06-23 20:02:37,736 - INFO - Hesaplanan yüzdesel değişim: -1.00%
+2025-06-23 20:02:54,941 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:54,945 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:02:57,625 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:02:57,625 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:02,436 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:03:02,436 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:03,386 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:03:03,386 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:03,420 - INFO - yfinance'dan ETH-USD verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:03:04,170 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:03:04,174 - INFO - yfinance'dan 1826 adet ETH-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:03:04,265 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:03:04,277 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:03:04,489 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:03:04,497 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:03:04,501 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:03:04,505 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-23 20:03:04,505 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:03:04,505 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:03:04,509 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:03:04,529 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:03:04,533 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:03:04,553 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:03:04,597 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-23 20:03:04,597 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:03:04,633 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:03:04,649 - INFO - Model metrikleri: {'MAE': 2573.443752024215, 'RMSE': np.float64(2639.227631950667), 'R2': -19.219988497223948, 'MAPE': np.float64(95.83341116796328)}
+2025-06-23 20:03:04,657 - INFO - predict_next_day_price: Tahmin edilen fiyat: 104.04
+2025-06-23 20:03:04,657 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=2222.572509765625, Yeni değer=104.0376205444336
+2025-06-23 20:03:04,657 - INFO - Hesaplanan yüzdesel değişim: -95.32%
+2025-06-23 20:03:04,685 - INFO - yfinance'dan ETH-USD verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:03:05,205 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:03:05,209 - INFO - yfinance'dan 8 adet ETH-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:03:05,209 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.46809550683862544
+2025-06-23 20:03:05,209 - INFO - Hesaplanan yüzdesel değişim: -95.32%
+2025-06-23 20:03:05,213 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.4680955068386
+2025-06-23 20:03:05,213 - INFO - Hesaplanan yüzdesel değişim: -0.95%
+2025-06-23 20:03:25,976 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:03:25,976 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:28,077 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:03:28,077 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:32,186 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:03:32,190 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:33,353 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:03:33,353 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:03:33,381 - INFO - yfinance'dan SOL-USD verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:03:34,079 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:03:34,083 - INFO - yfinance'dan 1826 adet SOL-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:03:34,165 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:03:34,173 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:03:34,293 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:03:34,313 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:03:34,317 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:03:34,321 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-23 20:03:34,325 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:03:34,325 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:03:34,329 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:03:34,349 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:03:34,349 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:03:34,361 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:03:34,391 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-23 20:03:34,391 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:03:34,483 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:03:34,511 - INFO - Model metrikleri: {'MAE': 62.794066390550206, 'RMSE': np.float64(71.73033899363546), 'R2': -2.965500879401442, 'MAPE': np.float64(34.751706423094284)}
+2025-06-23 20:03:34,519 - INFO - predict_next_day_price: Tahmin edilen fiyat: 102.44
+2025-06-23 20:03:34,519 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=132.61251831054688, Yeni değer=102.43526458740234
+2025-06-23 20:03:34,519 - INFO - Hesaplanan yüzdesel değişim: -22.76%
+2025-06-23 20:03:34,563 - INFO - yfinance'dan SOL-USD verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:03:34,981 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:03:34,985 - INFO - yfinance'dan 8 adet SOL-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:03:34,985 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=7.724403841538051
+2025-06-23 20:03:34,985 - INFO - Hesaplanan yüzdesel değişim: -22.76%
+2025-06-23 20:03:34,989 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=997.7244038415381
+2025-06-23 20:03:34,989 - INFO - Hesaplanan yüzdesel değişim: -0.23%
+2025-06-23 20:13:22,853 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:13:22,853 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:13:24,959 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:13:24,959 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:13:28,767 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:13:28,767 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:13:29,696 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:13:29,696 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-23 20:13:29,724 - INFO - yfinance'dan ADA-USD verisi çekiliyor: 2020-06-24 - 2025-06-23
+2025-06-23 20:13:30,530 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:13:30,534 - INFO - yfinance'dan 1826 adet ADA-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:13:30,626 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-23 20:13:30,646 - INFO - Teknik göstergeler ekleniyor...
+2025-06-23 20:13:30,839 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-23 20:13:30,867 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-23 20:13:30,875 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-23 20:13:30,886 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-23 20:13:30,893 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-23 20:13:30,893 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-23 20:13:30,902 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-23 20:13:30,934 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-23 20:13:30,934 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-23 20:13:30,946 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-23 20:13:30,989 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-23 20:13:30,989 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-23 20:13:31,017 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-23 20:13:31,029 - INFO - Model metrikleri: {'MAE': 45.86378859035197, 'RMSE': np.float64(45.86726998529447), 'R2': -33721.57149586339, 'MAPE': np.float64(8277.48843932744)}
+2025-06-23 20:13:31,037 - INFO - predict_next_day_price: Tahmin edilen fiyat: 45.95
+2025-06-23 20:13:31,037 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=0.5395681858062744, Yeni değer=45.94652557373047
+2025-06-23 20:13:31,037 - INFO - Hesaplanan yüzdesel değişim: 8415.43%
+2025-06-23 20:13:31,065 - INFO - yfinance'dan ADA-USD verisi çekiliyor: 2025-06-16 - 2025-06-23
+2025-06-23 20:13:31,519 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-23 20:13:31,523 - INFO - yfinance'dan 8 adet ADA-USD verisi başarıyla çekildi ve işlendi.
+2025-06-23 20:13:31,523 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=850.7922456261758
+2025-06-23 20:13:31,523 - INFO - Hesaplanan yüzdesel değişim: 8407.92%
+2025-06-23 20:13:31,527 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=1840.7922456261758
+2025-06-23 20:13:31,527 - INFO - Hesaplanan yüzdesel değişim: 84.08%
+2025-06-23 20:14:07,722 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-23 20:14:07,722 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:05:52,880 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:05:53,074 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:05:53,719 - INFO - Döviz kurları başarıyla çekildi (Baz: USD).
+2025-06-24 11:06:35,510 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:06:35,511 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:06:38,789 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:06:38,789 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:06:39,913 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:06:39,914 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:06:39,926 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:06:42,524 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:06:42,524 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:06:42,645 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:06:42,651 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:06:42,685 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:06:42,691 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:06:42,692 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:06:42,693 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-24 11:06:42,694 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:06:42,695 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:06:42,696 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:06:42,703 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:06:42,704 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:06:42,707 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:06:42,717 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-24 11:06:42,717 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:06:42,879 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:06:42,889 - INFO - Model metrikleri: {'MAE': 2727.082058807899, 'RMSE': np.float64(2743.5414518324687), 'R2': -82.16754854376863, 'MAPE': np.float64(96.26832462283716)}
+2025-06-24 11:06:42,893 - INFO - predict_next_day_price: Tahmin edilen fiyat: 107.83
+2025-06-24 11:06:42,893 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=3344.89990234375, Yeni değer=107.82858276367188
+2025-06-24 11:06:42,894 - INFO - Hesaplanan yüzdesel değişim: -96.78%
+2025-06-24 11:06:43,029 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:06:43,335 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:06:43,335 - INFO - yfinance'dan 5 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:06:43,336 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.32236714374656494
+2025-06-24 11:06:43,336 - INFO - Hesaplanan yüzdesel değişim: -96.78%
+2025-06-24 11:06:43,337 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.3223671437465
+2025-06-24 11:06:43,337 - INFO - Hesaplanan yüzdesel değişim: -0.97%
+2025-06-24 11:06:57,091 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:06:57,092 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:06:58,053 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:06:58,053 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:07:00,398 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:07:00,398 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:07:01,275 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:07:01,275 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:07:01,285 - INFO - yfinance'dan SI=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:07:01,657 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:07:01,657 - INFO - yfinance'dan 1256 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:07:01,685 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:07:01,690 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:07:01,721 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:07:01,726 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:07:01,727 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:07:01,728 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-24 11:07:01,729 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:07:01,729 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:07:01,730 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:07:01,735 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:07:01,735 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:07:01,737 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:07:01,746 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-24 11:07:01,746 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:07:01,766 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:07:01,771 - INFO - Model metrikleri: {'MAE': 11.587876928263697, 'RMSE': np.float64(11.728785648302042), 'R2': -29.52282839631557, 'MAPE': np.float64(37.136971365912125)}
+2025-06-24 11:07:01,774 - INFO - predict_next_day_price: Tahmin edilen fiyat: 44.37
+2025-06-24 11:07:01,774 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=36.07500076293945, Yeni değer=44.36677551269531
+2025-06-24 11:07:01,774 - INFO - Hesaplanan yüzdesel değişim: 22.98%
+2025-06-24 11:07:01,789 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:07:02,094 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:07:02,095 - INFO - yfinance'dan 5 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:07:02,095 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=12.298482210504664
+2025-06-24 11:07:02,095 - INFO - Hesaplanan yüzdesel değişim: 22.98%
+2025-06-24 11:07:02,096 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=1002.2984822105046
+2025-06-24 11:07:02,096 - INFO - Hesaplanan yüzdesel değişim: 0.23%
+2025-06-24 11:09:05,928 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:05,928 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:07,443 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:07,444 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:11,062 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:11,063 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:11,883 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:11,883 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:11,893 - INFO - yfinance'dan CL=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:09:12,384 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:09:12,385 - INFO - yfinance'dan 1256 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:09:12,405 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:09:12,411 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:09:12,445 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:09:12,451 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:09:12,453 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:09:12,455 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-24 11:09:12,456 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:09:12,456 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:09:12,458 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:09:12,468 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:09:12,468 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:09:12,470 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:09:12,479 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-24 11:09:12,479 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:09:12,497 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:09:12,505 - INFO - Model metrikleri: {'MAE': 1.6021421202297867, 'RMSE': np.float64(2.152296562868799), 'R2': 0.8101253957107776, 'MAPE': np.float64(2.3585952508367773)}
+2025-06-24 11:09:12,510 - INFO - predict_next_day_price: Tahmin edilen fiyat: 71.86
+2025-06-24 11:09:12,510 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=66.4800033569336, Yeni değer=71.85773468017578
+2025-06-24 11:09:12,510 - INFO - Hesaplanan yüzdesel değişim: 8.09%
+2025-06-24 11:09:12,540 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:09:12,821 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:09:12,822 - INFO - yfinance'dan 5 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:09:12,823 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=10.808924646764675
+2025-06-24 11:09:12,823 - INFO - Hesaplanan yüzdesel değişim: 8.09%
+2025-06-24 11:09:12,823 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=1000.8089246467647
+2025-06-24 11:09:12,823 - INFO - Hesaplanan yüzdesel değişim: 0.08%
+2025-06-24 11:09:20,477 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:20,477 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:22,080 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:22,080 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:25,777 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:25,777 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:26,338 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:26,338 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:26,348 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:09:26,801 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:09:26,802 - INFO - yfinance'dan 1826 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:09:26,832 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:09:26,838 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:09:26,873 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:09:26,877 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:09:26,878 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:09:26,879 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-24 11:09:26,881 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:09:26,881 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:09:26,882 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:09:26,887 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:09:26,887 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:09:26,889 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:09:26,900 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-24 11:09:26,900 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:09:26,921 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:09:26,928 - INFO - Model metrikleri: {'MAE': 84492.7992485355, 'RMSE': np.float64(86182.29652786927), 'R2': -24.75428102657997, 'MAPE': np.float64(100.06630858632188)}
+2025-06-24 11:09:26,933 - INFO - predict_next_day_price: Tahmin edilen fiyat: 105.74
+2025-06-24 11:09:26,933 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=105002.3203125, Yeni değer=105.74223327636719
+2025-06-24 11:09:26,933 - INFO - Hesaplanan yüzdesel değişim: -99.90%
+2025-06-24 11:09:26,955 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:09:27,263 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:09:27,264 - INFO - yfinance'dan 8 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:09:27,264 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.010070466344140312
+2025-06-24 11:09:27,264 - INFO - Hesaplanan yüzdesel değişim: -99.90%
+2025-06-24 11:09:27,264 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.0100704663441
+2025-06-24 11:09:27,265 - INFO - Hesaplanan yüzdesel değişim: -1.00%
+2025-06-24 11:09:39,553 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:39,553 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:40,778 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:40,779 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:46,862 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:46,862 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:47,445 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:47,446 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:09:47,455 - INFO - yfinance'dan ETH-USD verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:09:48,089 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:09:48,090 - INFO - yfinance'dan 1826 adet ETH-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:09:48,112 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:09:48,118 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:09:48,155 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:09:48,159 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:09:48,160 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:09:48,162 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-24 11:09:48,163 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:09:48,163 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:09:48,164 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:09:48,169 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:09:48,169 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:09:48,171 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:09:48,182 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-24 11:09:48,182 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:09:48,203 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:09:48,210 - INFO - Model metrikleri: {'MAE': 2571.7376942496767, 'RMSE': np.float64(2637.3943974256917), 'R2': -19.244012415028205, 'MAPE': np.float64(95.84841196318779)}
+2025-06-24 11:09:48,215 - INFO - predict_next_day_price: Tahmin edilen fiyat: 104.19
+2025-06-24 11:09:48,215 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=2388.731689453125, Yeni değer=104.18649291992188
+2025-06-24 11:09:48,215 - INFO - Hesaplanan yüzdesel değişim: -95.64%
+2025-06-24 11:09:48,240 - INFO - yfinance'dan ETH-USD verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:09:48,555 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:09:48,555 - INFO - yfinance'dan 8 adet ETH-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:09:48,556 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.4361582063817903
+2025-06-24 11:09:48,556 - INFO - Hesaplanan yüzdesel değişim: -95.64%
+2025-06-24 11:09:48,556 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.4361582063818
+2025-06-24 11:09:48,556 - INFO - Hesaplanan yüzdesel değişim: -0.96%
+2025-06-24 11:09:58,799 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:09:58,800 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:06,790 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:11:06,924 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:07,172 - INFO - Döviz kurları başarıyla çekildi (Baz: USD).
+2025-06-24 11:11:10,015 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:11:10,015 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:12,949 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:11:12,950 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:13,488 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:11:13,488 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:13,497 - INFO - yfinance'dan XAGUSD=X verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:11:15,173 - ERROR - HTTP Error 404: 
+2025-06-24 11:11:15,394 - ERROR - 
+1 Failed download:
+2025-06-24 11:11:15,394 - ERROR - ['XAGUSD=X']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-24 11:11:15,396 - WARNING - yfinance'dan 'XAGUSD=X' için veri çekilemedi. Sembolü veya tarih aralığını kontrol edin.
+2025-06-24 11:11:15,397 - ERROR - Veri çekme başarısız: Gümüş (XAGUSD=X)
+2025-06-24 11:11:23,196 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:11:23,196 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:25,038 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:11:25,039 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:11:25,048 - INFO - yfinance'dan XAGUSD=X verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:11:25,669 - ERROR - HTTP Error 404: 
+2025-06-24 11:11:26,023 - ERROR - 
+1 Failed download:
+2025-06-24 11:11:26,023 - ERROR - ['XAGUSD=X']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-24 11:11:26,024 - WARNING - yfinance'dan 'XAGUSD=X' için veri çekilemedi. Sembolü veya tarih aralığını kontrol edin.
+2025-06-24 11:11:26,025 - ERROR - Veri çekme başarısız: Gümüş (XAGUSD=X)
+2025-06-24 11:13:15,941 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:13:16,082 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:13:16,205 - INFO - Döviz kurları başarıyla çekildi (Baz: USD).
+2025-06-24 11:13:19,285 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:13:19,286 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:13:23,321 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:13:23,322 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:13:27,227 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:13:27,227 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:13:27,801 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:13:27,802 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:13:27,812 - INFO - yfinance'dan XAGUSD=X verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:13:29,203 - ERROR - HTTP Error 404: 
+2025-06-24 11:13:29,432 - ERROR - 
+1 Failed download:
+2025-06-24 11:13:29,432 - ERROR - ['XAGUSD=X']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-24 11:13:29,435 - WARNING - yfinance'dan 'XAGUSD=X' için veri çekilemedi veya veri bulunamadı. Sembolü veya tarih aralığını kontrol edin.
+2025-06-24 11:13:29,436 - ERROR - Veri çekme başarısız: Gümüş (XAGUSD=X)
+2025-06-24 11:15:35,892 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:15:35,892 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:15:37,267 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:15:37,267 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:15:39,371 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:15:39,372 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:15:40,776 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:15:40,777 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:15:40,791 - INFO - yfinance'dan GC=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:15:41,396 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:15:41,397 - INFO - yfinance'dan 2512 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:15:41,458 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:15:41,464 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:15:41,510 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:15:41,516 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:15:41,517 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:15:41,520 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (2512, 50)
+2025-06-24 11:15:41,522 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:15:41,522 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:15:41,524 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:15:41,530 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:15:41,531 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:15:41,534 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:15:41,554 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1930, Test boyutu: 483
+2025-06-24 11:15:41,554 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:15:41,555 - WARNING - Kaydedilmiş model, scaler veya özellik dosyası bulunamadı.
+2025-06-24 11:15:41,555 - INFO - Doğrudan XGBoost modeli eğitimi başlatılıyor (erken durdurma kapalı)...
+2025-06-24 11:15:43,853 - INFO - Doğrudan XGBoost modeli başarıyla eğitildi.
+2025-06-24 11:15:43,894 - INFO - Model, ölçekleyici ve özellikler 'xgboost_model.joblib', 'scaler.joblib' ve 'features.joblib' konumlarına kaydedildi.
+2025-06-24 11:15:43,904 - INFO - Model metrikleri: {'MAE': 479.62765724071556, 'RMSE': np.float64(640.1833612554266), 'R2': -1.111776137337619, 'MAPE': np.float64(17.195310224111072)}
+2025-06-24 11:15:43,908 - INFO - predict_next_day_price: Tahmin edilen fiyat: 1979.56
+2025-06-24 11:15:43,908 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=3341.5, Yeni değer=1979.56396484375
+2025-06-24 11:15:43,908 - INFO - Hesaplanan yüzdesel değişim: -40.76%
+2025-06-24 11:15:44,024 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:15:44,402 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:15:44,403 - INFO - yfinance'dan 5 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:15:44,404 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=5.923823185111374
+2025-06-24 11:15:44,404 - INFO - Hesaplanan yüzdesel değişim: -40.76%
+2025-06-24 11:15:44,404 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=995.9238231851114
+2025-06-24 11:15:44,404 - INFO - Hesaplanan yüzdesel değişim: -0.41%
+2025-06-24 11:15:56,239 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:15:56,240 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:15:57,996 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:15:57,996 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:16:00,667 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:16:00,667 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:16:01,320 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:16:01,320 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:16:01,329 - INFO - yfinance'dan CL=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:16:01,772 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:16:01,773 - INFO - yfinance'dan 2513 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:16:01,803 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:16:01,807 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:16:01,851 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:16:01,856 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:16:01,857 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:16:01,859 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (2513, 50)
+2025-06-24 11:16:01,860 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         3
+Volatility_20     41
+dtype: int64
+2025-06-24 11:16:01,860 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:16:01,861 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:16:01,867 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:16:01,868 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:16:01,870 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 120 satır düşürüldü.
+2025-06-24 11:16:01,881 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1914, Test boyutu: 479
+2025-06-24 11:16:01,881 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:16:01,930 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:16:01,938 - INFO - Model metrikleri: {'MAE': 1013.3775792370758, 'RMSE': np.float64(1013.4091813967821), 'R2': -19451.209674727874, 'MAPE': np.float64(1364.9980388521576)}
+2025-06-24 11:16:01,942 - INFO - predict_next_day_price: Tahmin edilen fiyat: 1093.86
+2025-06-24 11:16:01,943 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=66.7699966430664, Yeni değer=1093.858154296875
+2025-06-24 11:16:01,943 - INFO - Hesaplanan yüzdesel değişim: 1538.25%
+2025-06-24 11:16:01,969 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:16:02,337 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:16:02,338 - INFO - yfinance'dan 5 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:16:02,339 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=163.82480294919475
+2025-06-24 11:16:02,339 - INFO - Hesaplanan yüzdesel değişim: 1538.25%
+2025-06-24 11:16:02,340 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=1153.8248029491947
+2025-06-24 11:16:02,340 - INFO - Hesaplanan yüzdesel değişim: 15.38%
+2025-06-24 11:16:49,994 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:16:50,128 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:16:50,268 - INFO - Döviz kurları başarıyla çekildi (Baz: USD).
+2025-06-24 11:16:53,911 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:16:53,912 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:00,832 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:00,832 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:01,838 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:01,838 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:01,850 - INFO - yfinance'dan SI=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:17:02,704 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:17:02,704 - INFO - yfinance'dan 1256 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:17:02,762 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:17:02,768 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:17:02,800 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:17:02,806 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:17:02,808 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:17:02,810 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-24 11:17:02,812 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:17:02,813 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:17:02,815 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:17:02,822 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:17:02,822 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:17:02,825 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:17:02,836 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-24 11:17:02,836 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:17:02,837 - WARNING - Kaydedilmiş model, scaler veya özellik dosyası bulunamadı.
+2025-06-24 11:17:02,837 - INFO - Doğrudan XGBoost modeli eğitimi başlatılıyor (erken durdurma kapalı)...
+2025-06-24 11:17:04,555 - INFO - Doğrudan XGBoost modeli başarıyla eğitildi.
+2025-06-24 11:17:04,587 - INFO - Model, ölçekleyici ve özellikler 'xgboost_model.joblib', 'scaler.joblib' ve 'features.joblib' konumlarına kaydedildi.
+2025-06-24 11:17:04,594 - INFO - Model metrikleri: {'MAE': 2.123493663195906, 'RMSE': np.float64(2.620396841982722), 'R2': -0.5238572226632543, 'MAPE': np.float64(6.478077892725259)}
+2025-06-24 11:17:04,599 - INFO - predict_next_day_price: Tahmin edilen fiyat: 29.87
+2025-06-24 11:17:04,599 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=36.04999923706055, Yeni değer=29.872581481933594
+2025-06-24 11:17:04,599 - INFO - Hesaplanan yüzdesel değişim: -17.14%
+2025-06-24 11:17:04,702 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:17:05,094 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:17:05,095 - INFO - yfinance'dan 5 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:17:05,096 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=8.281835801129793
+2025-06-24 11:17:05,096 - INFO - Hesaplanan yüzdesel değişim: -17.18%
+2025-06-24 11:17:05,096 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=998.2818358011298
+2025-06-24 11:17:05,096 - INFO - Hesaplanan yüzdesel değişim: -0.17%
+2025-06-24 11:17:15,011 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:15,012 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:17,214 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:17,214 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:20,325 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:20,325 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:20,946 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:20,947 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:20,955 - INFO - yfinance'dan CL=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:17:21,335 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:17:21,335 - INFO - yfinance'dan 1256 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:17:21,362 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:17:21,369 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:17:21,395 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:17:21,399 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:17:21,400 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:17:21,401 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1256, 50)
+2025-06-24 11:17:21,402 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:17:21,402 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:17:21,403 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:17:21,408 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:17:21,408 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:17:21,410 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:17:21,418 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 925, Test boyutu: 232
+2025-06-24 11:17:21,418 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:17:21,455 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:17:21,460 - INFO - Model metrikleri: {'MAE': 39.96540124662991, 'RMSE': np.float64(40.26458348168251), 'R2': -65.48086219541054, 'MAPE': np.float64(57.23549577817341)}
+2025-06-24 11:17:21,467 - INFO - predict_next_day_price: Tahmin edilen fiyat: 29.69
+2025-06-24 11:17:21,467 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=66.91000366210938, Yeni değer=29.68864631652832
+2025-06-24 11:17:21,467 - INFO - Hesaplanan yüzdesel değişim: -55.63%
+2025-06-24 11:17:21,487 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:17:21,753 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:17:21,753 - INFO - yfinance'dan 5 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:17:21,754 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=4.437101284055193
+2025-06-24 11:17:21,754 - INFO - Hesaplanan yüzdesel değişim: -55.63%
+2025-06-24 11:17:21,754 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=994.4371012840552
+2025-06-24 11:17:21,754 - INFO - Hesaplanan yüzdesel değişim: -0.56%
+2025-06-24 11:17:30,585 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:30,586 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:31,868 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:31,869 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:34,225 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:34,226 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:34,869 - INFO - Veritabanı 'crypto_data_v2.db' başlatıldı veya tablolar kontrol edildi.
+2025-06-24 11:17:34,870 - INFO - Uygulama çalışıyor. Yüklü XGBoost Sürümü: 3.0.2
+2025-06-24 11:17:34,879 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:17:35,488 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:17:35,488 - INFO - yfinance'dan 1826 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:17:35,512 - INFO - Oynaklık (30 günlük) hesaplandı.
+2025-06-24 11:17:35,517 - INFO - Teknik göstergeler ekleniyor...
+2025-06-24 11:17:35,553 - ERROR - ta.momentum.MoneyFlowIndex bulunamadı veya uyumsuz. Lütfen ta kütüphanesini güncelleyin: pip install --upgrade ta
+2025-06-24 11:17:35,558 - INFO - Teknik göstergeler başarıyla eklendi.
+2025-06-24 11:17:35,559 - WARNING - Teknik gösterge hesaplaması sonrası 'MFI' sütunu tamamen NaN olduğu için düşürüldü.
+2025-06-24 11:17:35,562 - INFO - DataFrame boyutu (TI sonrası, NaN sütunları temizlenmiş): (1826, 50)
+2025-06-24 11:17:35,563 - INFO - Null değerler (TI sonrası - before final dropna in ai_model): 
+Open               0
+High               0
+Low                0
+Close              0
+Volume             0
+RSI               13
+MACD              25
+MACD_Signal       33
+MACD_Diff         33
+Bollinger_High    19
+Bollinger_Low     19
+BB_Band_Width     19
+SMA_7              6
+SMA_25            24
+SMA_99            98
+EMA_7              6
+EMA_25            24
+EMA_99            98
+Momentum          14
+ATR                0
+Stoch_K           13
+Stoch_D           15
+CCI               19
+ADX                0
+ADX_pos            0
+ADX_neg            0
+OBV                0
+UO                28
+VWAP              13
+CMF               19
+TRIX              43
+Close_Lag1         1
+Volume_Lag1        1
+Close_Lag2         2
+Volume_Lag2        2
+Close_Lag3         3
+Volume_Lag3        3
+Close_Lag5         5
+Volume_Lag5        5
+Close_Lag7         7
+Volume_Lag7        7
+Close_Lag10       10
+Volume_Lag10      10
+Close_Lag15       15
+Volume_Lag15      15
+Close_Lag20       20
+Volume_Lag20      20
+Daily_Return       1
+Log_Return         1
+Volatility_20     20
+dtype: int64
+2025-06-24 11:17:35,563 - INFO - Piyasa zamanı özellikleri ekleniyor...
+2025-06-24 11:17:35,564 - INFO - Piyasa zamanı özellikleri başarıyla eklendi.
+2025-06-24 11:17:35,570 - INFO - prepare_data_for_model: Özellik mühendisliği tamamlandı.
+2025-06-24 11:17:35,570 - INFO - prepare_data_for_model: Hedef değişken (mutlak fiyat) 1 gün sonrası için oluşturuldu.
+2025-06-24 11:17:35,573 - WARNING - prepare_data_for_model: NaN değerler nedeniyle 99 satır düşürüldü.
+2025-06-24 11:17:35,586 - INFO - Veri hazırlığı tamamlandı. Eğitim boyutu: 1381, Test boyutu: 346
+2025-06-24 11:17:35,586 - INFO - Hazırlanan özellik sayısı: 94
+2025-06-24 11:17:35,608 - INFO - Model, scaler ve özellikler başarıyla yüklendi.
+2025-06-24 11:17:35,617 - INFO - Model metrikleri: {'MAE': 84570.71542718369, 'RMSE': np.float64(86258.83295256841), 'R2': -24.80127507544342, 'MAPE': np.float64(100.1626093193525)}
+2025-06-24 11:17:35,623 - INFO - predict_next_day_price: Tahmin edilen fiyat: 29.40
+2025-06-24 11:17:35,623 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=104885.3828125, Yeni değer=29.401580810546875
+2025-06-24 11:17:35,623 - INFO - Hesaplanan yüzdesel değişim: -99.97%
+2025-06-24 11:17:35,653 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2025-06-17 - 2025-06-24
+2025-06-24 11:17:35,916 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:17:35,917 - INFO - yfinance'dan 8 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:17:35,917 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=10.0, Yeni değer=0.0028032105162934928
+2025-06-24 11:17:35,917 - INFO - Hesaplanan yüzdesel değişim: -99.97%
+2025-06-24 11:17:35,918 - INFO - Yüzdesel değişim hesaplanıyor: Eski değer=1000.0, Yeni değer=990.0028032105163
+2025-06-24 11:17:35,918 - INFO - Hesaplanan yüzdesel değişim: -1.00%
+2025-06-24 11:20:20,632 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 11:20:20,632 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:20:21,676 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:20:21,677 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:20:21,693 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 11:20:21,717 - INFO - preprocess_data tamamlandı for GC=F. Son veri boyutu: (1805, 55)
+2025-06-24 11:20:21,764 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55)
+2025-06-24 11:20:21,768 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:20:21,768 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:20:21,773 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:20:22,055 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:20:22,056 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 29.512705388418816
+2025-06-24 11:25:19,096 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2020-06-25, Bitiş=2025-06-24
+2025-06-24 11:25:19,096 - INFO - yfinance'dan GC=F verisi çekiliyor: 2020-06-25 - 2025-06-24
+2025-06-24 11:25:20,249 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:25:20,249 - INFO - yfinance'dan 1256 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:25:20,266 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (1256, 5)
+2025-06-24 11:25:20,278 - INFO - preprocess_data tamamlandı for GC=F. Son veri boyutu: (1805, 55)
+2025-06-24 11:25:20,327 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 11:25:20,330 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:25:20,330 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:25:20,335 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:25:20,624 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:25:20,626 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 29.144202596204362
+2025-06-24 11:25:50,919 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (1805, 55), Tahmin gün sayısı: 1
+2025-06-24 11:25:50,925 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (1798, 54), y_train boyutu: (1798,)
+2025-06-24 11:25:50,925 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:25:50,930 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:25:51,187 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:25:51,188 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 29.144202596204362
+2025-06-24 11:25:52,992 - INFO - get_historical_data çağrıldı: Sembol=GC=F, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:25:52,992 - INFO - yfinance'dan GC=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:25:53,559 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:25:53,560 - INFO - yfinance'dan 2512 adet GC=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:25:53,569 - INFO - preprocess_data çağrıldı for GC=F. Gelen veri boyutu: (2512, 5)
+2025-06-24 11:25:53,582 - INFO - preprocess_data tamamlandı for GC=F. Son veri boyutu: (3632, 55)
+2025-06-24 11:25:53,643 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:25:53,647 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:25:53,647 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:25:53,652 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:25:53,895 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:25:53,896 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 41.05623870248251
+2025-06-24 11:25:59,400 - INFO - model_training_and_prediction çağrıldı for Altın. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:25:59,403 - INFO - Model Eğitimi İçin Altın: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:25:59,403 - INFO - Model Tahmini İçin Altın: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:25:59,409 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:25:59,684 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:25:59,685 - INFO - Model eğitimi ve tahmini tamamlandı for Altın. RMSE: 41.05623870248251
+2025-06-24 11:26:01,583 - INFO - get_historical_data çağrıldı: Sembol=SI=F, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:26:01,583 - INFO - yfinance'dan SI=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:26:02,112 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:26:02,113 - INFO - yfinance'dan 2512 adet SI=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:26:02,129 - INFO - preprocess_data çağrıldı for SI=F. Gelen veri boyutu: (2512, 5)
+2025-06-24 11:26:02,146 - INFO - preprocess_data tamamlandı for SI=F. Son veri boyutu: (3632, 55)
+2025-06-24 11:26:02,202 - INFO - model_training_and_prediction çağrıldı for Gümüş. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:26:02,205 - INFO - Model Eğitimi İçin Gümüş: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:26:02,205 - INFO - Model Tahmini İçin Gümüş: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:26:02,210 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:26:02,436 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:26:02,438 - INFO - Model eğitimi ve tahmini tamamlandı for Gümüş. RMSE: 1.1563847141484207
+2025-06-24 11:26:10,320 - INFO - model_training_and_prediction çağrıldı for Gümüş. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:26:10,327 - INFO - Model Eğitimi İçin Gümüş: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:26:10,327 - INFO - Model Tahmini İçin Gümüş: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:26:10,335 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:26:10,571 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:26:10,573 - INFO - Model eğitimi ve tahmini tamamlandı for Gümüş. RMSE: 1.1563847141484207
+2025-06-24 11:26:11,369 - INFO - get_historical_data çağrıldı: Sembol=CL=F, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:26:11,369 - INFO - yfinance'dan CL=F verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:26:11,913 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:26:11,914 - INFO - yfinance'dan 2513 adet CL=F verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:26:11,925 - INFO - preprocess_data çağrıldı for CL=F. Gelen veri boyutu: (2513, 5)
+2025-06-24 11:26:11,938 - INFO - preprocess_data tamamlandı for CL=F. Son veri boyutu: (3632, 55)
+2025-06-24 11:26:11,987 - INFO - model_training_and_prediction çağrıldı for Ham Petrol. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:26:11,991 - INFO - Model Eğitimi İçin Ham Petrol: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:26:11,991 - INFO - Model Tahmini İçin Ham Petrol: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:26:11,996 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:26:12,262 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:26:12,263 - INFO - Model eğitimi ve tahmini tamamlandı for Ham Petrol. RMSE: 3.1878528125416477
+2025-06-24 11:26:38,089 - INFO - model_training_and_prediction çağrıldı for Ham Petrol. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:26:38,093 - INFO - Model Eğitimi İçin Ham Petrol: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:26:38,093 - INFO - Model Tahmini İçin Ham Petrol: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:26:38,097 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:26:38,359 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:26:38,361 - INFO - Model eğitimi ve tahmini tamamlandı for Ham Petrol. RMSE: 3.1878528125416477
+2025-06-24 11:26:43,718 - INFO - get_historical_data çağrıldı: Sembol=BTC-USD, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:26:43,718 - INFO - yfinance'dan BTC-USD verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:26:44,350 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:26:44,351 - INFO - yfinance'dan 3653 adet BTC-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:26:44,359 - INFO - preprocess_data çağrıldı for BTC-USD. Gelen veri boyutu: (3653, 5)
+2025-06-24 11:26:44,372 - INFO - preprocess_data tamamlandı for BTC-USD. Son veri boyutu: (3632, 55)
+2025-06-24 11:26:44,430 - INFO - model_training_and_prediction çağrıldı for Bitcoin. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:26:44,433 - INFO - Model Eğitimi İçin Bitcoin: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:26:44,433 - INFO - Model Tahmini İçin Bitcoin: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:26:44,438 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:26:44,692 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:26:44,694 - INFO - Model eğitimi ve tahmini tamamlandı for Bitcoin. RMSE: 1934.7037214357588
+2025-06-24 11:26:55,688 - INFO - model_training_and_prediction çağrıldı for Bitcoin. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:26:55,695 - INFO - Model Eğitimi İçin Bitcoin: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:26:55,695 - INFO - Model Tahmini İçin Bitcoin: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:26:55,705 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:26:55,958 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:26:55,959 - INFO - Model eğitimi ve tahmini tamamlandı for Bitcoin. RMSE: 1934.7037214357588
+2025-06-24 11:27:04,873 - INFO - model_training_and_prediction çağrıldı for Bitcoin. Gelen veri boyutu: (3632, 55), Tahmin gün sayısı: 1
+2025-06-24 11:27:04,883 - INFO - Model Eğitimi İçin Bitcoin: X_train boyutu: (3625, 54), y_train boyutu: (3625,)
+2025-06-24 11:27:04,883 - INFO - Model Tahmini İçin Bitcoin: X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:27:04,888 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:27:05,136 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:27:05,137 - INFO - Model eğitimi ve tahmini tamamlandı for Bitcoin. RMSE: 1934.7037214357588
+2025-06-24 11:27:08,200 - INFO - get_historical_data çağrıldı: Sembol=SOL-USD, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:27:08,200 - INFO - yfinance'dan SOL-USD verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:27:08,754 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:27:08,754 - INFO - yfinance'dan 1902 adet SOL-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:27:08,763 - INFO - preprocess_data çağrıldı for SOL-USD. Gelen veri boyutu: (1902, 5)
+2025-06-24 11:27:08,774 - INFO - preprocess_data tamamlandı for SOL-USD. Son veri boyutu: (1881, 55)
+2025-06-24 11:27:08,824 - INFO - model_training_and_prediction çağrıldı for Solana (SOL). Gelen veri boyutu: (1881, 55), Tahmin gün sayısı: 1
+2025-06-24 11:27:08,827 - INFO - Model Eğitimi İçin Solana (SOL): X_train boyutu: (1874, 54), y_train boyutu: (1874,)
+2025-06-24 11:27:08,827 - INFO - Model Tahmini İçin Solana (SOL): X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:27:08,832 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:27:09,054 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:27:09,055 - INFO - Model eğitimi ve tahmini tamamlandı for Solana (SOL). RMSE: 6.002312819563531
+2025-06-24 11:27:12,532 - INFO - model_training_and_prediction çağrıldı for Solana (SOL). Gelen veri boyutu: (1881, 55), Tahmin gün sayısı: 1
+2025-06-24 11:27:12,535 - INFO - Model Eğitimi İçin Solana (SOL): X_train boyutu: (1874, 54), y_train boyutu: (1874,)
+2025-06-24 11:27:12,535 - INFO - Model Tahmini İçin Solana (SOL): X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:27:12,540 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:27:12,769 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:27:12,771 - INFO - Model eğitimi ve tahmini tamamlandı for Solana (SOL). RMSE: 6.002312819563531
+2025-06-24 11:27:14,977 - INFO - get_historical_data çağrıldı: Sembol=XRP-USD, Kaynak=yfinance, Başlangıç=2015-06-25, Bitiş=2025-06-24
+2025-06-24 11:27:14,977 - INFO - yfinance'dan XRP-USD verisi çekiliyor: 2015-06-25 - 2025-06-24
+2025-06-24 11:27:15,599 - INFO - yfinance: MultiIndex sütunlar tek seviyeye indirildi.
+2025-06-24 11:27:15,600 - INFO - yfinance'dan 2785 adet XRP-USD verisi başarıyla çekildi ve işlendi.
+2025-06-24 11:27:15,608 - INFO - preprocess_data çağrıldı for XRP-USD. Gelen veri boyutu: (2785, 5)
+2025-06-24 11:27:15,621 - INFO - preprocess_data tamamlandı for XRP-USD. Son veri boyutu: (2764, 55)
+2025-06-24 11:27:15,671 - INFO - model_training_and_prediction çağrıldı for Ripple (XRP). Gelen veri boyutu: (2764, 55), Tahmin gün sayısı: 1
+2025-06-24 11:27:15,674 - INFO - Model Eğitimi İçin Ripple (XRP): X_train boyutu: (2757, 54), y_train boyutu: (2757,)
+2025-06-24 11:27:15,674 - INFO - Model Tahmini İçin Ripple (XRP): X_test boyutu: (7, 54), y_test boyutu: (7,)
+2025-06-24 11:27:15,678 - INFO - Ölçekleyici ve özellik listesi kaydedildi: scaler.joblib, features.joblib
+2025-06-24 11:27:15,926 - INFO - Model kaydedildi: xgboost_model.joblib
+2025-06-24 11:27:15,927 - INFO - Model eğitimi ve tahmini tamamlandı for Ripple (XRP). RMSE: 0.06406656830014043
