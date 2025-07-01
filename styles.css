@@ -1,0 +1,260 @@
+/* styles.css */
+
+/* Genel Vücut Ayarları */
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f0f2f6; /* Hafif gri arka plan */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Streamlit kapsayıcıları için genel stiller */
+.stApp {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Başlık ve Alt Başlıklar */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Markdown için genel stil */
+.stMarkdown {
+    margin-bottom: 20px;
+}
+
+/* Popüler Varlıklar Kartları (Asset Cards) */
+.asset-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Kartlar arasında boşluk */
+    justify-content: center; /* Kartları ortala */
+    margin-bottom: 30px;
+}
+
+.asset-card {
+    background-color: #ffffff;
+    border-radius: 12px; /* Daha yuvarlak köşeler */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Daha belirgin gölge */
+    padding: 20px;
+    width: calc(33% - 15px); /* 3 sütunlu düzen, boşlukları düşer */
+    min-width: 280px; /* Mobil uyumluluk için minimum genişlik */
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover efekti için */
+    border: 1px solid #e0e0e0; /* Hafif kenarlık */
+}
+
+.asset-card:hover {
+    transform: translateY(-5px); /* Hafif yukarı kalkma efekti */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Gölgeyi büyüt */
+}
+
+.asset-image-icon, .asset-emoji-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 50%; /* Yuvarlak ikonlar */
+    background-color: #f8f9fa; /* İkon arka planı */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* İç gölge */
+}
+
+.text-content {
+    flex-grow: 1;
+}
+
+.asset-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.price-and-change {
+    display: flex;
+    align-items: baseline;
+}
+
+.asset-price {
+    font-size: 1.4em; /* Daha büyük fiyat */
+    font-weight: 700;
+    color: #0a708a; /* Belirgin bir renk */
+    margin-right: 10px;
+}
+
+.asset-change {
+    font-size: 0.95em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.change-positive {
+    color: #28a745; /* Yeşil */
+}
+
+.change-negative {
+    color: #dc3545; /* Kırmızı */
+}
+
+.change-icon {
+    margin-left: 4px;
+    font-size: 0.8em;
+}
+
+/* Haber Kartları */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Duyarlı ızgara */
+    gap: 20px; /* Haber kartları arasında boşluk */
+    margin-top: 20px;
+}
+
+.news-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* İçeriği dikeyde yayar */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.news-title {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.news-meta {
+    font-size: 0.85em;
+    color: #6c757d; /* Daha hafif gri */
+    margin-bottom: 10px;
+}
+
+.news-description {
+    font-size: 0.95em;
+    color: #495057;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Açıklamanın boş alanı doldurmasını sağlar */
+}
+
+.news-link {
+    display: inline-block;
+    background-color: #c1e9f3; /* Uygulama temasına uygun renk */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    align-self: flex-start; /* Bağlantıyı sola hizala */
+}
+
+.news-link:hover {
+    background-color: #075f70; /* Daha koyu hover rengi */
+}
+
+/* Yan Panel (Sidebar) */
+.stSidebar {
+    background-color: #e9ecef; /* Sidebar için hafif gri */
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+}
+
+.stButton > button {
+    background-color: #0a708a;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stButton > button:hover {
+    background-color: #075f70;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Metrikler için stil */
+[data-testid="stMetric"] {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+[data-testid="stMetricLabel"] > div {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #555;
+}
+
+[data-testid="stMetricValue"] {
+    font-size: 2.2em !important;
+    font-weight: 700;
+    color: #0a708a !important;
+}
+
+[data-testid="stMetricDelta"] {
+    font-size: 1.1em !important;
+    font-weight: 600;
+}
+
+/* Uyarılar, Hatalar, Bilgiler */
+div.stAlert {
+    border-radius: 8px;
+    font-size: 0.95em;
+}
+div.stAlert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 5px solid #28a745;
+}
+div.stAlert.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 5px solid #17a2b8;
+}
+div.stAlert.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 5px solid #ffc107;
+}
+div.stAlert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 5px solid #dc3545;
+}
+
+
+/* Mobil Uyumlu Tasarım */
+@media (max-width: 768px) {
+    .asset-card {
+        width: 100%; /* Mobil cihazlarda tek sütun */
+    }
+
+    .news-container {
+        grid-template-columns: 1fr; /* Mobil cihazlarda tek sütun */
+    }
+}

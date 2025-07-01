@@ -2,6 +2,7 @@
 # (Makine Öğrenimi Modülü)
 # Bu modül, veri hazırlama, model eğitimi, değerlendirmesi ve tahmini gibi tüm makine öğrenimi ile ilgili işlevleri içerir.
 
+from django.conf import settings
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -23,7 +24,7 @@ SCALER_PATH = 'scaler.joblib'
 FEATURES_PATH = 'features.joblib' # Özellik isimlerini kaydetmek için
 
 # Yardımcı fonksiyonları burada tanımlıyoruz veya doğrudan import ediyoruz.
-from utils import add_technical_indicators, add_market_time_features
+from myfinancialapp.analysis.utils import add_technical_indicators, add_market_time_features
 
 
 def prepare_data_for_model(data: pd.DataFrame, prediction_days: int = 1):

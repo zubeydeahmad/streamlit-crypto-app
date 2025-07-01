@@ -1,0 +1,37 @@
+{# analysis/templates/analysis/dashboard.html #}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    {% load static %} {# Statik dosyaları (CSS, JS, resimler) kullanmak için gerekli #}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Bu basit stilleri daha sonra styles.css dosyanıza taşıyabilirsiniz */
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ page_title }}</h1>
+        <p>Django projeniz başarıyla ayarlandı ve ilk sayfanız çalışıyor!</p>
+        <p>Bu, Streamlit uygulamanızın Django'ya dönüşümünün ilk adımıdır.</p>
+        <p>Şimdi Finansal Varlık Analiz ve Tahmin Uygulaması projenizin diğer kısımlarını entegre etmeye başlayabiliriz.</p></body>
+</html>

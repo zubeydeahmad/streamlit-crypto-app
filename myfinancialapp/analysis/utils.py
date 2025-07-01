@@ -3,6 +3,7 @@
 # Bu dosya, teknik göstergeler ve zaman özellikleri ekleme gibi yardımcı fonksiyonları içerir.
 # Ayrıca genel yüzde değişim hesaplama fonksiyonunu da içerir.
 
+from django.conf import settings
 import pandas as pd
 import numpy as np
 import ta # Teknik analiz kütüphanesi

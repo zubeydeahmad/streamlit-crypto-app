@@ -1,0 +1,1565 @@
+2025-06-30 15:46:03,045 - INFO - D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py changed, reloading.
+2025-06-30 16:13:52,087 - INFO - D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py changed, reloading.
+2025-06-30 16:19:36,848 - WARNING - Not Found: /
+2025-06-30 16:19:48,512 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-06-30 16:19:48,514 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:19:48,514 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:19:49,440 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:19:54,459 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:19:59,472 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:19:59,472 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-06-30 16:19:59,472 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:19:59,472 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:19:59,472 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:19:59,473 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:19:59,473 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:19:59,764 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:20:04,779 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:20:09,794 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:20:09,794 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-06-30 16:20:09,794 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:20:09,795 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:20:09,795 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:20:09,796 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:20:09,796 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:20:10,200 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:20:15,216 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:20:20,230 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:20:20,230 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-06-30 16:20:20,230 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:20:20,230 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:20:20,230 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:20:20,231 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:20:20,231 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:20:20,580 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:20:25,840 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:20:31,127 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:20:31,127 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:20:31,128 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:20:31,129 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:20:31,458 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:20:36,473 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:20:41,490 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:20:41,490 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:20:41,490 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:20:41,491 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:20:41,491 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:20:41,491 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:20:41,491 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:20:41,781 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:20:47,077 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:20:52,399 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:20:52,400 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:20:52,401 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-06-30 16:20:52,401 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:20:52,689 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:20:57,705 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:21:02,721 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:21:02,722 - WARNING - Popüler varlık 'Ethereum': yfinance'dan boş veri çekildi.
+2025-06-30 16:21:02,722 - WARNING - Popüler varlık 'Ethereum': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:21:02,722 - WARNING - Popüler varlık 'Ethereum' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:21:02,722 - INFO - Ethereum için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:21:02,723 - INFO - Popüler varlık 'Solana': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:21:02,723 - INFO - CoinAPI.io'dan SOL/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:21:03,053 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:08,321 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:13,576 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:13,577 - ERROR - CoinAPI.io: SOL için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:21:13,577 - WARNING - Popüler varlık 'Solana': CoinAPI'den boş veri çekildi.
+2025-06-30 16:21:13,577 - INFO - yfinance'dan SOL verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:21:13,903 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:21:18,918 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:21:23,933 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:21:23,934 - WARNING - Popüler varlık 'Solana': yfinance'dan boş veri çekildi.
+2025-06-30 16:21:23,934 - WARNING - Popüler varlık 'Solana': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:21:23,935 - WARNING - Popüler varlık 'Solana' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:21:23,935 - INFO - Solana için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:21:23,935 - INFO - Popüler varlık 'Cardano': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:21:23,935 - INFO - CoinAPI.io'dan ADA/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:21:24,303 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:29,582 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:34,857 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:34,858 - ERROR - CoinAPI.io: ADA için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:21:34,860 - WARNING - Popüler varlık 'Cardano': CoinAPI'den boş veri çekildi.
+2025-06-30 16:21:34,860 - INFO - yfinance'dan ADA verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:21:35,198 - ERROR - 
+1 Failed download:
+2025-06-30 16:21:35,198 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:21:35,200 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:21:40,213 - ERROR - 
+1 Failed download:
+2025-06-30 16:21:40,213 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:21:40,217 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:21:45,231 - ERROR - 
+1 Failed download:
+2025-06-30 16:21:45,231 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:21:45,233 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:21:45,233 - WARNING - Popüler varlık 'Cardano': yfinance'dan boş veri çekildi.
+2025-06-30 16:21:45,233 - WARNING - Popüler varlık 'Cardano': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:21:45,234 - WARNING - Popüler varlık 'Cardano' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:21:45,234 - INFO - Cardano için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:21:45,234 - INFO - Popüler varlık 'Dogecoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:21:45,234 - INFO - CoinAPI.io'dan DOGE/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:21:45,681 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-06-30 16:21:45,682 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:21:45,682 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:21:45,696 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:21:48,430 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:50,709 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:21:53,689 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:55,723 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:21:55,724 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-06-30 16:21:55,724 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:21:55,724 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:21:55,724 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:21:55,725 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:21:55,725 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:21:55,738 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:21:59,020 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:21:59,021 - ERROR - CoinAPI.io: DOGE için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:21:59,021 - WARNING - Popüler varlık 'Dogecoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:21:59,022 - INFO - yfinance'dan DOGE verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:22:00,417 - ERROR - HTTP Error 404: 
+2025-06-30 16:22:00,653 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:00,653 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:22:00,655 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:22:00,754 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:05,765 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:05,767 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:05,767 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:05,767 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:05,768 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:05,768 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:05,768 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:05,768 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:22:05,781 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:22:06,368 - ERROR - HTTP Error 401: 
+2025-06-30 16:22:10,779 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:10,779 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:22:10,782 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:10,783 - WARNING - Popüler varlık 'Dogecoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:10,783 - WARNING - Popüler varlık 'Dogecoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:10,784 - WARNING - Popüler varlık 'Dogecoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:10,784 - INFO - Dogecoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:10,785 - INFO - Popüler varlık 'Binance Coin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:10,785 - INFO - CoinAPI.io'dan BNB/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:22:10,796 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:11,485 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:15,810 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:15,810 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:15,810 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:15,811 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:15,811 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:15,811 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:15,811 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:22:16,065 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:16,776 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:21,358 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:22,051 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:22,052 - ERROR - CoinAPI.io: BNB için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:22:22,054 - WARNING - Popüler varlık 'Binance Coin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:22:22,054 - INFO - yfinance'dan BNB verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:22:22,372 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:22,372 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:22:22,374 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:22:26,726 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:26,727 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:22:26,727 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:22:26,727 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:22:26,740 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:22:27,388 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:27,388 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:22:27,390 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:31,753 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:32,402 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:32,402 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:22:32,403 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:32,403 - WARNING - Popüler varlık 'Binance Coin': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:32,403 - WARNING - Popüler varlık 'Binance Coin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:32,404 - WARNING - Popüler varlık 'Binance Coin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:32,404 - INFO - Binance Coin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:32,404 - INFO - Popüler varlık 'Ripple': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:32,404 - INFO - CoinAPI.io'dan XRP/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:22:32,678 - ERROR - CoinAPI.io'dan veri çekilirken hata (XRP, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:36,767 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:36,768 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:36,768 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:36,768 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:36,768 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:36,769 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:36,769 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:22:37,111 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:37,947 - ERROR - CoinAPI.io'dan veri çekilirken hata (XRP, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:42,413 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:43,268 - ERROR - CoinAPI.io'dan veri çekilirken hata (XRP, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:43,268 - ERROR - CoinAPI.io: XRP için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:22:43,269 - WARNING - Popüler varlık 'Ripple': CoinAPI'den boş veri çekildi.
+2025-06-30 16:22:43,269 - INFO - yfinance'dan XRP verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:22:43,702 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:43,702 - ERROR - ['XRP']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:22:43,703 - ERROR - yfinance: Kritik 'Close' sütunu (XRP) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:22:47,786 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:47,786 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:22:47,786 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-06-30 16:22:47,787 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:22:47,800 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:22:48,714 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:48,714 - ERROR - ['XRP']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:22:48,716 - ERROR - yfinance: Kritik 'Close' sütunu (XRP) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:52,812 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:22:53,728 - ERROR - 
+1 Failed download:
+2025-06-30 16:22:53,728 - ERROR - ['XRP']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:22:53,729 - ERROR - yfinance: Kritik 'Close' sütunu (XRP) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:53,729 - WARNING - Popüler varlık 'Ripple': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:53,729 - WARNING - Popüler varlık 'Ripple': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:53,730 - WARNING - Popüler varlık 'Ripple' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:53,730 - INFO - Ripple için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:53,730 - INFO - Popüler varlık 'Euro/Dolar': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:53,730 - INFO - Fixer.io'dan EUR/USD verisi çekiliyor (tarih=2025-06-30).
+2025-06-30 16:22:54,214 - INFO - Fixer.io'dan EUR/USD için kur başarıyla çekildi: 1.171949 (Deneme 1/3).
+2025-06-30 16:22:54,215 - INFO - Fixer.io'dan EUR/USD verisi çekiliyor (tarih=2025-06-29).
+2025-06-30 16:22:54,531 - WARNING - Fixer.io'dan veri çekilirken başarısız yanıt veya başarı = false: Kod=106, Hata='You have exceeded the maximum rate limitation allowed on your subscription plan. Please refer to the "Rate Limits" section of the API Documentation for details. ' (Deneme 1/3).
+2025-06-30 16:22:57,825 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:22:57,825 - WARNING - Popüler varlık 'Ethereum': yfinance'dan boş veri çekildi.
+2025-06-30 16:22:57,825 - WARNING - Popüler varlık 'Ethereum': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:22:57,826 - WARNING - Popüler varlık 'Ethereum' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:22:57,826 - INFO - Ethereum için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:22:57,826 - INFO - Popüler varlık 'Solana': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:57,826 - INFO - CoinAPI.io'dan SOL/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:22:58,103 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:22:59,868 - INFO - Fixer.io'dan EUR/USD için kur başarıyla çekildi: 1.172691 (Deneme 2/3).
+2025-06-30 16:22:59,868 - INFO - Popüler varlık 'Euro/Dolar': Fixer.io'dan başarıyla çekildi.
+2025-06-30 16:22:59,884 - INFO - Euro/Dolar veritabanına kaydedildi/güncellendi.
+2025-06-30 16:22:59,884 - INFO - Popüler varlık 'Sterlin/Dolar': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:22:59,885 - INFO - Fixer.io'dan GBP/USD verisi çekiliyor (tarih=2025-06-30).
+2025-06-30 16:23:00,205 - WARNING - Fixer.io'dan veri çekilirken başarısız yanıt veya başarı = false: Kod=106, Hata='You have exceeded the maximum rate limitation allowed on your subscription plan. Please refer to the "Rate Limits" section of the API Documentation for details. ' (Deneme 1/3).
+2025-06-30 16:23:03,385 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:05,557 - INFO - Fixer.io'dan GBP/USD için kur başarıyla çekildi: 1.3691648782243073 (Deneme 2/3).
+2025-06-30 16:23:05,557 - INFO - Fixer.io'dan GBP/USD verisi çekiliyor (tarih=2025-06-29).
+2025-06-30 16:23:05,880 - WARNING - Fixer.io'dan veri çekilirken başarısız yanıt veya başarı = false: Kod=106, Hata='You have exceeded the maximum rate limitation allowed on your subscription plan. Please refer to the "Rate Limits" section of the API Documentation for details. ' (Deneme 1/3).
+2025-06-30 16:23:08,705 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:08,706 - ERROR - CoinAPI.io: SOL için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:23:08,707 - WARNING - Popüler varlık 'Solana': CoinAPI'den boş veri çekildi.
+2025-06-30 16:23:08,707 - INFO - yfinance'dan SOL verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:23:08,721 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:23:11,231 - INFO - Fixer.io'dan GBP/USD için kur başarıyla çekildi: 1.371884516081483 (Deneme 2/3).
+2025-06-30 16:23:11,231 - INFO - Popüler varlık 'Sterlin/Dolar': Fixer.io'dan başarıyla çekildi.
+2025-06-30 16:23:11,273 - INFO - Sterlin/Dolar veritabanına kaydedildi/güncellendi.
+2025-06-30 16:23:11,273 - INFO - Popüler varlık 'Dolar/Türk Lirası': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:23:11,274 - INFO - Fixer.io'dan USD/TRY verisi çekiliyor (tarih=2025-06-30).
+2025-06-30 16:23:11,624 - WARNING - Fixer.io'dan veri çekilirken başarısız yanıt veya başarı = false: Kod=106, Hata='You have exceeded the maximum rate limitation allowed on your subscription plan. Please refer to the "Rate Limits" section of the API Documentation for details. ' (Deneme 1/3).
+2025-06-30 16:23:13,737 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:23:16,972 - INFO - Fixer.io'dan USD/TRY için kur başarıyla çekildi: 39.754163804322324 (Deneme 2/3).
+2025-06-30 16:23:16,972 - INFO - Fixer.io'dan USD/TRY verisi çekiliyor (tarih=2025-06-29).
+2025-06-30 16:23:17,303 - WARNING - Fixer.io'dan veri çekilirken başarısız yanıt veya başarı = false: Kod=106, Hata='You have exceeded the maximum rate limitation allowed on your subscription plan. Please refer to the "Rate Limits" section of the API Documentation for details. ' (Deneme 1/3).
+2025-06-30 16:23:18,751 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:23:18,751 - WARNING - Popüler varlık 'Solana': yfinance'dan boş veri çekildi.
+2025-06-30 16:23:18,751 - WARNING - Popüler varlık 'Solana': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:23:18,751 - WARNING - Popüler varlık 'Solana' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:23:18,751 - INFO - Solana için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:23:18,752 - INFO - Popüler varlık 'Cardano': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:23:18,752 - INFO - CoinAPI.io'dan ADA/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:23:19,033 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:22,639 - INFO - Fixer.io'dan USD/TRY için kur başarıyla çekildi: 39.89558630534387 (Deneme 2/3).
+2025-06-30 16:23:22,639 - INFO - Popüler varlık 'Dolar/Türk Lirası': Fixer.io'dan başarıyla çekildi.
+2025-06-30 16:23:22,657 - INFO - Dolar/Türk Lirası veritabanına kaydedildi/güncellendi.
+2025-06-30 16:23:22,657 - INFO - Popüler varlıklar özeti DataFrame'e dönüştürüldü. Boyut: (13, 3)
+2025-06-30 16:23:22,669 - ERROR - Internal Server Error: /analysis/
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projelerim\crypto\myfinancialapp\analysis\views.py", line 27, in home_view
+    asset_choices = [(asset.asset_symbol, asset.asset_name) for asset in PopularAssetCache.objects.all()]
+                                                                         ^^^^^^^^^^^^^^^^^
+NameError: name 'PopularAssetCache' is not defined
+2025-06-30 16:23:24,292 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:29,705 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:29,705 - ERROR - CoinAPI.io: ADA için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:23:29,706 - WARNING - Popüler varlık 'Cardano': CoinAPI'den boş veri çekildi.
+2025-06-30 16:23:29,706 - INFO - yfinance'dan ADA verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:23:29,718 - ERROR - 
+1 Failed download:
+2025-06-30 16:23:29,718 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:23:29,719 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:23:34,731 - ERROR - 
+1 Failed download:
+2025-06-30 16:23:34,731 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:23:34,732 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:23:39,745 - ERROR - 
+1 Failed download:
+2025-06-30 16:23:39,745 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:23:39,746 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:23:39,746 - WARNING - Popüler varlık 'Cardano': yfinance'dan boş veri çekildi.
+2025-06-30 16:23:39,746 - WARNING - Popüler varlık 'Cardano': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:23:39,747 - WARNING - Popüler varlık 'Cardano' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:23:39,747 - INFO - Cardano için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:23:39,747 - INFO - Popüler varlık 'Dogecoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:23:39,747 - INFO - CoinAPI.io'dan DOGE/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:23:40,029 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:45,302 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:50,615 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:23:50,615 - ERROR - CoinAPI.io: DOGE için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:23:50,616 - WARNING - Popüler varlık 'Dogecoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:23:50,616 - INFO - yfinance'dan DOGE verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:23:50,629 - ERROR - 
+1 Failed download:
+2025-06-30 16:23:50,629 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:23:50,630 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:23:55,642 - ERROR - 
+1 Failed download:
+2025-06-30 16:23:55,642 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:23:55,643 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:24:00,654 - ERROR - 
+1 Failed download:
+2025-06-30 16:24:00,654 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:24:00,655 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:24:00,655 - WARNING - Popüler varlık 'Dogecoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:24:00,655 - WARNING - Popüler varlık 'Dogecoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:24:00,655 - WARNING - Popüler varlık 'Dogecoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:24:00,655 - INFO - Dogecoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:24:00,656 - INFO - Popüler varlık 'Binance Coin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:24:00,656 - INFO - CoinAPI.io'dan BNB/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:24:00,906 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:24:06,340 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:24:11,913 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:24:11,914 - ERROR - CoinAPI.io: BNB için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:24:11,914 - WARNING - Popüler varlık 'Binance Coin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:24:11,914 - INFO - yfinance'dan BNB verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:24:11,926 - ERROR - 
+1 Failed download:
+2025-06-30 16:24:11,926 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:24:11,927 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:28:32,131 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-06-30 16:28:32,132 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:28:32,133 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:28:32,896 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:28:37,910 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:28:42,927 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:28:42,927 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-06-30 16:28:42,927 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:28:42,928 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:28:42,928 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:28:42,928 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:28:42,928 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:28:43,332 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:28:48,346 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:28:53,360 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:28:53,361 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-06-30 16:28:53,361 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:28:53,361 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:28:53,361 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:28:53,362 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:28:53,362 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:28:53,745 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:28:55,499 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-06-30 16:28:55,501 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:28:55,501 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:28:55,513 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:28:58,759 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:00,530 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:03,771 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:03,772 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:03,772 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:03,772 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:03,772 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:03,772 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:03,772 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:29:04,165 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:05,542 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:05,542 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:05,542 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:05,542 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:05,542 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:05,543 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:05,543 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:29:05,555 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:29:09,518 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:10,567 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:14,764 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:14,765 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:29:14,765 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:29:14,765 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:29:15,080 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:29:15,581 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:15,581 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:15,581 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:15,582 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:15,582 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:15,582 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:15,582 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:29:15,595 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:29:20,093 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:20,610 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:25,106 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:25,106 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:25,106 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:25,107 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:25,107 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:25,107 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:25,107 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:29:25,438 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:25,625 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:25,625 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:25,625 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:25,626 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:25,626 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:25,626 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:25,626 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:29:25,901 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:30,726 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:31,254 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:36,016 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:36,017 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:29:36,017 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-06-30 16:29:36,017 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:29:36,365 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:29:36,561 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:36,563 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:29:36,564 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:29:36,564 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:29:36,578 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:29:41,380 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:41,592 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:29:46,435 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:46,435 - WARNING - Popüler varlık 'Ethereum': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:46,435 - WARNING - Popüler varlık 'Ethereum': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:46,435 - WARNING - Popüler varlık 'Ethereum' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:46,435 - INFO - Ethereum için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:46,436 - INFO - Popüler varlık 'Solana': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:46,436 - INFO - CoinAPI.io'dan SOL/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:29:46,608 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:29:46,609 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:29:46,609 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:29:46,609 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:29:46,610 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:29:46,610 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:29:46,610 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:29:46,711 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:46,974 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:52,002 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:52,318 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:29:55,447 - INFO - D:\projelerim\crypto\myfinancialapp\analysis\views.py changed, reloading.
+2025-06-30 16:30:24,438 - INFO - D:\projelerim\crypto\myfinancialapp\analysis\views.py changed, reloading.
+2025-06-30 16:34:37,845 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-06-30 16:34:37,847 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:34:37,847 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:34:38,587 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:34:38,920 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-06-30 16:34:38,922 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:34:38,922 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:34:38,936 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:34:43,605 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:34:43,951 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:34:48,618 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:34:48,618 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-06-30 16:34:48,618 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:34:48,618 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:34:48,618 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:34:48,619 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:34:48,619 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:34:48,949 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:34:48,966 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:34:48,967 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-06-30 16:34:48,967 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:34:48,968 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:34:48,968 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:34:48,969 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:34:48,969 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:34:48,981 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:34:53,963 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:34:53,994 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:34:58,980 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:34:58,981 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-06-30 16:34:58,981 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:34:58,981 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:34:58,981 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:34:58,982 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:34:58,982 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:34:59,004 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:34:59,007 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:34:59,007 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-06-30 16:34:59,008 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:34:59,008 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:34:59,008 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:34:59,009 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:34:59,009 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:34:59,323 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:35:04,020 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:35:04,336 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:35:09,035 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:35:09,036 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-06-30 16:35:09,036 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:35:09,036 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:35:09,037 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:35:09,037 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:35:09,037 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:35:09,353 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:35:09,353 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-06-30 16:35:09,353 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:35:09,354 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:35:09,354 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:35:09,355 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:35:09,355 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:35:09,392 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:09,620 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:14,699 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:14,882 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:19,980 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:19,981 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:35:19,981 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:35:19,981 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:35:20,138 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:20,138 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:35:20,139 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:35:20,139 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:35:20,415 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:35:20,425 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:35:25,432 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:35:25,434 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:35:30,449 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:35:30,451 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:35:30,451 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:35:30,451 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:35:30,451 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:35:30,451 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:35:30,452 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:35:30,453 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:35:30,453 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:35:30,453 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:35:30,453 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:35:30,454 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:35:30,454 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:35:30,454 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:35:30,708 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:30,744 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:36,027 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:36,037 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:41,414 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:41,416 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:35:41,417 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-06-30 16:35:41,418 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:35:41,423 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:41,423 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:35:41,424 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-06-30 16:35:41,424 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:35:41,898 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:35:41,899 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:35:46,914 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:35:46,915 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:35:51,937 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:35:51,938 - WARNING - Popüler varlık 'Ethereum': yfinance'dan boş veri çekildi.
+2025-06-30 16:35:51,938 - WARNING - Popüler varlık 'Ethereum': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:35:51,938 - WARNING - Popüler varlık 'Ethereum' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:35:51,938 - INFO - Ethereum için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:35:51,939 - INFO - Popüler varlık 'Solana': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:35:51,939 - INFO - CoinAPI.io'dan SOL/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:35:51,942 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:35:51,942 - WARNING - Popüler varlık 'Ethereum': yfinance'dan boş veri çekildi.
+2025-06-30 16:35:51,942 - WARNING - Popüler varlık 'Ethereum': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:35:51,942 - WARNING - Popüler varlık 'Ethereum' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:35:51,943 - INFO - Ethereum için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:35:51,943 - INFO - Popüler varlık 'Solana': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:35:51,943 - INFO - CoinAPI.io'dan SOL/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:35:52,201 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:52,234 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:57,451 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:35:57,483 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:02,720 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:02,721 - ERROR - CoinAPI.io: SOL için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:36:02,722 - WARNING - Popüler varlık 'Solana': CoinAPI'den boş veri çekildi.
+2025-06-30 16:36:02,722 - INFO - yfinance'dan SOL verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:36:02,789 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:02,790 - ERROR - CoinAPI.io: SOL için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:36:02,792 - WARNING - Popüler varlık 'Solana': CoinAPI'den boş veri çekildi.
+2025-06-30 16:36:02,792 - INFO - yfinance'dan SOL verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:36:03,052 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:36:03,057 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:36:08,068 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:36:08,069 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:36:13,091 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:36:13,091 - WARNING - Popüler varlık 'Solana': yfinance'dan boş veri çekildi.
+2025-06-30 16:36:13,091 - WARNING - Popüler varlık 'Solana': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:36:13,092 - WARNING - Popüler varlık 'Solana' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:36:13,092 - INFO - Solana için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:36:13,093 - INFO - Popüler varlık 'Cardano': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:36:13,093 - INFO - CoinAPI.io'dan ADA/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:36:13,095 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:36:13,096 - WARNING - Popüler varlık 'Solana': yfinance'dan boş veri çekildi.
+2025-06-30 16:36:13,096 - WARNING - Popüler varlık 'Solana': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:36:13,096 - WARNING - Popüler varlık 'Solana' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:36:13,096 - INFO - Solana için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:36:13,097 - INFO - Popüler varlık 'Cardano': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:36:13,097 - INFO - CoinAPI.io'dan ADA/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:36:13,428 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:13,470 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:18,767 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:30,482 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:30,483 - ERROR - CoinAPI.io: ADA için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:36:30,484 - WARNING - Popüler varlık 'Cardano': CoinAPI'den boş veri çekildi.
+2025-06-30 16:36:30,484 - INFO - yfinance'dan ADA verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:36:30,495 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:30,844 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:30,844 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:36:30,846 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:36:35,774 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:35,775 - ERROR - CoinAPI.io: ADA için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:36:35,775 - WARNING - Popüler varlık 'Cardano': CoinAPI'den boş veri çekildi.
+2025-06-30 16:36:35,775 - INFO - yfinance'dan ADA verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:36:35,787 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:35,787 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:36:35,788 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:36:35,857 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:35,857 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:36:35,859 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:36:40,802 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:40,802 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:36:40,806 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:36:40,873 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:40,873 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:36:40,877 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:36:40,878 - WARNING - Popüler varlık 'Cardano': yfinance'dan boş veri çekildi.
+2025-06-30 16:36:40,878 - WARNING - Popüler varlık 'Cardano': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:36:40,879 - WARNING - Popüler varlık 'Cardano' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:36:40,879 - INFO - Cardano için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:36:40,879 - INFO - Popüler varlık 'Dogecoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:36:40,880 - INFO - CoinAPI.io'dan DOGE/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:36:41,162 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:45,818 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:45,818 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:36:45,821 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:36:45,822 - WARNING - Popüler varlık 'Cardano': yfinance'dan boş veri çekildi.
+2025-06-30 16:36:45,822 - WARNING - Popüler varlık 'Cardano': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:36:45,823 - WARNING - Popüler varlık 'Cardano' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:36:45,823 - INFO - Cardano için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:36:45,824 - INFO - Popüler varlık 'Dogecoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:36:45,824 - INFO - CoinAPI.io'dan DOGE/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:36:46,103 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:46,461 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:51,791 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:51,791 - ERROR - CoinAPI.io: DOGE için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:36:51,791 - WARNING - Popüler varlık 'Dogecoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:36:51,792 - INFO - yfinance'dan DOGE verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:36:52,848 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:52,914 - ERROR - HTTP Error 404: 
+2025-06-30 16:36:53,188 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:53,188 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:36:53,193 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:36:58,171 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:36:58,172 - ERROR - CoinAPI.io: DOGE için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:36:58,173 - WARNING - Popüler varlık 'Dogecoin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:36:58,173 - INFO - yfinance'dan DOGE verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:36:58,198 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:58,198 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:36:58,201 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:36:58,205 - ERROR - 
+1 Failed download:
+2025-06-30 16:36:58,205 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:36:58,208 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:36:58,929 - ERROR - HTTP Error 401: 
+2025-06-30 16:37:03,214 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:03,214 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:37:03,218 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:37:03,220 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:03,220 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:37:03,222 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:37:03,222 - WARNING - Popüler varlık 'Dogecoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:37:03,222 - WARNING - Popüler varlık 'Dogecoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:37:03,223 - WARNING - Popüler varlık 'Dogecoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:37:03,223 - INFO - Dogecoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:37:03,223 - INFO - Popüler varlık 'Binance Coin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:37:03,223 - INFO - CoinAPI.io'dan BNB/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:37:03,480 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:08,231 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:08,231 - ERROR - ['DOGE']: YFTzMissingError('possibly delisted; no timezone found')
+2025-06-30 16:37:08,232 - ERROR - yfinance: Kritik 'Close' sütunu (DOGE) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:37:08,233 - WARNING - Popüler varlık 'Dogecoin': yfinance'dan boş veri çekildi.
+2025-06-30 16:37:08,233 - WARNING - Popüler varlık 'Dogecoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:37:08,233 - WARNING - Popüler varlık 'Dogecoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:37:08,233 - INFO - Dogecoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:37:08,233 - INFO - Popüler varlık 'Binance Coin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:37:08,233 - INFO - CoinAPI.io'dan BNB/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:37:08,512 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:08,765 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:13,858 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:14,052 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:14,054 - ERROR - CoinAPI.io: BNB için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:37:14,055 - WARNING - Popüler varlık 'Binance Coin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:37:14,055 - INFO - yfinance'dan BNB verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:37:14,414 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:14,414 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:37:14,417 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:37:19,111 - ERROR - CoinAPI.io'dan veri çekilirken hata (BNB, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BNB/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:19,113 - ERROR - CoinAPI.io: BNB için tüm yeniden denemeler başarısız oldu.
+2025-06-30 16:37:19,114 - WARNING - Popüler varlık 'Binance Coin': CoinAPI'den boş veri çekildi.
+2025-06-30 16:37:19,114 - INFO - yfinance'dan BNB verisi çekiliyor: 2025-05-31 - 2025-06-30
+2025-06-30 16:37:19,127 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:19,127 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:37:19,131 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-06-30 16:37:19,432 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:19,432 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:37:19,436 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:37:24,145 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:24,145 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:37:24,148 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-06-30 16:37:24,448 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:24,448 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:37:24,451 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:37:24,451 - WARNING - Popüler varlık 'Binance Coin': yfinance'dan boş veri çekildi.
+2025-06-30 16:37:24,451 - WARNING - Popüler varlık 'Binance Coin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:37:24,453 - WARNING - Popüler varlık 'Binance Coin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:37:24,453 - INFO - Binance Coin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:37:24,454 - INFO - Popüler varlık 'Ripple': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:37:24,454 - INFO - CoinAPI.io'dan XRP/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:37:24,798 - ERROR - CoinAPI.io'dan veri çekilirken hata (XRP, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:29,162 - ERROR - 
+1 Failed download:
+2025-06-30 16:37:29,162 - ERROR - ['BNB']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-31 -> 2025-06-30)')
+2025-06-30 16:37:29,164 - ERROR - yfinance: Kritik 'Close' sütunu (BNB) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-06-30 16:37:29,164 - WARNING - Popüler varlık 'Binance Coin': yfinance'dan boş veri çekildi.
+2025-06-30 16:37:29,164 - WARNING - Popüler varlık 'Binance Coin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-06-30 16:37:29,165 - WARNING - Popüler varlık 'Binance Coin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-06-30 16:37:29,165 - INFO - Binance Coin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-06-30 16:37:29,165 - INFO - Popüler varlık 'Ripple': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-06-30 16:37:29,165 - INFO - CoinAPI.io'dan XRP/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-06-30 16:37:29,448 - ERROR - CoinAPI.io'dan veri çekilirken hata (XRP, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+2025-06-30 16:37:30,103 - ERROR - CoinAPI.io'dan veri çekilirken hata (XRP, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/XRP/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:39:33,632 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-07-01 09:39:33,637 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:39:33,637 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:39:39,032 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:39:44,049 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:39:49,062 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:39:49,063 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-07-01 09:39:49,063 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:39:49,063 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:39:49,063 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:39:49,064 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:39:49,064 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:39:49,450 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:39:54,467 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:39:59,480 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:39:59,480 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-07-01 09:39:59,480 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:39:59,481 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:39:59,481 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:39:59,481 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:39:59,481 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:39:59,779 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:40:04,792 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:40:09,806 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:40:09,806 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-07-01 09:40:09,806 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:40:09,807 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:40:09,807 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:40:09,808 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:40:09,808 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:40:10,126 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:15,449 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:20,684 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:20,684 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-07-01 09:40:20,685 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-07-01 09:40:20,685 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:40:20,951 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:40:25,965 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:40:30,978 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:40:30,978 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-07-01 09:40:30,978 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:40:30,979 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:40:30,979 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:40:30,979 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:40:30,979 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:40:31,247 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:33,587 - INFO - Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).
+2025-07-01 09:40:33,588 - INFO - Popüler varlık 'Altın': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:40:33,588 - INFO - yfinance'dan GC=F verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:40:33,601 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:40:36,479 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:38,615 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:40:41,734 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:41,735 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-07-01 09:40:41,735 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-07-01 09:40:41,735 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:40:42,079 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:40:43,628 - ERROR - yfinance: Kritik 'Close' sütunu (GC=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:40:43,628 - WARNING - Popüler varlık 'Altın': yfinance'dan boş veri çekildi.
+2025-07-01 09:40:43,628 - WARNING - Popüler varlık 'Altın': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:40:43,629 - WARNING - Popüler varlık 'Altın' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:40:43,629 - INFO - Altın için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:40:43,629 - INFO - Popüler varlık 'Gümüş': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:40:43,629 - INFO - yfinance'dan SI=F verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:40:43,642 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:40:47,093 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:40:48,655 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:40:52,107 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:40:52,107 - WARNING - Popüler varlık 'Ethereum': yfinance'dan boş veri çekildi.
+2025-07-01 09:40:52,107 - WARNING - Popüler varlık 'Ethereum': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:40:52,108 - WARNING - Popüler varlık 'Ethereum' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:40:52,108 - INFO - Ethereum için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:40:52,108 - INFO - Popüler varlık 'Solana': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:40:52,108 - INFO - CoinAPI.io'dan SOL/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:40:52,341 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:40:53,668 - ERROR - yfinance: Kritik 'Close' sütunu (SI=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:40:53,668 - WARNING - Popüler varlık 'Gümüş': yfinance'dan boş veri çekildi.
+2025-07-01 09:40:53,668 - WARNING - Popüler varlık 'Gümüş': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:40:53,669 - WARNING - Popüler varlık 'Gümüş' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:40:53,669 - INFO - Gümüş için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:40:53,669 - INFO - Popüler varlık 'Ham Petrol': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:40:53,669 - INFO - yfinance'dan CL=F verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:40:53,682 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:40:58,695 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:40:59,058 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:03,709 - ERROR - yfinance: Kritik 'Close' sütunu (CL=F) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:41:03,709 - WARNING - Popüler varlık 'Ham Petrol': yfinance'dan boş veri çekildi.
+2025-07-01 09:41:03,710 - WARNING - Popüler varlık 'Ham Petrol': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:41:03,710 - WARNING - Popüler varlık 'Ham Petrol' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:41:03,710 - INFO - Ham Petrol için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:41:03,710 - INFO - Popüler varlık 'Bitcoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:41:03,710 - INFO - CoinAPI.io'dan BTC/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:41:03,951 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:04,300 - ERROR - CoinAPI.io'dan veri çekilirken hata (SOL, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/SOL/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:04,301 - ERROR - CoinAPI.io: SOL için tüm yeniden denemeler başarısız oldu.
+2025-07-01 09:41:04,302 - WARNING - Popüler varlık 'Solana': CoinAPI'den boş veri çekildi.
+2025-07-01 09:41:04,302 - INFO - yfinance'dan SOL verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:41:04,610 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:41:09,217 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:09,624 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:41:14,548 - ERROR - CoinAPI.io'dan veri çekilirken hata (BTC, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/BTC/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:14,549 - ERROR - CoinAPI.io: BTC için tüm yeniden denemeler başarısız oldu.
+2025-07-01 09:41:14,549 - WARNING - Popüler varlık 'Bitcoin': CoinAPI'den boş veri çekildi.
+2025-07-01 09:41:14,549 - INFO - yfinance'dan BTC verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:41:14,562 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:41:14,637 - ERROR - yfinance: Kritik 'Close' sütunu (SOL) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:41:14,637 - WARNING - Popüler varlık 'Solana': yfinance'dan boş veri çekildi.
+2025-07-01 09:41:14,637 - WARNING - Popüler varlık 'Solana': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:41:14,638 - WARNING - Popüler varlık 'Solana' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:41:14,638 - INFO - Solana için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:41:14,638 - INFO - Popüler varlık 'Cardano': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:41:14,638 - INFO - CoinAPI.io'dan ADA/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:41:14,911 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:19,574 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:41:20,192 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:24,588 - ERROR - yfinance: Kritik 'Close' sütunu (BTC) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:41:24,588 - WARNING - Popüler varlık 'Bitcoin': yfinance'dan boş veri çekildi.
+2025-07-01 09:41:24,588 - WARNING - Popüler varlık 'Bitcoin': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:41:24,589 - WARNING - Popüler varlık 'Bitcoin' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:41:24,589 - INFO - Bitcoin için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:41:24,589 - INFO - Popüler varlık 'Ethereum': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:41:24,589 - INFO - CoinAPI.io'dan ETH/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:41:24,868 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:25,475 - ERROR - CoinAPI.io'dan veri çekilirken hata (ADA, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ADA/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:25,475 - ERROR - CoinAPI.io: ADA için tüm yeniden denemeler başarısız oldu.
+2025-07-01 09:41:25,476 - WARNING - Popüler varlık 'Cardano': CoinAPI'den boş veri çekildi.
+2025-07-01 09:41:25,476 - INFO - yfinance'dan ADA verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:41:25,740 - ERROR - 
+1 Failed download:
+2025-07-01 09:41:25,740 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-06-01 -> 2025-07-01)')
+2025-07-01 09:41:25,742 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:41:30,136 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 2/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:30,753 - ERROR - 
+1 Failed download:
+2025-07-01 09:41:30,753 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-06-01 -> 2025-07-01)')
+2025-07-01 09:41:30,754 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 2/3)
+2025-07-01 09:41:35,407 - ERROR - CoinAPI.io'dan veri çekilirken hata (ETH, Deneme 3/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/ETH/USD/history?period_id=1DAY&limit=2
+2025-07-01 09:41:35,407 - ERROR - CoinAPI.io: ETH için tüm yeniden denemeler başarısız oldu.
+2025-07-01 09:41:35,408 - WARNING - Popüler varlık 'Ethereum': CoinAPI'den boş veri çekildi.
+2025-07-01 09:41:35,408 - INFO - yfinance'dan ETH verisi çekiliyor: 2025-06-01 - 2025-07-01
+2025-07-01 09:41:35,421 - ERROR - yfinance: Kritik 'Close' sütunu (ETH) eksik veya boş. Veri kullanılamaz. (Deneme 1/3)
+2025-07-01 09:41:35,766 - ERROR - 
+1 Failed download:
+2025-07-01 09:41:35,766 - ERROR - ['ADA']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-06-01 -> 2025-07-01)')
+2025-07-01 09:41:35,767 - ERROR - yfinance: Kritik 'Close' sütunu (ADA) eksik veya boş. Veri kullanılamaz. (Deneme 3/3)
+2025-07-01 09:41:35,768 - WARNING - Popüler varlık 'Cardano': yfinance'dan boş veri çekildi.
+2025-07-01 09:41:35,768 - WARNING - Popüler varlık 'Cardano': API'lerden veri çekilemedi. Veritabanındaki en eski veriye düşülüyor.
+2025-07-01 09:41:35,768 - WARNING - Popüler varlık 'Cardano' için API hatası oluştu ve veritabanında eski veri de bulunamadı.
+2025-07-01 09:41:35,768 - INFO - Cardano için fiyat çekilemedi veya geçersiz fiyat, veritabanına kaydedilmedi.
+2025-07-01 09:41:35,768 - INFO - Popüler varlık 'Dogecoin': Veritabanında güncel veri bulunamadı veya eski, API'lerden çekiliyor.
+2025-07-01 09:41:35,769 - INFO - CoinAPI.io'dan DOGE/USD verisi çekiliyor (limit=2, period=1DAY).
+2025-07-01 09:41:36,022 - ERROR - CoinAPI.io'dan veri çekilirken hata (DOGE, Deneme 1/3): 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
+Traceback (most recent call last):
+  File "D:\projelerim\crypto\myfinancialapp\analysis\data_fetcher.py", line 118, in _fetch_coinapi_data_api
+    response.raise_for_status()
+  File "D:\projelerim\crypto\venv_crypto_new\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://rest.coinapi.io/v1/ohlcv/DOGE/USD/history?period_id=1DAY&limit=2
