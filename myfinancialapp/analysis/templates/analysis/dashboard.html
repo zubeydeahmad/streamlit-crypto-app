@@ -1,37 +1,234 @@
-{# analysis/templates/analysis/dashboard.html #}
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page_title }}</title>
-    {% load static %} {# Statik dosyaları (CSS, JS, resimler) kullanmak için gerekli #}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Finansal Varlık Analizi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Plotly JavaScript kütüphanesini buraya ekleyin (HEAD içinde) -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <style>
-        /* Bu basit stilleri daha sonra styles.css dosyanıza taşıyabilirsiniz */
         body {
-            font-family: sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', sans-serif;
         }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        /* Özel stil: Tablo başlıkları için */
+        th {
+            padding: 0.75rem; /* p-3 */
+            text-align: left;
+            font-weight: 600; /* font-semibold */
+            color: #4A5568; /* text-gray-700 */
+            background-color: #EDF2F7; /* bg-gray-200 */
+            border-bottom: 2px solid #E2E8F0; /* border-b-2 border-gray-300 */
         }
-        h1 {
-            color: #0056b3;
+        /* Özel stil: Tablo hücreleri için */
+        td {
+            padding: 0.75rem; /* p-3 */
+            border-bottom: 1px solid #E2E8F0; /* border-b border-gray-300 */
+        }
+        /* Pozitif değişim için renk */
+        .text-green-600 {
+            color: #2F855A;
+        }
+        /* Negatif değişim için renk */
+        .text-red-600 {
+            color: #C53030;
+        }
+        /* Nötr değişim için renk */
+        .text-gray-600 {
+            color: #4A5568;
+        }
+        /* Plotly grafiğinin kapsayıcısını esnek hale getir */
+        .plotly-graph-container {
+            width: 100%;
+            height: 400px; /* Belirli bir yükseklik verin */
+            /* flex ve justify-center kaldırıldı, çünkü Plotly kendi içindeki div'i ortalar */
+        }
+        #historical-chart, #prediction-chart {
+            width: 100%;
+            height: 100%; /* Kapsayıcı div'in yüksekliğini almasını sağlar */
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>{{ page_title }}</h1>
-        <p>Django projeniz başarıyla ayarlandı ve ilk sayfanız çalışıyor!</p>
-        <p>Bu, Streamlit uygulamanızın Django'ya dönüşümünün ilk adımıdır.</p>
-        <p>Şimdi Finansal Varlık Analiz ve Tahmin Uygulaması projenizin diğer kısımlarını entegre etmeye başlayabiliriz.</p></body>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+    <div class="container mx-auto p-4 flex-grow">
+        <h1 class="text-4xl font-extrabold text-center text-blue-800 mb-8 mt-4 rounded-lg p-3 bg-white shadow-lg">Finansal Varlık Analizi</h1>
+        
+        <!-- DEBUG: Şablon Sürümü -->
+        <p class="text-xs text-red-500 text-center mb-4">Şablon Sürümü: 2025-07-01-V19</p>
+        
+        <!-- DEBUG: popular_assets_data içeriği (Sadece JSON gösterimi) -->
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+            <p class="font-bold">DEBUG: popular_assets_data (JSON):</p>
+            <pre class="text-sm overflow-auto">{{ popular_assets_data_json|safe }}</pre>
+            
+            {# Django'nun if/for etiketleri kaldırıldı, çünkü sürekli hata veriyorlardı. #}
+            {# Tablo JavaScript ile doldurulacak. #}
+        </div>
+
+
+        <!-- Popüler Varlıklar Bölümü -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-blue-200">Popüler Varlıklar</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th class="py-3 px-4 bg-blue-100 text-blue-800 font-semibold uppercase text-sm rounded-tl-lg">Varlık</th>
+                            <th class="py-3 px-4 bg-blue-100 text-blue-800 font-semibold uppercase text-sm">Fiyat</th>
+                            <th class="py-3 px-4 bg-blue-100 text-blue-800 font-semibold uppercase text-sm">Değişim (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# Bu kısım tamamen JavaScript ile doldurulacak #}
+                        <tr>
+                            <td colspan="3" class="py-3 px-4 text-center text-gray-500" id="popular-assets-loading-message">Yükleniyor...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Varlık Seçimi ve Grafik Bölümü -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-blue-200">Varlık Grafiği ve Tahmin</h2>
+            
+            <form method="post" class="mb-6 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                {% csrf_token %}
+                <div class="flex-grow w-full sm:w-auto">
+                    <label for="asset_symbol" class="block text-gray-700 text-sm font-bold mb-2">Varlık Seç:</label>
+                    <div class="relative">
+                        <select name="asset_symbol" id="asset_symbol" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500 shadow-sm">
+                            {% for symbol, name in asset_choices %}
+                                <option value="{{ symbol }}" {% if symbol == selected_asset %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.757 7.586 5.343 9z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full sm:w-auto">
+                    <label for="prediction_days" class="block text-gray-700 text-sm font-bold mb-2">Tahmin Gün Sayısı:</label>
+                    <input type="number" name="prediction_days" id="prediction_days" value="{{ prediction_days }}" min="1" max="365" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="w-full sm:w-auto mt-4 sm:mt-0">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                        Verileri Getir
+                    </button>
+                </div>
+            </form>
+
+            <!-- Geçmiş Fiyat Grafiği Alanı -->
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-6 flex justify-center"> {# flex ve justify-center eklendi #}
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Geçmiş Fiyat Grafiği</h3>
+                <div id="historical-chart" class="plotly-graph-container mx-auto"> {# mx-auto eklendi #}
+                    <p class="text-gray-500 text-lg">Geçmiş grafik yükleniyor...</p>
+                </div>
+            </div>
+
+            <!-- Tahmin Grafiği Alanı -->
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex justify-center"> {# flex ve justify-center eklendi #}
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Fiyat Tahmin Grafiği</h3>
+                <div id="prediction-chart" class="plotly-graph-container mx-auto"> {# mx-auto eklendi #}
+                    <p class="text-gray-500 text-lg">Tahmin grafiği yükleniyor...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-blue-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2025 Finansal Analiz Uygulaması. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        // Popüler Varlıklar Tablosu JavaScript
+        const popularAssetsDataJS = JSON.parse('{{ popular_assets_data_json|escapejs }}');
+        const tableBody = document.querySelector('.min-w-full tbody');
+        const loadingMessage = document.getElementById('popular-assets-loading-message');
+        
+        if (loadingMessage) {
+            loadingMessage.remove();
+        }
+
+        if (popularAssetsDataJS && popularAssetsDataJS.length > 0) {
+            tableBody.innerHTML = '';
+            popularAssetsDataJS.forEach(asset => {
+                const row = tableBody.insertRow();
+                row.classList.add('hover:bg-gray-50');
+                
+                const varlikCell = row.insertCell();
+                varlikCell.classList.add('py-3', 'px-4', 'border-b', 'border-gray-200', 'text-gray-800');
+                varlikCell.textContent = asset.Varlık;
+
+                const fiyatCell = row.insertCell();
+                fiyatCell.classList.add('py-3', 'px-4', 'border-b', 'border-gray-200', 'text-gray-800');
+                fiyatCell.textContent = asset.Fiyat.toFixed(2);
+
+                const degisimCell = row.insertCell();
+                degisimCell.classList.add('py-3', 'px-4', 'border-b', 'border-gray-200');
+                
+                let changeClass = 'text-gray-600';
+                let changeText = 'N/A';
+
+                if (asset.Değişim_yuzdesi !== null && !isNaN(asset.Değişim_yuzdesi)) {
+                    if (asset.Değişim_yuzdesi > 0) {
+                        changeClass = 'text-green-600';
+                    } else if (asset.Değişim_yuzdesi < 0) {
+                        changeClass = 'text-red-600';
+                    }
+                    changeText = asset.Değişim_yuzdesi.toFixed(2) + '%';
+                }
+                degisimCell.classList.add(changeClass);
+                degisimCell.textContent = changeText;
+            });
+        } else {
+            tableBody.innerHTML = `<tr><td colspan="3" class="py-3 px-4 text-center text-gray-500">Popüler varlık verisi bulunamadı (JS).</td></tr>`;
+        }
+
+        // Plotly Geçmiş Fiyat Grafiğini Manuel Olarak Çizme
+        document.addEventListener('DOMContentLoaded', function() {
+            const historicalChartData = JSON.parse('{{ historical_chart_data_json|escapejs }}');
+            const historicalChartLayout = JSON.parse('{{ historical_chart_layout_json|escapejs }}');
+            const historicalChartDiv = document.getElementById('historical-chart');
+
+            console.log('Historical Plotly chartData:', historicalChartData);
+            console.log('Historical Plotly chartLayout:', historicalChartLayout);
+            console.log('Historical Plotly chartDiv:', historicalChartDiv);
+
+            if (historicalChartData.length > 0 && historicalChartDiv) {
+                historicalChartDiv.innerHTML = ''; // Yükleniyor mesajını kaldır
+                Plotly.newPlot(historicalChartDiv, historicalChartData, historicalChartLayout, {responsive: true});
+                console.log('Geçmiş fiyat grafiği başarıyla çizildi.');
+            } else {
+                if (historicalChartDiv) {
+                    historicalChartDiv.innerHTML = '<p class="text-gray-500 text-lg">Geçmiş grafik verisi bulunamadı veya yükleniyor...</p>';
+                }
+                console.log('Geçmiş fiyat grafiği çizilemedi: Veri boş veya hedef div bulunamadı.');
+            }
+
+            // Plotly Tahmin Grafiğini Manuel Olarak Çizme
+            const predictionChartData = JSON.parse('{{ prediction_chart_data_json|escapejs }}');
+            const predictionChartLayout = JSON.parse('{{ prediction_chart_layout_json|escapejs }}');
+            const predictionChartDiv = document.getElementById('prediction-chart');
+
+            console.log('Prediction Plotly chartData:', predictionChartData);
+            console.log('Prediction Plotly chartLayout:', predictionChartLayout);
+            console.log('Prediction Plotly chartDiv:', predictionChartDiv);
+
+            if (predictionChartData.length > 0 && predictionChartDiv) {
+                predictionChartDiv.innerHTML = ''; // Yükleniyor mesajını kaldır
+                Plotly.newPlot(predictionChartDiv, predictionChartData, predictionChartLayout, {responsive: true});
+                console.log('Tahmin grafiği başarıyla çizildi.');
+            } else {
+                if (predictionChartDiv) {
+                    predictionChartDiv.innerHTML = '<p class="text-gray-500 text-lg">Tahmin grafiği verisi bulunamadı veya yükleniyor...</p>';
+                }
+                console.log('Tahmin grafiği çizilemedi: Veri boş veya hedef div bulunamadı.');
+            }
+        });
+    </script>
+</body>
 </html>
