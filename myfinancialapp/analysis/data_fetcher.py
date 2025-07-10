@@ -1,341 +1,324 @@
-# myfinancialapp/analysis/data_fetcher.py
-# (Veri Çekme ve İşleme Modülü - API Çağrıları Devre Dışı Bırakıldı, Dummy Veri Kullanılıyor)
-
 import pandas as pd
+import yfinance as yf
+import requests
 from datetime import datetime, timedelta
-from django.utils import timezone # Django'nun zaman dilimi bilgisine sahip datetime objeleri için
+import asyncio
+import aiohttp
 import logging
+from asgiref.sync import sync_to_async
 import json
-import numpy as np 
-import io # StringIO için import eklendi
-
-# Django settings'den API anahtarları ve diğer ayarları almak için
 from django.conf import settings
-# Kendi Django modellerimizi import ediyoruz
-from .models import HistoricalData, PopularAssetCache
+from django.utils import timezone 
+from .models import PopularAssetCache, HistoricalData
+from io import StringIO # StringIO eklendi
 
-# Loglama yapılandırması
-logging.basicConfig(
-    level=logging.INFO, 
-    format='%(asctime)s - %(levelname)s - %(message)s', 
-    handlers=[
-        logging.FileHandler('crypto_app.log', encoding='utf-8'), # Dosyaya yaz
-        logging.StreamHandler() # Konsola yaz
-    ]
-)
 logger = logging.getLogger(__name__)
 
-# --- Varlık Bilgileri ---
+COINAPI_API_KEY = settings.COINAPI_API_KEY
+FIXER_API_KEY = settings.FIXER_API_KEY
+NEWS_API_KEY = settings.NEWS_API_KEY
+
 VARLIK_BILGILERI = {
     "Altın": {"sembol": "GC=F", "kaynak": "yfinance", "tip": "emtia"},
     "Gümüş": {"sembol": "SI=F", "kaynak": "yfinance", "tip": "emtia"},
     "Ham Petrol": {"sembol": "CL=F", "kaynak": "yfinance", "tip": "emtia"},
-    "Bitcoin": {"sembol": "BTC", "kaynak": "coinapi", "tip": "kripto"},
-    "Ethereum": {"sembol": "ETH", "kaynak": "coinapi", "tip": "kripto"},
-    "Solana": {"sembol": "SOL", "kaynak": "coinapi", "tip": "kripto"},
-    "Cardano": {"sembol": "ADA", "kaynak": "coinapi", "tip": "kripto"},
-    "Dogecoin": {"sembol": "DOGE", "kaynak": "coinapi", "tip": "kripto"},
-    "Binance Coin": {"sembol": "BNB", "kaynak": "coinapi", "tip": "kripto"},
-    "Ripple": {"sembol": "XRP", "kaynak": "coinapi", "tip": "kripto"},
+    "Bitcoin": {"sembol": "BTC-USD", "kaynak": "coinapi", "tip": "kripto"},
+    "Ethereum": {"sembol": "ETH-USD", "kaynak": "coinapi", "tip": "kripto"},
+    "Solana": {"sembol": "SOL-USD", "kaynak": "coinapi", "tip": "kripto"},
+    "Cardano": {"sembol": "ADA-USD", "kaynak": "coinapi", "tip": "kripto"},
+    "Dogecoin": {"sembol": "DOGE-USD", "kaynak": "coinapi", "tip": "kripto"},
+    "Binance Coin": {"sembol": "BNB-USD", "kaynak": "coinapi", "tip": "kripto"},
+    "Ripple": {"sembol": "XRP-USD", "kaynak": "coinapi", "tip": "kripto"},
     "Euro/Dolar": {"sembol": "EURUSD=X", "kaynak": "yfinance", "tip": "doviz"},
     "Sterlin/Dolar": {"sembol": "GBPUSD=X", "kaynak": "yfinance", "tip": "doviz"},
     "Dolar/Türk Lirası": {"sembol": "TRY=X", "kaynak": "yfinance", "tip": "doviz"},
 }
 
-
-# --- Dummy API Veri Çekme Fonksiyonları ---
-# Gerçek API çağrıları yerine sabit veri döndürecekler
-
-def _fetch_yfinance_data_api(symbol: str, start: datetime, end: datetime, retries: int = 3, delay: int = 5) -> pd.DataFrame:
-    """YFinance API'den geçmiş veri çeker (ŞİMDİLİK DUMMY VERİ)."""
-    logger.info(f"DUMMY: yfinance'dan {symbol} verisi çekiliyor: {start.strftime('%Y-%m-%d')} - {end.strftime('%Y-%m-%d')}")
-    
-    # inclusive='left' ile bitiş tarihini hariç tutarak yinelenenleri önle
-    dates = pd.date_range(start=start, end=end, freq='D', inclusive='left')
-    # Eğer tek bir gün isteniyorsa, o günü de dahil et
-    if (end - start).days == 0:
-        dates = pd.date_range(start=start, end=end, freq='D')
-
-    if len(dates) == 0:
-        return pd.DataFrame(columns=['Open', 'High', 'Low', 'Close', 'Volume'])
-
-    # Daha gerçekçi ve güncel dummy veri oluşturma
-    # Sembole göre başlangıç fiyatı belirle
-    if "GC=F" in symbol: # Altın
-        base_price = 1900 + np.random.uniform(-50, 50)
-    elif "SI=F" in symbol: # Gümüş
-        base_price = 25 + np.random.uniform(-2, 2)
-    elif "CL=F" in symbol: # Ham Petrol
-        base_price = 70 + np.random.uniform(-5, 5)
-    elif "EURUSD=X" in symbol: # Euro/Dolar
-        base_price = 1.08 + np.random.uniform(-0.02, 0.02)
-    elif "GBPUSD=X" in symbol: # Sterlin/Dolar
-        base_price = 1.25 + np.random.uniform(-0.02, 0.02)
-    elif "TRY=X" in symbol: # Dolar/Türk Lirası (ters kur)
-        base_price = 32 + np.random.uniform(-1, 1)
-    else:
-        base_price = 100 + np.random.uniform(-10, 10) # Genel varsayılan
-
-    prices = base_price + np.cumsum(np.random.normal(0, base_price * 0.005, len(dates))) # Fiyatı biraz daha gerçekçi yap
-    
-    data = {
-        'Open': prices * np.random.uniform(0.99, 1.01, len(dates)),
-        'High': prices * np.random.uniform(1.005, 1.02, len(dates)),
-        'Low': prices * np.random.uniform(0.98, 0.995, len(dates)),
-        'Close': prices,
-        'Volume': np.random.randint(100000, 1000000, len(dates))
-    }
-    df = pd.DataFrame(data, index=dates)
-    df.index.name = 'Date' # İndeks adını 'Date' olarak ayarla
-    
-    # İndeks üzerindeki yinelenenleri kaldır ve sırala
-    df = df[~df.index.duplicated(keep='first')]
-    df = df.sort_index()
-
-    logger.info(f"DUMMY: {len(df)} adet {symbol} verisi başarıyla oluşturuldu.")
-    return df
-
-
-def _fetch_coinapi_data_api(crypto_symbol: str, api_key: str, currency: str = "USD", period_id: str = "1DAY", limit: int = 365, retries: int = 3, delay: int = 5) -> pd.DataFrame:
-    """CoinAPI.io'dan kripto geçmiş veri çeker (ŞİMDİLİK DUMMY VERİ)."""
-    logger.info(f"DUMMY: CoinAPI.io'dan {crypto_symbol}/{currency} verisi çekiliyor (limit={limit}, period={period_id}).")
-    
-    end_date = timezone.now()
-    start_date = end_date - timedelta(days=limit - 1)
-    # inclusive='left' ile bitiş tarihini hariç tutarak yinelenenleri önle
-    dates = pd.date_range(start=start_date, end=end_date, freq='D', inclusive='left')
-    # Eğer tek bir gün isteniyorsa, o günü de dahil et
-    if (end_date - start_date).days == 0:
-        dates = pd.date_range(start=start_date, end=end_date, freq='D')
-
-    if len(dates) == 0:
-        return pd.DataFrame(columns=['Open', 'High', 'Low', 'Close', 'Volume'])
-
-    # Daha gerçekçi ve güncel kripto dummy veri oluşturma
-    # Sembole göre başlangıç fiyatı belirle
-    if crypto_symbol == "BTC":
-        base_price = 65000 + np.random.uniform(-5000, 5000)
-    elif crypto_symbol == "ETH":
-        base_price = 3500 + np.random.uniform(-300, 300)
-    elif crypto_symbol == "SOL":
-        base_price = 150 + np.random.uniform(-10, 10)
-    elif crypto_symbol == "ADA":
-        base_price = 0.45 + np.random.uniform(-0.05, 0.05)
-    elif crypto_symbol == "DOGE":
-        base_price = 0.15 + np.random.uniform(-0.02, 0.02)
-    elif crypto_symbol == "BNB":
-        base_price = 600 + np.random.uniform(-50, 50)
-    elif crypto_symbol == "XRP":
-        base_price = 0.50 + np.random.uniform(-0.05, 0.05)
-    else:
-        base_price = 100 + np.random.uniform(-10, 10) # Genel varsayılan
-
-    prices = base_price + np.cumsum(np.random.normal(0, base_price * 0.01, len(dates))) # Fiyatı biraz daha gerçekçi yap
-    
-    data = {
-        'Open': prices * np.random.uniform(0.99, 1.01, len(dates)),
-        'High': prices * np.random.uniform(1.005, 1.02, len(dates)),
-        'Low': prices * np.random.uniform(0.98, 0.995, len(dates)),
-        'Close': prices,
-        'Volume': np.random.randint(1000000, 5000000, len(dates))
-    }
-    df = pd.DataFrame(data, index=dates)
-    df.index.name = 'Date' # İndeks adını 'Date' olarak ayarla
-
-    # İndeks üzerindeki yinelenenleri kaldır ve sırala
-    df = df[~df.index.duplicated(keep='first')]
-    df = df.sort_index()
-
-    logger.info(f"DUMMY: {len(df)} adet {crypto_symbol} verisi başarıyla oluşturuldu.")
-    return df
-
-
-def _fetch_fixer_data_api(base_currency: str, target_currency: str, api_key: str, date: str, retries: int = 3, delay: int = 5) -> dict:
-    """Fixer.io'dan döviz kuru çeker (ŞİMDİLİK DUMMY VERİ)."""
-    logger.info(f"DUMMY: Fixer.io'dan {base_currency}/{target_currency} verisi çekiliyor (tarih={date}).")
-    
-    dummy_rate = np.random.uniform(1.0, 30.0) # Rastgele bir kur
-    logger.info(f"DUMMY: Fixer.io'dan {base_currency}/{target_currency} için kur başarıyla oluşturuldu: {dummy_rate}.")
-    return {"price": dummy_rate}
-
-
-# --- Ana Veri Çekme Fonksiyonları (DB cache kontrolü ve Dummy Veri ile) ---
-
-def fetch_all_popular_assets_and_save():
-    """
-    Popüler varlıkların güncel fiyatlarını çeker ve veritabanına kaydeder/günceller.
-    Sadece belirli bir süre içinde güncellenmediyse yeniden çeker.
-    (ŞİMDİLİK DUMMY VERİ KULLANILIYOR)
-    """
-    POPULAR_CACHE_DURATION_MINUTES = 5 # Önbellek süresi
-    
-    logger.info("DUMMY: Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli).")
-    overview_data = []
-
-    for asset_name, info in VARLIK_BILGILERI.items():
-        symbol = info["sembol"] # Buradaki symbol, veritabanına kaydedilecek semboldür (BTC, GC=F gibi).
-
-        # PopularAssetCache'teki asset_name alanı, VARLIK_BILGILERI'ndeki 'sembol' ile eşleşmelidir.
-        cached_record = PopularAssetCache.objects.filter(asset_name=symbol).first()
-        
-        price = np.nan # Varsayılan olarak NaN
-        change_percent = np.nan # Varsayılan olarak NaN
-
-        # Eğer önbellek kaydı yoksa veya süresi dolmuşsa dummy veriyi yeniden oluştur
-        if not cached_record or cached_record.last_updated < timezone.now() - timedelta(minutes=POPULAR_CACHE_DURATION_MINUTES):
-            logger.info(f"DUMMY: Popüler varlık '{asset_name}' ({symbol}): Veritabanında güncel veri bulunamadı veya eski, dummy veri oluşturuluyor.")
-            
-            # Dummy fiyat ve değişim yüzdesi oluştur
-            if "GC=F" in symbol: # Altın
-                price = 1900 + np.random.uniform(-50, 50)
-            elif "SI=F" in symbol: # Gümüş
-                price = 25 + np.random.uniform(-2, 2)
-            elif "CL=F" in symbol: # Ham Petrol
-                price = 70 + np.random.uniform(-5, 5)
-            elif "EURUSD=X" in symbol: # Euro/Dolar
-                price = 1.08 + np.random.uniform(-0.02, 0.02)
-            elif "GBPUSD=X" in symbol: # Sterlin/Dolar
-                price = 1.25 + np.random.uniform(-0.02, 0.02)
-            elif "TRY=X" in symbol: # Dolar/Türk Lirası (ters kur)
-                price = 32 + np.random.uniform(-1, 1)
-            elif "BTC" in symbol:
-                price = 65000 + np.random.uniform(-5000, 5000)
-            elif "ETH" in symbol:
-                price = 3500 + np.random.uniform(-300, 300)
-            elif "SOL" in symbol:
-                price = 150 + np.random.uniform(-10, 10)
-            elif "ADA" in symbol:
-                price = 0.45 + np.random.uniform(-0.05, 0.05)
-            elif "DOGE" in symbol:
-                price = 0.15 + np.random.uniform(-0.02, 0.02)
-            elif "BNB" in symbol:
-                price = 600 + np.random.uniform(-50, 50)
-            elif "XRP" in symbol:
-                price = 0.50 + np.random.uniform(-0.05, 0.05)
-            else:
-                price = np.random.uniform(10, 1000) # Genel varsayılan
-
-            change_percent = np.random.uniform(-5, 5) # -5% ile +5% arası değişim
-
-            if price is not None and not np.isnan(price):
-                PopularAssetCache.objects.update_or_create(
-                    asset_name=symbol, # Veritabanına sembol olarak kaydediyoruz
-                    defaults={'price': price, 'change_percent': change_percent if change_percent is not None and not np.isnan(change_percent) else np.nan, 'last_updated': timezone.now()}
-                )
-                logger.info(f"DUMMY: {asset_name} ({symbol}) dummy verisi veritabanına kaydedildi/güncellendi.")
-            else:
-                logger.info(f"DUMMY: {asset_name} ({symbol}) için fiyat oluşturulamadı veya geçersiz fiyat, veritabanına kaydedilmedi.")
-        else: # Önbellek güncel ise
-            price = cached_record.price
-            change_percent = cached_record.change_percent
-            logger.info(f"DUMMY: Popüler varlık '{asset_name}' ({symbol}): Veritabanından güncel veri yüklendi.")
-
-        # DataFrame'e eklerken 'Varlık' sütununa tam adı, diğerlerine sembole ait veriyi ekliyoruz
-        overview_data.append({
-            "Varlık": asset_name, # Tabloda gösterilecek tam isim
-            "Fiyat": price,
-            "Değişim (%)": change_percent
-        })
-
-    df_overview = pd.DataFrame(overview_data)
-    logger.info(f"DUMMY: Popüler varlıklar özeti DataFrame'e dönüştürüldü. Boyut: {df_overview.shape}")
-    return df_overview
-
-
-def get_historical_data_from_db_or_fetch(asset_symbol: str, start_date: datetime, end_date: datetime, force_fetch: bool = False) -> pd.DataFrame:
-    """
-    Belirtilen varlık için geçmiş verileri veritabanından çeker veya gerekirse dummy veri oluşturur.
-    (ŞİMDİLİK DUMMY VERİ KULLANILIYOR)
-    """
-    logger.info(f"DUMMY: get_historical_data_from_db_or_fetch çağrıldı: Sembol={asset_symbol}, Başlangıç={start_date.strftime('%Y-%m-%d')}, Bitiş={end_date.strftime('%Y-%m-%d')}")
-
-    HISTORY_CACHE_DURATION_HOURS = 24 * 7 
-
-    # VARLIK_BILGILERI'nden asset_symbol'a göre varlık bilgisini bul
-    asset_info = next((info for name, info in VARLIK_BILGILERI.items() if info["sembol"] == asset_symbol), None)
-    if not asset_info:
-        logger.error(f"Hata: '{asset_symbol}' için varlık bilgisi bulunamadı.")
-        return pd.DataFrame()
-    
-    asset_type = asset_info["tip"]
-    
+@sync_to_async
+def _save_popular_asset_to_db(asset_name, price, change_percent):
     try:
-        historical_record = HistoricalData.objects.get(asset_symbol=asset_symbol)
-        
-        # HATA DÜZELTME: timezone.now() kullanıldı
-        if historical_record.last_updated < timezone.now() - timedelta(hours=HISTORY_CACHE_DURATION_HOURS) or force_fetch: 
-            logger.info(f"DUMMY: '{asset_symbol}' için eski veri bulundu veya yeniden çekme isteniyor, dummy veri oluşturuluyor...")
-            
-            # Dummy veri oluştur
-            if asset_type == "kripto":
-                # settings.COINAPI_API_KEY yerine boş string, çünkü settings'e erişemiyoruz burada
-                # limit parametresi, start_date ve end_date arasındaki gün sayısına göre ayarlandı
-                fetched_data = _fetch_coinapi_data_api(asset_symbol, "", limit=(end_date - start_date).days + 1)
-            else:
-                # start_date ve end_date doğrudan yfinance dummy fonksiyonuna iletildi
-                fetched_data = _fetch_yfinance_data_api(asset_symbol, start_date, end_date)
-
-            if not fetched_data.empty:
-                # Veritabanına kaydetmeden önce indeksteki potansiyel yinelenenleri kaldır
-                fetched_data = fetched_data[~fetched_data.index.duplicated(keep='first')]
-                fetched_data = fetched_data.sort_index() # İndeksi sırala
-                historical_record.data_json = fetched_data.to_json(orient='split', date_format='iso')
-                historical_record.last_updated = timezone.now() # HATA DÜZELTME: timezone.now() kullanıldı
-                historical_record.save()
-                logger.info(f"DUMMY: '{asset_symbol}' için geçmiş dummy veri güncellendi ve kaydedildi.")
-                fetched_data.index = pd.to_datetime(fetched_data.index)
-                # Tarih aralığına göre filtrelemeden önce indeksteki potansiyel yinelenenleri kaldır
-                fetched_data = fetched_data[~fetched_data.index.duplicated(keep='first')]
-                fetched_data = fetched_data.sort_index() # İndeksi sırala
-                return fetched_data[(fetched_data.index.date >= start_date.date()) & (fetched_data.index.date <= end_date.date())].copy()
-            else:
-                logger.warning(f"DUMMY: '{asset_symbol}' için yeni dummy veri oluşturulamadı, eski veri kullanılıyor.")
-                # StringIO kullanımı eklendi
-                df_from_db_old = pd.read_json(io.StringIO(historical_record.data_json), orient='split')
-                df_from_db_old.index = pd.to_datetime(df_from_db_old.index)
-                # Veritabanından okuduktan sonra indeksteki potansiyel yinelenenleri kaldır
-                df_from_db_old = df_from_db_old[~df_from_db_old.index.duplicated(keep='first')]
-                df_from_db_old = df_from_db_old.sort_index() # İndeksi sırala
-                return df_from_db_old[(df_from_db_old.index.date >= start_date.date()) & (df_from_db_old.index.date <= end_date.date())].copy()
+        obj, created = PopularAssetCache.objects.update_or_create(
+            asset_name=asset_name,
+            defaults={
+                'price': price,
+                'change_percent': change_percent,
+                'last_updated': timezone.now()
+            }
+        )
+        if created:
+            logger.info(f"Popüler varlık '{asset_name}': Veritabanına yeni kaydedildi.")
         else:
-            logger.info(f"DUMMY: '{asset_symbol}' için güncel veri veritabanından alınıyor.")
-            # StringIO kullanımı eklendi
-            df_from_db_fresh = pd.read_json(io.StringIO(historical_record.data_json), orient='split')
-            df_from_db_fresh.index = pd.to_datetime(df_from_db_fresh.index)
-            # Veritabanından okuduktan sonra indeksteki potansiyel yinelenenleri kaldır
-            df_from_db_fresh = df_from_db_fresh[~df_from_db_fresh.index.duplicated(keep='first')]
-            df_from_db_fresh = df_from_db_fresh.sort_index() # İndeksi sırala
-            return df_from_db_fresh[(df_from_db_fresh.index.date >= start_date.date()) & (df_from_db_fresh.index.date <= end_date.date())].copy()
+            logger.info(f"Popüler varlık '{asset_name}': Veritabanında güncellendi.")
+    except Exception as e:
+        logger.error(f"Popüler varlık '{asset_name}': Veritabanına kaydederken hata: {e}", exc_info=True)
 
+@sync_to_async
+def _get_popular_asset_from_db(asset_name):
+    try:
+        asset = PopularAssetCache.objects.get(asset_name=asset_name)
+        return {
+            "Varlık": asset.asset_name,
+            "Fiyat": asset.price,
+            "Değişim_yuzdesi": asset.change_percent,
+            "last_updated": asset.last_updated
+        }
+    except PopularAssetCache.DoesNotExist:
+        logger.info(f"Popüler varlık '{asset_name}': Veritabanında bulunamadı.")
+        return None
+    except Exception as e:
+        logger.error(f"Popüler varlık '{asset_name}': Veritabanından çekerken hata: {e}", exc_info=True)
+        return None
+
+@sync_to_async
+def _save_historical_data_to_db(symbol, df):
+    if df.empty:
+        logger.warning(f"'{symbol}' için kaydedilecek geçmiş veri boş.")
+        return
+
+    try:
+        df_to_save = df.reset_index()
+        df_to_save['Date'] = df_to_save['Date'].dt.strftime('%Y-%m-%dT%H:%M:%SZ')
+        data_json_str = df_to_save.to_json(orient="records", date_format="iso")
+
+        obj, created = HistoricalData.objects.update_or_create(
+            asset_symbol=symbol,
+            defaults={
+                'data_json': json.loads(data_json_str),
+                'last_updated': timezone.now()
+            }
+        )
+        if created:
+            logger.info(f"'{symbol}' için geçmiş veri veritabanına yeni kaydedildi.")
+        else:
+            logger.info(f"'{symbol}' için geçmiş veri veritabanında güncellendi.")
+    except Exception as e:
+        logger.error(f"'{symbol}' için geçmiş veri veritabanına kaydederken hata: {e}", exc_info=True)
+
+@sync_to_async
+def _get_historical_data_from_db(symbol):
+    try:
+        data_entry = HistoricalData.objects.get(asset_symbol=symbol)
+        # Düzeltme: StringIO ile sarıldı
+        df = pd.read_json(StringIO(json.dumps(data_entry.data_json)), orient="records")
+        df['Date'] = pd.to_datetime(df['Date'])
+        df = df.set_index('Date')
+        df = df.sort_index()
+        logger.info(f"'{symbol}' için {len(df)} adet geçmiş veri veritabanından yüklendi.")
+        return df
     except HistoricalData.DoesNotExist:
-        logger.info(f"DUMMY: '{asset_symbol}' için veri veritabanında bulunamadı, dummy veri oluşturuluyor...")
-        
-        fetched_data = pd.DataFrame()
-        if asset_type == "kripto":
-            limit_days = (end_date - start_date).days + 1
-            # settings.COINAPI_API_KEY yerine boş string, çünkü settings'e erişemiyoruz burada
-            fetched_data = _fetch_coinapi_data_api(asset_symbol, "", limit=limit_days) 
-        else:
-            fetched_data = _fetch_yfinance_data_api(asset_symbol, start_date, end_date)
-
-        if not fetched_data.empty:
-            # Veritabanına kaydetmeden önce indeksteki potansiyel yinelenenleri kaldır
-            fetched_data = fetched_data[~fetched_data.index.duplicated(keep='first')]
-            fetched_data = fetched_data.sort_index() # İndeksi sırala
-            HistoricalData.objects.create(
-                asset_symbol=asset_symbol,
-                data_json=fetched_data.to_json(orient='split', date_format='iso'),
-                last_updated=timezone.now() # HATA DÜZELTME: timezone.now() kullanıldı
-            )
-            logger.info(f"DUMMY: '{asset_symbol}' için geçmiş dummy veri oluşturuldu ve veritabanına kaydedildi.")
-            fetched_data.index = pd.to_datetime(fetched_data.index)
-            # Tarih aralığına göre filtrelemeden önce indeksteki potansiyel yinelenenleri kaldır
-            fetched_data = fetched_data[~fetched_data.index.duplicated(keep='first')]
-            fetched_data = fetched_data.sort_index() # İndeksi sırala
-            return fetched_data[(fetched_data.index.date >= start_date.date()) & (fetched_data.index.date <= end_date.date())].copy()
-        else:
-            logger.error(f"Hata: '{asset_symbol}' için geçmiş dummy veri oluşturulamadı. Boş DataFrame döndürüldü.")
+        logger.info(f"'{symbol}' için veritabanında geçmiş veri bulunamadı.")
         return pd.DataFrame()
     except Exception as e:
-        logger.error(f"Hata: Geçmiş dummy veri işlenirken bir sorun oluştu: {e}", exc_info=True)
+        logger.error(f"'{symbol}' için geçmiş veri veritabanından çekerken hata: {e}", exc_info=True)
         return pd.DataFrame()
+
+async def _fetch_yfinance_data_real(symbol, period="5y"): 
+    logger.info(f"Yahoo Finance'tan '{symbol}' için veri çekiliyor...")
+    try:
+        ticker = yf.Ticker(symbol)
+        df = await sync_to_async(ticker.history)(period=period)
+        if df.empty:
+            logger.warning(f"Yahoo Finance'tan '{symbol}' için boş veri döndü.")
+            return pd.DataFrame()
+        
+        df.columns = [col.capitalize() for col in df.columns]
+        df.index.name = 'Date'
+        logger.info(f"Yahoo Finance'tan '{symbol}' için {len(df)} adet veri çekildi. İlk 5 satır:\n{df.head()}")
+        return df
+    except Exception as e:
+        logger.error(f"Yahoo Finance'tan '{symbol}' için veri çekerken hata: {e}", exc_info=True)
+        return pd.DataFrame()
+
+async def _fetch_coinapi_data_real(symbol, start_date, end_date):
+    logger.info(f"CoinAPI'den '{symbol}' için veri çekiliyor...")
+    if not COINAPI_API_KEY:
+        logger.error("CoinAPI API Anahtarı ayarlanmamış.")
+        return pd.DataFrame()
+
+    coinapi_symbol = symbol.replace('-', '/')
+    url = f"https://rest.coinapi.io/v1/ohlcv/{coinapi_symbol}/history"
+    headers = {'X-CoinAPI-Key': COINAPI_API_KEY}
+    params = {
+        'period_id': '1DAY',
+        'time_start': start_date.isoformat("T") + "Z",
+        'time_end': end_date.isoformat("T") + "Z",
+        'limit': 365
+    }
+    
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, headers=headers, params=params) as response:
+                response.raise_for_status()
+                data = await response.json()
+                
+                if not data:
+                    logger.warning(f"CoinAPI'den '{symbol}' için boş veri döndü.")
+                    return pd.DataFrame()
+
+                df = pd.DataFrame(data)
+                df['time_period_start'] = pd.to_datetime(df['time_period_start'])
+                df = df.rename(columns={
+                    'time_period_start': 'Date',
+                    'price_open': 'Open',
+                    'price_high': 'High',
+                    'price_low': 'Low',
+                    'price_close': 'Close',
+                    'volume_traded': 'Volume'
+                })
+                df = df.set_index('Date')
+                df = df[['Open', 'High', 'Low', 'Close', 'Volume']]
+                df = df.sort_index()
+                logger.info(f"CoinAPI'den '{symbol}' için {len(df)} adet veri çekildi. İlk 5 satır:\n{df.head()}")
+                return df
+    except aiohttp.ClientResponseError as e:
+        logger.error(f"CoinAPI HTTP Hatası ({symbol}): {e.status} - {e.message}. URL: {e.request_info.url}", exc_info=True)
+        try:
+            error_response_text = await response.text()
+            logger.error(f"CoinAPI Detaylı Yanıt: {error_response_text}")
+        except Exception as text_e:
+            logger.error(f"CoinAPI hata yanıtı okunurken hata oluştu: {text_e}")
+        raise 
+    except Exception as e:
+        logger.error(f"CoinAPI'den '{symbol}' için veri çekerken hata: {e}", exc_info=True)
+        raise 
+
+async def fetch_all_popular_assets_and_save():
+    logger.info("Popüler varlıkların güncel fiyatları çekiliyor (Veritabanı öncelikli, gerçek API denemesi).")
+    popular_assets_data = []
+    
+    for asset_name, info in VARLIK_BILGILERI.items():
+        symbol = info["sembol"]
+        source = info["kaynak"]
+        
+        db_data = await _get_popular_asset_from_db(asset_name)
+        
+        if db_data and db_data["last_updated"] and (timezone.now() - db_data["last_updated"]).total_seconds() < 3600:
+            popular_assets_data.append({
+                "Varlık": db_data["Varlık"],
+                "Fiyat": db_data["Fiyat"],
+                "Değişim_yuzdesi": db_data["Değişim_yuzdesi"]
+            })
+            logger.info(f"Popüler varlık '{asset_name}': Veritabanından güncel veri yüklendi.")
+            continue
+
+        price = None
+        change_percent = None
+        
+        try:
+            if source == "yfinance":
+                ticker = yf.Ticker(symbol)
+                info_data = await sync_to_async(lambda: ticker.info)()
+                if info_data:
+                    price = info_data.get('currentPrice') or info_data.get('regularMarketPrice')
+                    previous_close = info_data.get('previousClose') or info_data.get('regularMarketPreviousClose')
+                    if price and previous_close:
+                        change_percent = ((price - previous_close) / previous_close) * 100
+                    logger.info(f"Yahoo Finance'tan '{asset_name}' ({symbol}): Fiyat={price}, Değişim={change_percent}")
+                else:
+                    logger.warning(f"Yahoo Finance'tan '{asset_name}' ({symbol}) için güncel fiyat bilgisi alınamadı.")
+
+            elif source == "coinapi":
+                if not COINAPI_API_KEY:
+                    logger.error("CoinAPI API Anahtarı ayarlanmamış. Kripto varlıklar çekilemiyor.")
+                    continue
+                
+                coinapi_symbol = symbol.replace('-', '/')
+                url = f"https://rest.coinapi.io/v1/exchangerate/{coinapi_symbol}"
+                headers = {'X-CoinAPI-Key': COINAPI_API_KEY}
+                
+                try:
+                    async with aiohttp.ClientSession() as session:
+                        async with session.get(url, headers=headers) as response:
+                            response.raise_for_status()
+                            data = await response.json()
+                            if data and 'rate' in data:
+                                price = data['rate']
+                                change_percent = 0.0
+                                logger.info(f"CoinAPI'den '{asset_name}' ({symbol}): Fiyat={price}, Değişim=N/A (Varsayılan 0)")
+                            else:
+                                logger.warning(f"CoinAPI'den '{asset_name}' ({symbol}) için güncel fiyat bilgisi alınamadı. Yanıt: {data}")
+                except Exception as e:
+                    logger.error(f"CoinAPI'den '{asset_name}' ({symbol}) için güncel fiyat çekerken hata: {e}. yfinance'a geri dönülüyor.", exc_info=True)
+                    ticker = yf.Ticker(symbol)
+                    info_data = await sync_to_async(lambda: ticker.info)()
+                    if info_data:
+                        price = info_data.get('currentPrice') or info_data.get('regularMarketPrice')
+                        previous_close = info_data.get('previousClose') or info_data.get('regularMarketPreviousClose')
+                        if price and previous_close:
+                            change_percent = ((price - previous_close) / previous_close) * 100
+                        logger.info(f"Yahoo Finance'tan (geri dönüş) '{asset_name}' ({symbol}): Fiyat={price}, Değişim={change_percent}")
+                    else:
+                        logger.warning(f"Yahoo Finance'tan (geri dönüş) '{asset_name}' ({symbol}) için güncel fiyat bilgisi alınamadı.")
+
+
+            if price is not None:
+                popular_assets_data.append({
+                    "Varlık": asset_name,
+                    "Fiyat": float(price),
+                    "Değişim_yuzdesi": float(change_percent) if change_percent is not None else None
+                })
+                await _save_popular_asset_to_db(asset_name, float(price), float(change_percent) if change_percent is not None else None)
+            else:
+                logger.warning(f"'{asset_name}' ({symbol}) için güncel fiyat alınamadı, listeye eklenmedi.")
+
+        except Exception as e:
+            logger.error(f"'{asset_name}' ({symbol}) için genel hata oluştu: {e}", exc_info=True)
+            if db_data:
+                popular_assets_data.append({
+                    "Varlık": db_data["Varlık"],
+                    "Fiyat": db_data["Fiyat"],
+                    "Değişim_yuzdesi": db_data["Değişim_yuzdesi"]
+                })
+                logger.warning(f"'{asset_name}' ({symbol}) için API hatası oluştu, veritabanındaki eski veri kullanılıyor.")
+            else:
+                logger.warning(f"'{asset_name}' ({symbol}) için API hatası oluştu ve veritabanında da veri yok. Atlanıyor.")
+
+    if popular_assets_data:
+        df = pd.DataFrame(popular_assets_data)
+        df = df.rename(columns={"Değişim_yuzdesi": "Değişim (%)"})
+        logger.info(f"Popüler varlıklar özeti DataFrame'e dönüştürüldü. Boyut: {df.shape}")
+        logger.info(f"popular_assets_df ilk 5 satır:\n{df.head()}")
+        return df
+    logger.warning("Hiç popüler varlık verisi toplanamadı.")
+    return pd.DataFrame(columns=["Varlık", "Fiyat", "Değişim (%)"])
+
+
+async def get_historical_data_from_db_or_fetch(symbol, start_date, end_date):
+    logger.info(f"get_historical_data_from_db_or_fetch çağrıldı: Sembol={symbol}, Başlangıç={start_date.strftime('%Y-%m-%d')}, Bitiş={end_date.strftime('%Y-%m-%d')}")
+
+    df_historical = pd.DataFrame()
+    
+    logger.info(f"'{symbol}' için güncel veri veritabanından alınıyor.")
+    df_historical = await _get_historical_data_from_db(symbol)
+
+    if df_historical.empty or (not df_historical.empty and (timezone.now() - df_historical.index.max()).total_seconds() > 86400):
+        logger.info(f"'{symbol}' için veritabanında yeterli veri yok veya eski. API'den çekiliyor.")
+        
+        source_info = next((info for name, info in VARLIK_BILGILERI.items() if info['sembol'] == symbol), None)
+        
+        if not source_info:
+            logger.warning(f"'{symbol}' için tanımlı bir veri kaynağı bulunamadı veya sembol VARLIK_BILGILERI'nde yok.")
+            return pd.DataFrame()
+
+        primary_source = source_info.get("kaynak")
+        
+        if primary_source == "yfinance":
+            df_historical = await _fetch_yfinance_data_real(symbol, period="5y") 
+        elif primary_source == "coinapi":
+            try:
+                df_historical = await _fetch_coinapi_data_real(symbol, start_date, end_date)
+            except Exception as e:
+                logger.error(f"CoinAPI'den '{symbol}' için geçmiş veri çekerken hata: {e}. yfinance'a geri dönülüyor.", exc_info=True)
+                df_historical = await _fetch_yfinance_data_real(symbol, period="5y") 
+        
+        if not df_historical.empty:
+            await _save_historical_data_to_db(symbol, df_historical)
+            logger.info(f"'{symbol}' için API'den çekilen {len(df_historical)} adet veri veritabanına kaydedildi.")
+        else:
+            logger.warning(f"API'den '{symbol}' için veri çekilemedi veya boş döndü. Veritabanındaki eski veri kullanılacak (varsa).")
+
+    logger.info(f"get_historical_data_from_db_or_fetch() sonrası df_historical boş mu: {df_historical.empty}")
+    if not df_historical.empty:
+        logger.info(f"df_historical boyutu: {df_historical.shape}")
+        logger.info(f"df_historical ilk 5 satır:\n{df_historical.head()}")
+    return df_historical

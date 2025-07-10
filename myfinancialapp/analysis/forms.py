@@ -1,6 +1,8 @@
 # myfinancialapp/analysis/forms.py
 
 from django import forms
+from django.contrib.auth.forms import UserCreationForm # Yeni eklendi
+from django.contrib.auth.models import User # Yeni eklendi
 from .models import PopularAssetCache # Popüler varlıkları seçim listesi için kullanacağız
 
 class AssetSelectionForm(forms.Form):
@@ -9,7 +11,7 @@ class AssetSelectionForm(forms.Form):
     """
     asset = forms.ChoiceField(
         label="Varlık Seçin", # Formda görünecek etiket
-        choices=[],            # Seçenekler dinamik olarak views.py'de doldurulacak
+        choices=[],          # Seçenekler dinamik olarak views.py'de doldurulacak
         widget=forms.Select(attrs={'class': 'form-select rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 w-full'})
     )
     
@@ -27,3 +29,9 @@ class AssetSelectionForm(forms.Form):
         super().__init__(*args, **kwargs)
         if choices:
             self.fields['asset'].choices = choices
+
+# Yeni eklenecek kısım: Kullanıcı kayıt formu
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = UserCreationForm.Meta.fields + ('email',) # E-posta alanını da ekleyelim

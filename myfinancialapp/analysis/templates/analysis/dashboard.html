@@ -4,230 +4,369 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finansal Varlık Analizi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Plotly JavaScript kütüphanesini buraya ekleyin (HEAD içinde) -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Plotly JS CDN (Güncel sürüm) -->
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
         }
-        /* Özel stil: Tablo başlıkları için */
-        th {
-            padding: 0.75rem; /* p-3 */
+        .container {
+            max-width: 1200px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem;
             text-align: left;
-            font-weight: 600; /* font-semibold */
-            color: #4A5568; /* text-gray-700 */
-            background-color: #EDF2F7; /* bg-gray-200 */
-            border-bottom: 2px solid #E2E8F0; /* border-b-2 border-gray-300 */
+            border-bottom: 1px solid #e2e8f0;
         }
-        /* Özel stil: Tablo hücreleri için */
-        td {
-            padding: 0.75rem; /* p-3 */
-            border-bottom: 1px solid #E2E8F0; /* border-b border-gray-300 */
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #4a5568;
         }
-        /* Pozitif değişim için renk */
-        .text-green-600 {
-            color: #2F855A;
+        tr:hover {
+            background-color: #f0f4f8;
         }
-        /* Negatif değişim için renk */
-        .text-red-600 {
-            color: #C53030;
+        .positive {
+            color: #10b981; /* Green */
         }
-        /* Nötr değişim için renk */
-        .text-gray-600 {
-            color: #4A5568;
+        .negative {
+            color: #ef4444; /* Red */
         }
-        /* Plotly grafiğinin kapsayıcısını esnek hale getir */
-        .plotly-graph-container {
-            width: 100%;
-            height: 400px; /* Belirli bir yükseklik verin */
-            /* flex ve justify-center kaldırıldı, çünkü Plotly kendi içindeki div'i ortalar */
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #4A90E2;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
         }
-        #historical-chart, #prediction-chart {
-            width: 100%;
-            height: 100%; /* Kapsayıcı div'in yüksekliğini almasını sağlar */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Varlık şeridi kutucuk stili */
+        .asset-box {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 1rem; /* İç boşluk */
+            margin: 0.5rem; /* Kutucuklar arası boşluk */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px; /* Minimum genişlik */
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .asset-box:hover {
+            transform: translateY(-3px);
+        }
+        .asset-box-name {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        .asset-box-price {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        .asset-box-change {
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        /* Ok ikonları için stil */
+        .arrow-icon {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        .arrow-up {
+            color: #10b981; /* Green */
+        }
+        .arrow-down {
+            color: #ef4444; /* Red */
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
-    <div class="container mx-auto p-4 flex-grow">
-        <h1 class="text-4xl font-extrabold text-center text-blue-800 mb-8 mt-4 rounded-lg p-3 bg-white shadow-lg">Finansal Varlık Analizi</h1>
-        
-        <!-- DEBUG: Şablon Sürümü -->
-        <p class="text-xs text-red-500 text-center mb-4">Şablon Sürümü: 2025-07-01-V19</p>
-        
-        <!-- DEBUG: popular_assets_data içeriği (Sadece JSON gösterimi) -->
-        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-            <p class="font-bold">DEBUG: popular_assets_data (JSON):</p>
-            <pre class="text-sm overflow-auto">{{ popular_assets_data_json|safe }}</pre>
-            
-            {# Django'nun if/for etiketleri kaldırıldı, çünkü sürekli hata veriyorlardı. #}
-            {# Tablo JavaScript ile doldurulacak. #}
+<body class="p-6">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center text-blue-700 mb-4 p-4 bg-blue-100 rounded-lg shadow-md">Finansal Varlık Analizi</h1>
+
+        <!-- Kullanıcı Bilgisi ve Çıkış Butonu -->
+        <div class="flex justify-between items-center mb-4 p-4 bg-gray-100 rounded-lg shadow-sm">
+            {% if user.is_authenticated %}
+                <p class="text-gray-700">Hoş geldiniz, <span class="font-semibold">{{ user.username }}</span>!</p>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Çıkış Yap
+                    </button>
+                </form>
+            {% else %}
+                <p class="text-gray-700">Giriş yapmadınız.</p>
+                <div>
+                    <a href="{% url 'login' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2">
+                        Giriş Yap
+                    </a>
+                    <a href="{% url 'analysis_app:register' %}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Kayıt Ol
+                    </a>
+                </div>
+            {% endif %}
         </div>
 
+        <!-- Varlık Şeridi -->
+        <div id="asset-strip" class="flex flex-wrap justify-center items-center mb-8">
+            <!-- Varlık bilgileri buraya JS ile yüklenecek -->
+            <div class="loading-spinner"></div>
+            <span class="text-gray-600 ml-2">Varlık verileri yükleniyor...</span>
+        </div>
 
         <!-- Popüler Varlıklar Bölümü -->
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-blue-200">Popüler Varlıklar</h2>
+        <div class="card p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Popüler Varlıklar</h2>
             <div class="overflow-x-auto">
-                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                <table class="min-w-full">
                     <thead>
                         <tr>
-                            <th class="py-3 px-4 bg-blue-100 text-blue-800 font-semibold uppercase text-sm rounded-tl-lg">Varlık</th>
-                            <th class="py-3 px-4 bg-blue-100 text-blue-800 font-semibold uppercase text-sm">Fiyat</th>
-                            <th class="py-3 px-4 bg-blue-100 text-blue-800 font-semibold uppercase text-sm">Değişim (%)</th>
+                            <th>VARLIK</th>
+                            <th>FİYAT</th>
+                            <th>DEĞİŞİM (%)</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {# Bu kısım tamamen JavaScript ile doldurulacak #}
-                        <tr>
-                            <td colspan="3" class="py-3 px-4 text-center text-gray-500" id="popular-assets-loading-message">Yükleniyor...</td>
-                        </tr>
+                    <tbody id="popular-assets-table-body">
+                        <!-- Veriler buraya JS ile yüklenecek -->
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Varlık Seçimi ve Grafik Bölümü -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-blue-200">Varlık Grafiği ve Tahmin</h2>
+        <!-- Ana Form ve Grafik/Simülasyon Bölümü -->
+        <div class="card p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Varlık Analizi ve Simülasyonu</h2>
             
-            <form method="post" class="mb-6 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <form id="main-analysis-form" method="post" action="{% url 'analysis_app:dashboard' %}" class="mb-6 flex flex-col md:flex-row flex-wrap items-center space-y-4 md:space-y-0 md:space-x-4 justify-center">
                 {% csrf_token %}
-                <div class="flex-grow w-full sm:w-auto">
-                    <label for="asset_symbol" class="block text-gray-700 text-sm font-bold mb-2">Varlık Seç:</label>
-                    <div class="relative">
-                        <select name="asset_symbol" id="asset_symbol" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500 shadow-sm">
-                            {% for symbol, name in asset_choices %}
-                                <option value="{{ symbol }}" {% if symbol == selected_asset %}selected{% endif %}>{{ name }}</option>
-                            {% endfor %}
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.757 7.586 5.343 9z"/></svg>
-                        </div>
-                    </div>
+                <div class="flex items-center space-x-2">
+                    <label for="currency_type" class="text-gray-700 font-medium">Döviz Cinsi:</label>
+                    <select id="currency_type" name="currency_type" class="form-select mt-1 block w-full md:w-auto rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2">
+                        <option value="USD" {% if currency_type == 'USD' %}selected{% endif %}>USD - Amerikan Doları</option>
+                        <option value="EUR" {% if currency_type == 'EUR' %}selected{% endif %}>EUR - Euro</option>
+                        <option value="TRY" {% if currency_type == 'TRY' %}selected{% endif %}>TRY - Türk Lirası</option>
+                    </select>
                 </div>
-                <div class="w-full sm:w-auto">
-                    <label for="prediction_days" class="block text-gray-700 text-sm font-bold mb-2">Tahmin Gün Sayısı:</label>
-                    <input type="number" name="prediction_days" id="prediction_days" value="{{ prediction_days }}" min="1" max="365" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <div class="flex items-center space-x-2">
+                    <label for="investment_amount" class="text-gray-700 font-medium">Yatırım Tutarı:</label>
+                    <input type="number" id="investment_amount" name="investment_amount" value="{{ investment_amount|floatformat:0 }}" min="1" class="form-input mt-1 block w-24 rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2">
                 </div>
-                <div class="w-full sm:w-auto mt-4 sm:mt-0">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
-                        Verileri Getir
-                    </button>
+                <div class="flex items-center space-x-2">
+                    <label for="asset_select" class="text-gray-700 font-medium">Varlık Seç:</label>
+                    <select id="asset_select" name="asset_select" class="form-select mt-1 block w-full md:w-auto rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2">
+                        {% for asset_name in asset_options %}
+                            <option value="{{ asset_name }}" {% if asset_name == selected_asset %}selected{% endif %}>{{ asset_name }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
+                <div class="flex items-center space-x-2">
+                    <label for="prediction_days" class="text-gray-700 font-medium">Tahmin Gün Sayısı:</label>
+                    <input type="number" id="prediction_days" name="prediction_days" value="{{ prediction_days }}" min="1" max="90" class="form-input mt-1 block w-24 rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2">
+                </div>
+                <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 mt-4 md:mt-0">
+                    Analiz ve Simülasyonu Başlat
+                </button>
             </form>
 
-            <!-- Geçmiş Fiyat Grafiği Alanı -->
-            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-6 flex justify-center"> {# flex ve justify-center eklendi #}
-                <h3 class="text-xl font-semibold text-gray-700 mb-3">Geçmiş Fiyat Grafiği</h3>
-                <div id="historical-chart" class="plotly-graph-container mx-auto"> {# mx-auto eklendi #}
-                    <p class="text-gray-500 text-lg">Geçmiş grafik yükleniyor...</p>
-                </div>
+            <!-- Simülasyon Sonuçları Bölümü -->
+            <div class="bg-gray-50 p-4 rounded-lg min-h-[100px] flex flex-col items-center justify-center text-gray-700 mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Simülasyon Sonuçları</h3>
+                {% if simulation_message %}
+                    <div class="text-lg font-semibold mb-2">{{ simulation_message }}</div>
+                    {% if predicted_gain_loss is not None %}
+                        <div class="text-md mb-1">Beklenen Getiri: <span class="{% if predicted_change_percent > 0 %}positive{% else %}negative{% endif %}">{{ predicted_gain_loss|floatformat:2 }} {{ currency_symbol }} ({% if predicted_change_percent is not None %}{{ predicted_change_percent|floatformat:2 }}%{% else %}N/A{% endif %})</span></div>
+                    {% endif %}
+                    {% if risk_level %}
+                        <div class="text-md mb-1">Risk Seviyesi: <span class="font-bold">{{ risk_level }}</span></div>
+                    {% endif %}
+                    {% if advice %}
+                        <div class="text-md">Tavsiye: {{ advice }}</div>
+                    {% endif %}
+                {% else %}
+                    Simülasyon sonuçları burada gösterilecektir.
+                {% endif %}
             </div>
 
-            <!-- Tahmin Grafiği Alanı -->
-            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex justify-center"> {# flex ve justify-center eklendi #}
-                <h3 class="text-xl font-semibold text-gray-700 mb-3">Fiyat Tahmin Grafiği</h3>
-                <div id="prediction-chart" class="plotly-graph-container mx-auto"> {# mx-auto eklendi #}
-                    <p class="text-gray-500 text-lg">Tahmin grafiği yükleniyor...</p>
-                </div>
+            <!-- Güncel Fiyat ve Tahmini Fiyat Bilgi Alanı -->
+            <div class="mb-6 p-4 bg-blue-50 rounded-lg flex flex-col sm:flex-row justify-around items-center text-blue-800 font-semibold text-lg">
+                {% if current_asset_price is not None %}
+                    <div class="flex items-center mb-2 sm:mb-0">
+                        <span>Güncel Fiyat: {{ current_asset_price|floatformat:2 }}</span>
+                        {% if current_day_change_percent is not None %}
+                            {% if current_day_change_percent > 0 %}
+                                <span class="arrow-icon arrow-up">▲</span>
+                                <span class="positive ml-1">({{ current_day_change_percent|floatformat:2 }}%)</span>
+                            {% elif current_day_change_percent < 0 %}
+                                <span class="arrow-icon arrow-down">▼</span>
+                                <span class="negative ml-1">({{ current_day_change_percent|floatformat:2 }}%)</span>
+                            {% else %}
+                                <span class="ml-1">(%0.00)</span>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="mb-2 sm:mb-0">Güncel fiyat bilgisi yok.</div>
+                {% endif %}
+
+                {% if predicted_future_price is not None %}
+                    <div class="flex items-center">
+                        <span>{{ prediction_days }} Gün Sonra Tahmini Fiyat: {{ predicted_future_price|floatformat:2 }}</span>
+                    </div>
+                {% else %}
+                    <div>Tahmini fiyat bilgisi yok.</div>
+                {% endif %}
+            </div>
+
+            <!-- Geçmiş Fiyat Grafiği -->
+            <h3 class="text-lg font-semibold text-gray-700 mb-2 mt-6">Geçmiş Fiyat Grafiği</h3>
+            <div id="historical-chart" class="bg-gray-50 p-4 rounded-lg min-h-[400px] flex items-center justify-center">
+                {% if not historical_chart_json %}
+                    <span class="text-gray-500">Geçmiş fiyat verisi bulunamadı veya yüklenemedi.</span>
+                {% endif %}
+            </div>
+
+            <!-- Tahmin Grafiği -->
+            <h3 class="text-lg font-semibold text-gray-700 mb-2 mt-8">Fiyat Tahmin Grafiği</h3>
+            <div id="prediction-chart" class="bg-gray-50 p-4 rounded-lg min-h-[400px] flex items-center justify-center">
+                {% if not prediction_chart_json %}
+                    <span class="text-gray-500">Tahmin verisi bulunamadı veya model oluşturulamadı.</span>
+                {% endif %}
             </div>
         </div>
     </div>
 
-    <footer class="bg-blue-800 text-white text-center p-4 mt-8">
-        <p>&copy; 2025 Finansal Analiz Uygulaması. Tüm Hakları Saklıdır.</p>
-    </footer>
+    <!-- JSON verilerini doğrudan HTML'e gömmek için json_script etiketleri -->
+    {% load static %}
+    {{ popular_assets_data|json_script:"popular-assets-data" }}
+    {{ historical_chart_json|json_script:"historical-chart-json" }}
+    {{ prediction_chart_json|json_script:"prediction-chart-json" }}
 
     <script>
-        // Popüler Varlıklar Tablosu JavaScript
-        const popularAssetsDataJS = JSON.parse('{{ popular_assets_data_json|escapejs }}');
-        const tableBody = document.querySelector('.min-w-full tbody');
-        const loadingMessage = document.getElementById('popular-assets-loading-message');
-        
-        if (loadingMessage) {
-            loadingMessage.remove();
-        }
-
-        if (popularAssetsDataJS && popularAssetsDataJS.length > 0) {
-            tableBody.innerHTML = '';
-            popularAssetsDataJS.forEach(asset => {
-                const row = tableBody.insertRow();
-                row.classList.add('hover:bg-gray-50');
-                
-                const varlikCell = row.insertCell();
-                varlikCell.classList.add('py-3', 'px-4', 'border-b', 'border-gray-200', 'text-gray-800');
-                varlikCell.textContent = asset.Varlık;
-
-                const fiyatCell = row.insertCell();
-                fiyatCell.classList.add('py-3', 'px-4', 'border-b', 'border-gray-200', 'text-gray-800');
-                fiyatCell.textContent = asset.Fiyat.toFixed(2);
-
-                const degisimCell = row.insertCell();
-                degisimCell.classList.add('py-3', 'px-4', 'border-b', 'border-gray-200');
-                
-                let changeClass = 'text-gray-600';
-                let changeText = 'N/A';
-
-                if (asset.Değişim_yuzdesi !== null && !isNaN(asset.Değişim_yuzdesi)) {
-                    if (asset.Değişim_yuzdesi > 0) {
-                        changeClass = 'text-green-600';
-                    } else if (asset.Değişim_yuzdesi < 0) {
-                        changeClass = 'text-red-600';
-                    }
-                    changeText = asset.Değişim_yuzdesi.toFixed(2) + '%';
-                }
-                degisimCell.classList.add(changeClass);
-                degisimCell.textContent = changeText;
-            });
-        } else {
-            tableBody.innerHTML = `<tr><td colspan="3" class="py-3 px-4 text-center text-gray-500">Popüler varlık verisi bulunamadı (JS).</td></tr>`;
-        }
-
-        // Plotly Geçmiş Fiyat Grafiğini Manuel Olarak Çizme
         document.addEventListener('DOMContentLoaded', function() {
-            const historicalChartData = JSON.parse('{{ historical_chart_data_json|escapejs }}');
-            const historicalChartLayout = JSON.parse('{{ historical_chart_layout_json|escapejs }}');
+            // Yardımcı fonksiyon: JSON string'ini güvenli bir şekilde ayrıştırma
+            function parseJsonSafely(elementId, defaultValue, expectedType) {
+                let data = defaultValue;
+                const element = document.getElementById(elementId);
+                if (element && element.textContent) {
+                    let jsonString = element.textContent.trim();
+                    try {
+                        let parsed = JSON.parse(jsonString);
+                        if (typeof parsed === 'string') {
+                            parsed = JSON.parse(parsed);
+                        }
+                        if (expectedType === 'array' && Array.isArray(parsed)) {
+                            data = parsed;
+                        } else if (expectedType === 'object' && typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)) {
+                            data = parsed;
+                        } else {
+                            console.error(`Ayrıştırılan veri beklenilen tipte değil (${elementId}). Beklenen: ${expectedType}, Alınan: ${typeof parsed}. Veri:`, parsed);
+                        }
+                    } catch (e) {
+                        console.error(`JSON ayrıştırma hatası (${elementId}):`, e, "Ham string:", jsonString);
+                    }
+                } else {
+                    console.warn(`JSON elementi veya içeriği bulunamadı (${elementId}).`);
+                }
+                return data;
+            }
+
+            // Popüler Varlıklar verisini çek ve ayrıştır
+            let popularAssets = parseJsonSafely('popular-assets-data', [], 'array');
+            
+            // Geçmiş Grafik verisini çek ve ayrıştır (tek JSON objesi)
+            let historicalChartFigure = parseJsonSafely('historical-chart-json', {}, 'object');
+
+            // Tahmin Grafik verisini çek ve ayrıştır (tek JSON objesi)
+            let predictionChartFigure = parseJsonSafely('prediction-chart-json', {}, 'object');
+
+
+            // Varlık Şeridini doldur
+            const assetStrip = document.getElementById('asset-strip');
+            if (assetStrip) {
+                assetStrip.innerHTML = ''; // Mevcut içeriği temizle
+                
+                if (Array.isArray(popularAssets) && popularAssets.length > 0 && popularAssets[0].Varlık !== "Veri bulunamadı.") {
+                    popularAssets.forEach(asset => {
+                        const stripItem = document.createElement('div');
+                        stripItem.className = 'asset-box text-gray-800'; 
+
+                        const changeClass = (asset['Değişim (%)'] !== null && asset['Değişim (%)'] > 0) ? 'positive' : (asset['Değişim (%)'] !== null && asset['Değişim (%)'] < 0) ? 'negative' : '';
+                        
+                        stripItem.innerHTML = `
+                            <span class="asset-box-name">${asset.Varlık}</span>
+                            <span class="asset-box-price">${asset.Fiyat !== null ? asset.Fiyat.toFixed(2) : 'N/A'}</span>
+                            <span class="asset-box-change ${changeClass}">${asset['Değişim (%)'] !== null ? asset['Değişim (%)'].toFixed(2) + '%' : 'N/A'}</span>
+                        `;
+                        assetStrip.appendChild(stripItem);
+                    });
+                } else {
+                    assetStrip.innerHTML = '<span class="text-gray-500">Varlık verileri yüklenemedi.</span>';
+                }
+            }
+
+            // Popüler Varlıklar tablosunu doldur
+            const popularAssetsTableBody = document.getElementById('popular-assets-table-body');
+            if (popularAssetsTableBody) {
+                popularAssetsTableBody.innerHTML = ''; 
+                
+                if (Array.isArray(popularAssets) && popularAssets.length > 0 && popularAssets[0].Varlık !== "Veri bulunamadı.") {
+                    popularAssets.forEach(asset => {
+                        const row = document.createElement('tr');
+                        const changeClass = (asset['Değişim (%)'] !== null && asset['Değişim (%)'] > 0) ? 'positive' : (asset['Değişim (%)'] !== null && asset['Değişim (%)'] < 0) ? 'negative' : '';
+                        
+                        row.innerHTML = `
+                            <td>${asset.Varlık}</td>
+                            <td>${asset.Fiyat !== null ? asset.Fiyat.toFixed(2) : 'N/A'}</td>
+                            <td class="${changeClass}">${asset['Değişim (%)'] !== null ? asset['Değişim (%)'].toFixed(2) + '%' : 'N/A'}</td>
+                        `;
+                        popularAssetsTableBody.appendChild(row);
+                    });
+                } else {
+                    popularAssetsTableBody.innerHTML = `<tr><td colspan="3" class="text-center text-gray-500 py-4">Veri bulunamadı.</td></tr>`;
+                }
+            }
+
+            // Geçmiş Fiyat Grafiğini Çiz
             const historicalChartDiv = document.getElementById('historical-chart');
-
-            console.log('Historical Plotly chartData:', historicalChartData);
-            console.log('Historical Plotly chartLayout:', historicalChartLayout);
-            console.log('Historical Plotly chartDiv:', historicalChartDiv);
-
-            if (historicalChartData.length > 0 && historicalChartDiv) {
-                historicalChartDiv.innerHTML = ''; // Yükleniyor mesajını kaldır
-                Plotly.newPlot(historicalChartDiv, historicalChartData, historicalChartLayout, {responsive: true});
-                console.log('Geçmiş fiyat grafiği başarıyla çizildi.');
-            } else {
-                if (historicalChartDiv) {
-                    historicalChartDiv.innerHTML = '<p class="text-gray-500 text-lg">Geçmiş grafik verisi bulunamadı veya yükleniyor...</p>';
-                }
-                console.log('Geçmiş fiyat grafiği çizilemedi: Veri boş veya hedef div bulunamadı.');
+            if (historicalChartDiv && historicalChartFigure && Object.keys(historicalChartFigure).length > 0 && Array.isArray(historicalChartFigure.data) && historicalChartFigure.data.length > 0) {
+                Plotly.newPlot('historical-chart', historicalChartFigure.data, historicalChartFigure.layout);
+            } else if (historicalChartDiv) {
+                historicalChartDiv.innerHTML = '<span class="text-gray-500">Geçmiş fiyat verisi bulunamadı veya yüklenemedi.</span>';
             }
 
-            // Plotly Tahmin Grafiğini Manuel Olarak Çizme
-            const predictionChartData = JSON.parse('{{ prediction_chart_data_json|escapejs }}');
-            const predictionChartLayout = JSON.parse('{{ prediction_chart_layout_json|escapejs }}');
+            // Tahmin Grafiğini Çiz
             const predictionChartDiv = document.getElementById('prediction-chart');
-
-            console.log('Prediction Plotly chartData:', predictionChartData);
-            console.log('Prediction Plotly chartLayout:', predictionChartLayout);
-            console.log('Prediction Plotly chartDiv:', predictionChartDiv);
-
-            if (predictionChartData.length > 0 && predictionChartDiv) {
-                predictionChartDiv.innerHTML = ''; // Yükleniyor mesajını kaldır
-                Plotly.newPlot(predictionChartDiv, predictionChartData, predictionChartLayout, {responsive: true});
-                console.log('Tahmin grafiği başarıyla çizildi.');
-            } else {
-                if (predictionChartDiv) {
-                    predictionChartDiv.innerHTML = '<p class="text-gray-500 text-lg">Tahmin grafiği verisi bulunamadı veya yükleniyor...</p>';
-                }
-                console.log('Tahmin grafiği çizilemedi: Veri boş veya hedef div bulunamadı.');
+            if (predictionChartDiv && predictionChartFigure && Object.keys(predictionChartFigure).length > 0 && Array.isArray(predictionChartFigure.data) && predictionChartFigure.data.length > 0) {
+                Plotly.newPlot('prediction-chart', predictionChartFigure.data, predictionChartFigure.layout);
+            } else if (predictionChartDiv) {
+                predictionChartDiv.innerHTML = '<span class="text-gray-500">Tahmin verisi bulunamadı veya model oluşturulamadı.</span>';
             }
+
         });
     </script>
 </body>

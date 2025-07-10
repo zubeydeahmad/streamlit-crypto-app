@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+</head>
+<body>
+    <h1>Giriş Sayfası</h1>
+    <p>Bu, login.html şablonudur.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Giriş Yap</button>
+    </form>
+    <p>Hesabınız yok mu? <a href="{% url 'analysis_app:register' %}">Kayıt Olun</a></p>
+</body>
+</html>

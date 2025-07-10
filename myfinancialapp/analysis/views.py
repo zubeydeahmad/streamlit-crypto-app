@@ -1,337 +1,423 @@
 # myfinancialapp/analysis/views.py
 
-from django.shortcuts import render
-from datetime import datetime, timedelta
-from django.utils import timezone # Zaman dilimi bilgisine sahip datetime objeleri için
-import pandas as pd
 import json
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly # PlotlyJSONEncoder için ana plotly modülü eklendi
-from plotly.offline import plot
-import logging
-
-# Makine öğrenimi için gerekli kütüphaneler
-from sklearn.preprocessing import MinMaxScaler
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Dropout
+import pandas as pd
 import numpy as np
-
-# data_fetcher.py dosyasından gerekli fonksiyonları ve VARLIK_BILGILERI'ni import edin
+from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponseBadRequest
 from .data_fetcher import fetch_all_popular_assets_and_save, get_historical_data_from_db_or_fetch, VARLIK_BILGILERI
-from .models import HistoricalData, PopularAssetCache
+from .models import PopularAssetCache, HistoricalData
+import asyncio
+import logging
+from datetime import datetime, timedelta
+
+# Django'nun varsayılan kimlik doğrulama sistemi için gerekli import'lar
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
+from django.contrib.auth.models import User
+from .forms import CustomUserCreationForm
+
+import plotly.graph_objects as go
+import plotly.express as px
+from tensorflow.keras.models import Sequential, load_model
+from tensorflow.keras.layers import LSTM, Dense
+from sklearn.preprocessing import MinMaxScaler
+import os
 
 logger = logging.getLogger(__name__)
 
-# --- Makine Öğrenimi Fonksiyonları ---
+# LSTM modelini yükleyen veya oluşturan fonksiyon
+def load_or_create_model(symbol, input_shape):
+    model_dir = 'analysis/models'
+    os.makedirs(model_dir, exist_ok=True)
+    model_path = os.path.join(model_dir, f'{symbol}_lstm_model.h5')
 
-def train_and_predict_model(df_historical: pd.DataFrame, prediction_days: int = 30) -> tuple[pd.DataFrame, list]:
-    """
-    Geçmiş verilerle bir LSTM modeli eğitir ve gelecekteki fiyatları tahmin eder.
-    """
-    if df_historical.empty:
-        logger.warning("Eğitim için geçmiş veri boş. Tahmin yapılamıyor.")
-        return pd.DataFrame(), []
-
-    # 'Date' sütununu DataFrame'in bir sütunu olarak garantile
-    if df_historical.index.name == 'Date':
-        df_historical = df_historical.reset_index()
-    elif 'Date' not in df_historical.columns:
-        df_historical['Date'] = df_historical.index
-        df_historical = df_historical.reset_index(drop=True)
+    if os.path.exists(model_path):
+        logger.info(f"Yüklü model bulundu: {model_path}")
+        try:
+            model = load_model(model_path)
+            model.compile(optimizer='adam', loss='mean_squared_error')
+            return model
+        except Exception as e:
+            logger.error(f"Model yüklenirken hata oluştu ({model_path}): {e}", exc_info=True)
     
-    df_historical['Date'] = pd.to_datetime(df_historical['Date'])
-    df_historical = df_historical.sort_values(by='Date').drop_duplicates(subset=['Date']).reset_index(drop=True)
-
-
-    # Sadece 'Close' fiyatını kullan
-    data = df_historical['Close'].values.reshape(-1, 1)
-
-    # Veriyi ölçeklendir
-    scaler = MinMaxScaler(feature_range=(0, 1))
-    scaled_data = scaler.fit_transform(data)
-
-    # Eğitim verisi oluştur
-    # Son 60 günü kullanarak bir sonraki günü tahmin et
-    training_data_len = int(len(scaled_data) * 0.8) # Verinin %80'i eğitim için
-    train_data = scaled_data[0:training_data_len, :]
-
-    x_train = []
-    y_train = []
-    for i in range(60, len(train_data)):
-        x_train.append(train_data[i-60:i, 0])
-        y_train.append(train_data[i, 0])
-    
-    x_train, y_train = np.array(x_train), np.array(y_train)
-    x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
-
-    # Modeli oluştur ve eğit (eğer henüz eğitilmediyse)
-    # Basit bir LSTM modeli
+    logger.info(f"Model oluşturuluyor/yeniden eğitiliyor: {model_path}")
     model = Sequential()
-    model.add(LSTM(50, return_sequences=True, input_shape=(x_train.shape[1], 1)))
-    model.add(Dropout(0.2)) # Aşırı uydurmayı azaltmak için Dropout eklendi
+    model.add(LSTM(50, return_sequences=True, input_shape=input_shape))
     model.add(LSTM(50, return_sequences=False))
-    model.add(Dropout(0.2))
     model.add(Dense(25))
     model.add(Dense(1))
-
     model.compile(optimizer='adam', loss='mean_squared_error')
-    model.fit(x_train, y_train, batch_size=1, epochs=1) # Epoch sayısı 1 olarak ayarlandı, hızlı test için
+    return model
 
-    # Test verisi oluştur
-    test_data = scaled_data[training_data_len - 60:, :]
-    x_test = []
-    for i in range(60, len(test_data)):
-        x_test.append(test_data[i-60:i, 0])
-    x_test = np.array(x_test)
-    x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
-
-    # Tahminleri al
-    predictions = model.predict(x_test)
-    predictions = scaler.inverse_transform(predictions) # Ölçeklendirmeyi geri al
-
-    # Gelecek tahminleri
-    last_60_days = scaled_data[len(scaled_data) - 60:].reshape(1, 60, 1)
-    future_predictions = []
-    current_input = last_60_days
-
-    for _ in range(prediction_days):
-        next_prediction = model.predict(current_input)[0][0]
-        # Hata düzeltme: next_prediction'ı 3 boyutlu hale getirerek append et
-        current_input = np.append(current_input[:, 1:, :], np.array([[[next_prediction]]]), axis=1)
-        future_predictions.append(next_prediction) # next_prediction'ı ekledikten sonra future_predictions'a ekle
-
-    future_predictions = scaler.inverse_transform(np.array(future_predictions).reshape(-1, 1)).flatten()
-
-    # Tahmin DataFrame'i oluştur
-    last_date = df_historical['Date'].iloc[-1]
-    prediction_dates = [last_date + timedelta(days=i) for i in range(1, prediction_days + 1)]
-    
-    df_predictions = pd.DataFrame({
-        'Date': prediction_dates,
-        'Predicted_Close': future_predictions
-    })
-    
-    logger.info(f"{prediction_days} günlük tahmin başarıyla oluşturuldu.")
-    return df_predictions, predictions.flatten().tolist() # predictions.flatten().tolist() olarak döndür
-
-def create_prediction_plot(df_historical: pd.DataFrame, df_predictions: pd.DataFrame, actual_predictions: list, asset_display_name: str) -> dict:
-    """
-    Geçmiş verileri, gerçek tahminleri ve gelecek tahminleri içeren bir Plotly grafiği oluşturur.
-    """
-    # 'Date' sütununu DataFrame'in bir sütunu olarak garantile
-    if df_historical.index.name == 'Date':
-        df_historical = df_historical.reset_index()
-    elif 'Date' not in df_historical.columns:
-        df_historical['Date'] = df_historical.index
-        df_historical = df_historical.reset_index(drop=True)
-    
-    df_historical['Date'] = pd.to_datetime(df_historical['Date'])
-    df_historical = df_historical.sort_values(by='Date').drop_duplicates(subset=['Date']).reset_index(drop=True)
-
-    fig = go.Figure()
-
-    # Geçmiş veriler (OHLC)
-    fig.add_trace(go.Candlestick(x=df_historical['Date'],
-                    open=df_historical['Open'],
-                    high=df_historical['High'],
-                    low=df_historical['Low'],
-                    close=df_historical['Close'],
-                    name='Geçmiş Fiyat',
-                    increasing_line_color='green', decreasing_line_color='red'))
-
-    # Modelin geçmiş veriler üzerindeki tahminleri (eğitim ve test)
-    # df_historical'ın son kısmı actual_predictions ile eşleşir
-    # Tarihleri df_historical'dan almalıyız
-    if actual_predictions:
-        # actual_predictions'ın uzunluğuna göre df_historical'dan ilgili tarihleri al
-        actual_pred_dates = df_historical['Date'].iloc[-len(actual_predictions):]
-        fig.add_trace(go.Scatter(
-            x=actual_pred_dates,
-            y=actual_predictions,
-            mode='lines',
-            name='Model Tahmini (Geçmiş)',
-            line=dict(color='orange', width=2),
-            marker=dict(size=4)
-        ))
-
-    # Gelecek tahminleri
-    if not df_predictions.empty:
-        fig.add_trace(go.Scatter(
-            x=df_predictions['Date'],
-            y=df_predictions['Predicted_Close'],
-            mode='lines+markers',
-            name='Gelecek Tahmin',
-            line=dict(color='blue', width=2, dash='dash'),
-            marker=dict(symbol='circle', size=5)
-        ))
-
-    fig.update_layout(
-        title={
-            'text': f"{asset_display_name} Fiyat Geçmişi ve Tahmini", # Dinamik başlık
-            'y':0.9,
-            'x':0.5,
-            'xanchor': 'center',
-            'yanchor': 'top'},
-        xaxis_title="Tarih",
-        yaxis_title="Fiyat",
-        xaxis_rangeslider_visible=False,
-        margin=dict(l=20, r=20, t=50, b=20),
-        paper_bgcolor='#F8F9FA',
-        plot_bgcolor='#FFFFFF',
-        font=dict(color='#343A40'),
-        hovermode="x unified", # Hover efektini geliştir
-        height=500 # Grafiğin yüksekliğini ayarlayın
-    )
-    
-    logger.info("Tahmin grafiği fig objesi başarıyla oluşturuldu.")
-    return fig # fig objesini döndür
-
-# Ana sayfa görünümü
-def home_view(request):
-    logger.info("home_view fonksiyonu çağrıldı.")
-
-    # Varsayılan başlangıç ve bitiş tarihleri (örn: son 1 yıl)
-    end_date = timezone.now()
-    start_date = end_date - timedelta(days=365) # Son 1 yıl
-
-    # Popüler varlıkları çek ve kaydet
-    popular_assets_df = fetch_all_popular_assets_and_save()
-    logger.info(f"fetch_all_popular_assets_and_save() sonrası popular_assets_df boş mu: {popular_assets_df.empty}")
-    logger.info(f"popular_assets_df boyutu: {popular_assets_df.shape}")
-    logger.info(f"popular_assets_df ilk 5 satır:\n{popular_assets_df.head()}")
-
-
-    # "Değişim (%)" sütun adını "Değişim_yuzdesi" olarak yeniden adlandır
-    if 'Değişim (%)' in popular_assets_df.columns:
-        popular_assets_df = popular_assets_df.rename(columns={'Değişim (%)': 'Değişim_yuzdesi'})
-        logger.info("Sütun adı 'Değişim (%)' -> 'Değişim_yuzdesi' olarak yeniden adlandırıldı.")
-
-    popular_assets_data = popular_assets_df.to_dict('records')
-    logger.info(f"popular_assets_data listesi boyutu: {len(popular_assets_data)}")
-    logger.info(f"popular_assets_data ilk elemanı: {popular_assets_data[0] if popular_assets_data else 'Boş'}")
-    logger.info(f"popular_assets_data tipi: {type(popular_assets_data)}") # Tipi kontrol et
-
-
-    # Varlık seçimleri için veritabanından mevcut varlıkları al
-    asset_choices = []
-    # VARLIK_BILGILERI'ni doğrudan kullan, çünkü PopularAssetCache'te semboller var
-    for varlik_adi, bilgi in VARLIK_BILGILERI.items():
-        asset_choices.append((bilgi["sembol"], varlik_adi))
-    asset_choices = sorted(list(set(asset_choices)), key=lambda x: x[1]) # Yinelenenleri kaldır ve alfabetik sıraya göre sırala
-    logger.info(f"Oluşturulan asset_choices boyutu: {len(asset_choices)}")
-
-
-    selected_asset_symbol = "BTC" # Varsayılan Bitcoin
-    prediction_days = 30 # Varsayılan tahmin gün sayısı
-    popular_assets_data_json = json.dumps(popular_assets_data)
-
-    # POST isteği geldiğinde form verilerini işle
-    if request.method == 'POST':
-        selected_asset_symbol = request.POST.get('asset_symbol', "BTC")
-        try:
-            prediction_days = int(request.POST.get('prediction_days', 30))
-        except ValueError:
-            prediction_days = 30
-        logger.info(f"POST isteği alındı: selected_asset_symbol={selected_asset_symbol}, prediction_days={prediction_days}")
-
-    # Seçilen varlığın tam adını al
-    selected_asset_display_name = next((name for symbol, name in asset_choices if symbol == selected_asset_symbol), selected_asset_symbol)
-
-
-    # Seçilen varlığın geçmiş verisini çek (DB'den veya dummy veri)
-    df_historical = get_historical_data_from_db_or_fetch(selected_asset_symbol, start_date, end_date)
-    logger.info(f"get_historical_data_from_db_or_fetch() sonrası df_historical boş mu: {df_historical.empty}")
-    logger.info(f"df_historical boyutu: {df_historical.shape}")
-    logger.info(f"df_historical ilk 5 satır:\n{df_historical.head()}")
-
-    # Plotly grafik verilerini ve düzenini JSON olarak hazırlayın
-    historical_chart_data_json = "[]"
-    historical_chart_layout_json = "{}"
-    prediction_chart_data_json = "[]"
-    prediction_chart_layout_json = "{}"
-    
-    if not df_historical.empty:
-        # df_historical'da 'Date' sütununu DataFrame'in bir sütunu olarak garantile ve temizle
-        # Bu kısım, DataFrame'in indeksinden 'Date' sütununu oluşturur ve yinelenenleri kaldırır.
-        if df_historical.index.name == 'Date':
-            df_historical = df_historical.reset_index()
-        elif 'Date' not in df_historical.columns:
-            # Eğer 'Date' sütunu yoksa ve indeksin adı yoksa varsayılan 'index' adını kullan
-            if df_historical.index.name is None:
-                df_historical = df_historical.reset_index().rename(columns={'index': 'Date'})
-            else:
-                df_historical = df_historical.reset_index().rename(columns={df_historical.index.name: 'Date'})
+# Veri setini oluşturan fonksiyon
+def create_dataset(data, time_step=1):
+    X, Y = [], []
+    if len(data) < time_step + 1:
+        logger.warning(f"create_dataset: Veri uzunluğu ({len(data)}) time_step + 1 ({time_step + 1})'den küçük. Boş arrayler döndürülecek.")
+        return np.array([]), np.array([]) 
         
-        df_historical['Date'] = pd.to_datetime(df_historical['Date'])
-        # Tarihe göre sırala ve yinelenen tarihleri kaldır (ilkini koru)
-        df_historical = df_historical.sort_values(by='Date').drop_duplicates(subset=['Date'], keep='first').reset_index(drop=True)
+    for i in range(len(data) - time_step - 1):
+        a = data[i:(i + time_step), 0]
+        X.append(a)
+        Y.append(data[i + time_step, 0])
+    return np.array(X), np.array(Y)
 
 
-        # Geçmiş fiyat grafiği için fig objesi oluştur
-        historical_fig = go.Figure()
-        historical_fig.add_trace(go.Candlestick(x=df_historical['Date'],
-                        open=df_historical['Open'],
-                        high=df_historical['High'],
-                        low=df_historical['Low'],
-                        close=df_historical['Close'],
-                        name='OHLC'))
+# Kayıt görünümü (Django'nun varsayılan kullanıcı modelini kullanır)
+class RegisterView(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('login') # Kayıt başarılı olursa giriş sayfasına yönlendir
+    template_name = 'registration/register.html' # Kayıt şablonu
 
-        historical_fig.update_layout(
-            title={
-                'text': f"{selected_asset_display_name} Geçmiş Fiyat Grafiği", # Dinamik başlık
-                'y':0.9,
-                'x':0.5,
-                'xanchor': 'center',
-                'yanchor': 'top'},
-            xaxis_rangeslider_visible=False,
-            margin=dict(l=20, r=20, t=50, b=20),
-            paper_bgcolor='#F8F9FA',
-            plot_bgcolor='#FFFFFF',
-            font=dict(color='#343A40'),
-            height=400 # Grafiğin yüksekliğini ayarlayın
-        )
-        
-        historical_chart_data_json = json.dumps(historical_fig.data, cls=plotly.utils.PlotlyJSONEncoder)
-        historical_chart_layout_json = json.dumps(historical_fig.layout, cls=plotly.utils.PlotlyJSONEncoder)
-        logger.info("Geçmiş grafik verileri (data ve layout) JSON olarak başarıyla oluşturuldu.")
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        # Kullanıcıyı otomatik olarak giriş yapmasını istiyorsanız bu satırı aktif edebilirsiniz.
+        # login(self.request, self.object)
+        return response
 
-        # Tahmin modelini eğit ve tahminleri al
-        df_predictions, actual_predictions = train_and_predict_model(df_historical, prediction_days)
-        logger.info(f"train_and_predict_model() sonrası df_predictions boş mu: {df_predictions.empty}")
-        logger.info(f"df_predictions boyutu: {df_predictions.shape}")
-        logger.info(f"actual_predictions boyutu: {len(actual_predictions)}")
+# Ana dashboard görünümü
+@login_required # Bu dekoratör, sadece giriş yapmış kullanıcıların erişmesini sağlar
+def home_view(request): # async def yerine def olarak değiştirildi
+    # Varsayılan değerler
+    popular_assets_data_json = json.dumps([])
+    historical_chart_json = json.dumps({}) 
+    prediction_chart_json = json.dumps({}) 
+    
+    selected_asset_name = 'Bitcoin'
+    prediction_days = 30
+    currency_type = 'USD'
+    investment_amount = 1000.0
 
-        if not df_predictions.empty:
-            # Tahmin grafiği için fig objesi oluştur
-            prediction_fig = create_prediction_plot(df_historical, df_predictions, actual_predictions, selected_asset_display_name) # Dinamik başlık için yeni parametre
-            prediction_chart_data_json = json.dumps(prediction_fig.data, cls=plotly.utils.PlotlyJSONEncoder)
-            prediction_chart_layout_json = json.dumps(prediction_fig.layout, cls=plotly.utils.PlotlyJSONEncoder)
-            logger.info("Tahmin grafik verileri (data ve layout) JSON olarak başarıyla oluşturuldu.")
-        else:
-            logger.warning(f"{selected_asset_display_name} için tahmin verisi boş veya alınamadı. Tahmin grafiği oluşturulamadı.")
+    # Simülasyon sonuçları için varsayılan değerler
+    simulation_message = "Simülasyon sonuçları burada gösterilecektir."
+    predicted_gain_loss = None
+    predicted_change_percent = None
+    risk_level = None
+    advice = None
+    currency_symbol = '$'
 
-    else:
-        logger.warning(f"{selected_asset_display_name} için geçmiş veri boş veya alınamadı. Grafik oluşturulamadı.")
-
+    # >>> BURADA 'context' SÖZLÜĞÜNÜ BAŞLATTIK <<<
     context = {
-        'asset_choices': asset_choices,
-        'selected_asset': selected_asset_symbol,
+        'asset_options': list(VARLIK_BILGILERI.keys()),
+        'popular_assets_data': popular_assets_data_json,
+        'historical_chart_json': historical_chart_json,
+        'prediction_chart_json': prediction_chart_json,
+        
+        # Form için seçili değerler
+        'selected_asset': selected_asset_name,
         'prediction_days': prediction_days,
-        'historical_chart_data_json': historical_chart_data_json, 
-        'historical_chart_layout_json': historical_chart_layout_json,
-        'prediction_chart_data_json': prediction_chart_data_json, 
-        'prediction_chart_layout_json': prediction_chart_layout_json, 
-        'popular_assets_data_json': popular_assets_data_json, 
-        'popular_assets_data': popular_assets_data,
-    }
-    logger.info("Context verileri template'e gönderiliyor.")
-    print(f"DEBUG: popular_assets_data_json içeriği: {popular_assets_data_json[:500]}...")
-    print(f"DEBUG: historical_chart_data_json boş mu? {historical_chart_data_json == '[]'}")
-    print(f"DEBUG: historical_chart_layout_json boş mu? {historical_chart_layout_json == '{}'}")
-    print(f"DEBUG: prediction_chart_data_json boş mu? {prediction_chart_data_json == '[]'}")
-    print(f"DEBUG: prediction_chart_layout_json boş mu? {prediction_chart_layout_json == '{}'}")
-    print(f"DEBUG: Context'teki popular_assets_data tipi: {type(context['popular_assets_data'])}")
-    print(f"DEBUG: Context'teki popular_assets_data boyutu: {len(context['popular_assets_data'])}")
+        'currency_type': currency_type,
+        'investment_amount': investment_amount,
 
+        # Varlık Bilgisi ve Tahmin için
+        'current_asset_price': None, # Varsayılan olarak None
+        'current_day_change_percent': None, # Varsayılan olarak None
+        'predicted_future_price': None, # Varsayılan olarak None
+
+        # Simülasyon sonuçları için
+        'simulation_message': simulation_message,
+        'predicted_gain_loss': predicted_gain_loss,
+        'predicted_change_percent': predicted_change_percent,
+        'risk_level': risk_level,
+        'advice': advice,
+        'currency_symbol': currency_symbol,
+    }
+    # <<< BURADA 'context' SÖZLÜĞÜNÜ BAŞLATTIK >>>
+
+    # Form gönderimi varsa değerleri al
+    if request.method == 'POST':
+        context['selected_asset'] = request.POST.get('asset_select', 'Bitcoin')
+        context['prediction_days'] = int(request.POST.get('prediction_days', 30))
+        context['currency_type'] = request.POST.get('currency_type', 'USD')
+        try:
+            context['investment_amount'] = float(request.POST.get('investment_amount', 1000.0))
+        except ValueError:
+            context['investment_amount'] = 1000.0 # Hatalı giriş durumunda varsayılan değer
+
+    selected_asset_symbol = next((info["sembol"] for name, info in VARLIK_BILGILERI.items() if name == context['selected_asset']), 'BTC-USD')
+
+    try:
+        # Asenkron fonksiyonları senkron bağlamda çağırmak için asyncio.run() kullanın
+        popular_assets_df = asyncio.run(fetch_all_popular_assets_and_save())
+        if not popular_assets_df.empty:
+            popular_assets_data = popular_assets_df.where(pd.notnull(popular_assets_df), None).to_dict(orient='records')
+            context['popular_assets_data'] = json.dumps(popular_assets_data)
+        else:
+            logger.warning("Popüler varlıklar DataFrame boş döndü.")
+
+    except Exception as e:
+        logger.error(f"Popüler varlıkları çekerken hata: {e}", exc_info=True)
+        context['popular_assets_data'] = json.dumps([{"Varlık": "Veri bulunamadı.", "Fiyat": None, "Değişim (%)": None}])
+    
+    if selected_asset_symbol:
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=365*5) # 5 yıllık veri çek
+
+        # Asenkron fonksiyonu senkron bağlamda çağırmak için asyncio.run() kullanın
+        df_historical = asyncio.run(get_historical_data_from_db_or_fetch(selected_asset_symbol, start_date, end_date))
+        
+        if not df_historical.empty and 'Close' in df_historical.columns:
+            # Güncel fiyat ve değişim hesaplama
+            if len(df_historical['Close']) >= 2:
+                context['current_asset_price'] = df_historical['Close'].iloc[-1]
+                previous_day_price = df_historical['Close'].iloc[-2]
+                if previous_day_price != 0: # Sıfıra bölme hatasını önle
+                    context['current_day_change_percent'] = ((context['current_asset_price'] - previous_day_price) / previous_day_price) * 100
+            elif len(df_historical['Close']) == 1:
+                context['current_asset_price'] = df_historical['Close'].iloc[-1]
+                context['current_day_change_percent'] = 0.0 # Tek gün varsa değişim 0 kabul edilebilir
+            
+            # Geçmiş Fiyat Grafiği Oluşturma
+            fig_historical = go.Figure(data=[go.Candlestick(
+                x=df_historical.index,
+                open=df_historical['Open'],
+                high=df_historical['High'],
+                low=df_historical['Low'], 
+                close=df_historical['Close'],
+                name='Geçmiş Fiyat'
+            )])
+            fig_historical.update_layout(
+                title=f'{context["selected_asset"]} Geçmiş Fiyat Grafiği',
+                xaxis_title='Tarih',
+                yaxis_title='Fiyat',
+                xaxis_rangeslider_visible=False,
+                template='plotly_white',
+                height=400
+            )
+            context['historical_chart_json'] = fig_historical.to_json()
+
+            try:
+                scaler = MinMaxScaler(feature_range=(0, 1))
+                
+                close_prices = df_historical['Close'].values.reshape(-1, 1)
+                scaled_data = scaler.fit_transform(close_prices)
+
+                time_step = 40
+                
+                MIN_REQUIRED_TOTAL_DATA = int((time_step + 1) / 0.20) + 1 
+                
+                if len(scaled_data) < MIN_REQUIRED_TOTAL_DATA: 
+                    logger.warning(f"'{context['selected_asset']}' için yetersiz geçmiş veri: {len(scaled_data)} gün. Tahmin için en az {MIN_REQUIRED_TOTAL_DATA} gün gereklidir (time_step {time_step} için).")
+                    context['prediction_chart_json'] = json.dumps({ 
+                        'data': [],
+                        'layout': {
+                            'title': f'Tahmin Grafiği (En Az {MIN_REQUIRED_TOTAL_DATA} Günlük Veri Gerekli)',
+                            'height': 500
+                        }
+                    })
+                    # Yetersiz veri durumunda simülasyon hatası
+                    context['simulation_message'] = f"Simülasyon için yeterli geçmiş veri yok ({len(scaled_data)} gün, en az {MIN_REQUIRED_TOTAL_DATA} gün gerekli)."
+                    context['predicted_gain_loss'] = None
+                    context['predicted_change_percent'] = None
+                    context['risk_level'] = "Veri Yetersiz"
+                    context['advice'] = "Daha fazla geçmiş veri olduğunda simülasyonu tekrar deneyin."
+                else:
+                    training_size = int(len(scaled_data) * 0.80)
+                    train_data = scaled_data[0:training_size, :]
+                    test_data = scaled_data[training_size:len(scaled_data), :]
+
+                    if len(train_data) < time_step + 1 or len(test_data) < time_step + 1:
+                        logger.warning(f"'{context['selected_asset']}' için eğitim veya test seti time_step ({time_step}) kadar veri içermiyor. Eğitim seti: {len(train_data)}, Test seti: {len(test_data)}. Tahmin grafiği çizilemiyor.")
+                        context['prediction_chart_json'] = json.dumps({
+                            'data': [],
+                            'layout': {
+                                'title': 'Tahmin Grafiği (Yetersiz Eğitim/Test Verisi)',
+                                'height': 500
+                            }
+                        })
+                        context['simulation_message'] = "Simülasyon için eğitim veya test seti yetersiz."
+                        context['predicted_gain_loss'] = None
+                        context['predicted_change_percent'] = None
+                        context['risk_level'] = "Veri Yetersiz"
+                        context['advice'] = "Daha uzun dönemli veri çekmeye çalışın."
+                    else:
+                        X_train, y_train = create_dataset(train_data, time_step)
+                        X_test, y_test = create_dataset(test_data, time_step)
+
+                        if X_train.size == 0 or X_test.size == 0:
+                            logger.warning(f"'{context['selected_asset']}' için eğitim veya test seti boş döndü (create_dataset sonrası). Tahmin grafiği çizilemiyor.")
+                            context['prediction_chart_json'] = json.dumps({
+                                'data': [],
+                                'layout': {
+                                    'title': 'Tahmin Grafiği (Eğitim/Test Seti Boş)',
+                                    'height': 500
+                                }
+                            })
+                            context['simulation_message'] = "Simülasyon için eğitim veya test seti boş."
+                            context['predicted_gain_loss'] = None
+                            context['predicted_change_percent'] = None
+                            context['risk_level'] = "Veri Yetersiz"
+                            context['advice'] = "Farklı bir varlık deneyin veya daha fazla geçmiş veri ile deneyin."
+                        else:
+                            X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
+                            X_test = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
+
+                            # Model dosyasını silip yeniden eğitime zorlama mantığı burada
+                            model_path_to_delete = os.path.join('analysis/models', f'{selected_asset_symbol}_lstm_model.h5')
+                            if os.path.exists(model_path_to_delete):
+                                os.remove(model_path_to_delete)
+                                logger.info(f"Mevcut model dosyası silindi: {model_path_to_delete}. Yeni eğitim zorlanacak.")
+                            
+                            model = load_or_create_model(selected_asset_symbol, (time_step, 1))
+
+                            if X_train.shape[0] > 0: 
+                                logger.info(f"'{context['selected_asset']}' için model eğitiliyor (epochs: 100).")
+                                model.fit(X_train, y_train, epochs=100, batch_size=64, verbose=0) 
+                                os.makedirs('analysis/models', exist_ok=True)
+                                model.save(os.path.join('analysis/models', f'{selected_asset_symbol}_lstm_model.h5'))
+                                logger.info(f"'{context['selected_asset']}' için model kaydedildi.")
+                            else:
+                                logger.warning(f"'{context['selected_asset']}' için boş X_train nedeniyle model eğitilemedi.")
+                                context['simulation_message'] = "Model eğitilemedi, tahmin yapılamıyor."
+                                context['predicted_gain_loss'] = None
+                                context['predicted_change_percent'] = None
+                                context['risk_level'] = "Model Hatası"
+                                context['advice'] = "Daha fazla veri veya farklı bir varlık deneyin."
+                            
+                            # --- Tahmin ve Simülasyon Hesaplamaları ---
+                            current_input_sequence = scaled_data[len(scaled_data) - time_step:].reshape(1, time_step, 1)
+                            lst_output = []
+                            for _ in range(context['prediction_days']):
+                                predicted_scaled_value = model.predict(current_input_sequence, verbose=0)[0]
+                                
+                                temp_sequence = current_input_sequence[0, :, 0].tolist() 
+                                temp_sequence.append(predicted_scaled_value[0]) 
+                                
+                                current_input_sequence = np.array(temp_sequence[-time_step:]).reshape(1, time_step, 1)
+                                
+                                lst_output.append(predicted_scaled_value.tolist())
+                            
+                            predicted_prices = scaler.inverse_transform(np.array(lst_output).reshape(-1, 1))
+                            context['predicted_future_price'] = predicted_prices[-1][0] # Grafikte ve simülasyonda kullanılacak nihai tahmin
+
+                            last_date = df_historical.index[-1]
+                            prediction_dates = [last_date + timedelta(days=x) for x in range(1, context['prediction_days'] + 1)]
+
+                            # Tahmin Grafiği Oluşturma
+                            fig_prediction = go.Figure(data=[
+                                go.Candlestick(
+                                    x=df_historical.index,
+                                    open=df_historical['Open'],
+                                    high=df_historical['High'],
+                                    low=df_historical['Low'],
+                                    close=df_historical['Close'],
+                                    name='Geçmiş Fiyat'
+                                ),
+                                go.Scatter(
+                                    x=prediction_dates,
+                                    y=predicted_prices.flatten(),
+                                    mode='lines',
+                                    name='Tahmin Edilen Fiyat',
+                                    line=dict(color='orange')
+                                )
+                            ])
+                            fig_prediction.update_layout(
+                                title=f'{context["selected_asset"]} Fiyat Tahmini ({context["prediction_days"]} Gün)',
+                                xaxis_title='Tarih',
+                                yaxis_title='Fiyat',
+                                xaxis_rangeslider_visible=False,
+                                template='plotly_white',
+                                height=400
+                            )
+                            context['prediction_chart_json'] = fig_prediction.to_json()
+
+                            # --- Simülasyon Sonuçlarını Hazırlama ---
+                            if context['current_asset_price'] is not None and context['predicted_future_price'] is not None:
+                                context['predicted_change_percent'] = ((context['predicted_future_price'] - context['current_asset_price']) / context['current_asset_price']) * 100
+                                context['predicted_gain_loss'] = (context['investment_amount'] / context['current_asset_price']) * (context['predicted_future_price'] - context['current_asset_price'])
+
+                                # Risk seviyesi hesaplama (geçmiş günlük getirilerin standart sapması)
+                                if len(df_historical['Close']) > 1:
+                                    daily_returns = df_historical['Close'].pct_change().dropna()
+                                    if not daily_returns.empty:
+                                        volatility = daily_returns.std() * np.sqrt(252) # Yıllık volatilite
+                                        if volatility > 0.05: # %5'ten büyükse yüksek riskli kabul edelim
+                                            context['risk_level'] = "Yüksek"
+                                        elif volatility > 0.02: # %2 ile %5 arası orta riskli
+                                            context['risk_level'] = "Orta"
+                                        else:
+                                            context['risk_level'] = "Düşük"
+                                    else:
+                                        context['risk_level'] = "Veri Yetersiz (Risk)"
+                                else:
+                                    context['risk_level'] = "Veri Yetersiz (Risk)"
+
+                                if context['predicted_change_percent'] > 0:
+                                    context['simulation_message'] = f"Yatırımınızın {context['prediction_days']} gün içinde değer kazanması bekleniyor."
+                                    if context['risk_level'] == "Yüksek":
+                                        context['advice'] = "Yüksek kazanç potansiyeli var ancak yüksek risk içeriyor, dikkatli değerlendirin. Diversifikasyon düşünebilirsiniz."
+                                    elif context['risk_level'] == "Orta":
+                                        context['advice'] = "Orta riskli bir kazanç potansiyeli mevcut. Portföyünüzü çeşitlendirmeyi düşünebilirsiniz."
+                                    else: 
+                                        context['advice'] = "Düşük riskle kazanç potansiyeli yüksek görünüyor. Ancak her zaman piyasa koşullarını takip edin."
+                                else:
+                                    context['simulation_message'] = f"Yatırımınızın {context['prediction_days']} gün içinde değer kaybetmesi bekleniyor."
+                                    if context['risk_level'] == "Yüksek":
+                                        context['advice'] = "Yüksek kayıp riski taşıyor. Bu yatırımdan kaçınmanız veya çok dikkatli olmanız önerilir."
+                                    elif context['risk_level'] == "Orta":
+                                        context['advice'] = "Orta seviyede kayıp riski mevcut. Detaylı araştırma yapmadan yatırım yapmaktan kaçının."
+                                    else: 
+                                        context['advice'] = "Düşük riskli olsa da, beklenen düşüş nedeniyle bu yatırım riskli olabilir. Daha fazla araştırma yapmanız önerilir."
+                                    
+                                    if context['currency_type'] == "EUR":
+                                        context['currency_symbol'] = "€"
+                                    elif context['currency_type'] == "TRY":
+                                        context['currency_symbol'] = "₺"
+                            else:
+                                context['simulation_message'] = "Simülasyon için gerekli fiyat bilgileri bulunamadı."
+                                context['risk_level'] = "Hesaplanamadı"
+                                context['advice'] = "Lütfen farklı bir varlık veya zaman aralığı deneyin."
+
+
+            except Exception as e:
+                logger.error(f"Tahmin oluşturulurken genel hata: {e}", exc_info=True)
+                context['prediction_chart_json'] = json.dumps({ 
+                    'data': [],
+                    'layout': {
+                        'title': 'Tahmin Grafiği (Hata Oluştu)',
+                        'height': 500
+                    }
+                })
+                context['simulation_message'] = f"Tahmin ve simülasyon sırasında bir hata oluştu: {e}"
+                context['predicted_gain_loss'] = None
+                context['predicted_change_percent'] = None
+                context['risk_level'] = "Hata"
+                context['advice'] = "Lütfen tekrar deneyin veya sistem yöneticisiyle iletişime geçin."
+
+            else: # Bu else bloğu if not df_historical.empty and 'Close' in df_historical.columns: bloğuna ait
+                logger.warning(f"'{context['selected_asset']}' için geçmiş veri boş veya 'Close' sütunu yok.")
+                context['simulation_message'] = f"'{context['selected_asset']}' için geçmiş veri bulunamadı. Simülasyon yapılamıyor."
+                context['predicted_gain_loss'] = None
+                context['predicted_change_percent'] = None
+                context['risk_level'] = "Veri Yok"
+                context['advice'] = "Farklı bir varlık seçmeyi deneyin."
+        else: # Bu else bloğu if selected_asset_symbol: bloğuna ait
+            logger.warning(f"'{context['selected_asset']}' için sembol bulunamadı.")
+            context['simulation_message'] = f"'{context['selected_asset']}' için geçerli sembol bulunamadı. Simülasyon yapılamıyor."
+            context['predicted_gain_loss'] = None
+            context['predicted_change_percent'] = None
+            context['risk_level'] = "Geçersiz Varlık"
+            context['advice'] = "Lütfen listeden geçerli bir varlık seçin."
+        
     return render(request, 'analysis/dashboard.html', context)
+
+# Haber Duyarlılığı Görünümü (news_sentiment_view)
+# Bu fonksiyon, haber duyarlılığı analizini yapar ve sonuçları bir şablona aktarır.
+def news_sentiment_view(request): # async def yerine def olarak değiştirildi
+    # Bu fonksiyonun içeriği, haber API'lerinden veri çekme,
+    # duyarlılık analizi yapma ve sonuçları bir şablona render etme adımlarını içerecektir.
+    # Şimdilik basit bir placeholder döndürelim.
+    
+    # Örnek olarak, burada bir haber duyarlılığı analizi yapılabilir.
+    # news_data = asyncio.run(fetch_news_data()) # data_fetcher.py'den gelen bir fonksiyon olabilir
+    # sentiment_scores = analyze_sentiment(news_data) # Kendi duyarlılık analizi fonksiyonunuz
+    
+    context = {
+        'sentiment_result': 'Haber duyarlılığı analizi sonuçları burada gösterilecektir.',
+        # 'news_articles': news_articles,
+        # 'sentiment_chart_json': sentiment_chart_json,
+    }
+    return render(request, 'analysis/news_sentiment.html', context)
